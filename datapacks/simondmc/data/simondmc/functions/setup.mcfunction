@@ -1,0 +1,16 @@
+function simondmc:time-warper/macro {"command": "tick rate 5"}
+function simondmc:time-warper/macro {"command": "tick rate 6"}
+function simondmc:time-warper/macro {"command": "tick rate 7"}
+function simondmc:time-warper/macro {"command": "tick rate 8"}
+function simondmc:time-warper/macro {"command": "tick rate 9"}
+function simondmc:time-warper/macro {"command": "tick rate 10"}
+function simondmc:time-warper/macro {"command": "tick rate 11"}
+function simondmc:time-warper/macro {"command": "tick rate 12"}
+function simondmc:time-warper/macro {"command": "tick rate 13"}
+function simondmc:time-warper/macro {"command": "tick rate 14"}
+function simondmc:time-warper/macro {"command": "tick rate 15"}
+function simondmc:time-warper/macro {"command": "tick rate 16"}
+function simondmc:time-warper/macro {"command": "tick rate 17"}
+function simondmc:time-warper/macro {"command": "tick rate 18"}
+function simondmc:time-warper/macro {"command": "tick rate 19"}
+function simondmc:time-warper/macro {"command": "tick rate 20"}
