@@ -1,0 +1,14 @@
+[
+    {
+        "function": "minecraft:set_nbt",
+        "tag": "{CustomModelData:1}"
+    },
+    {
+        "function": "minecraft:set_name",
+        "name": {
+            "text": "Time Warper",
+            "color": "gray",
+            "italic": false
+        }
+    }
+]
