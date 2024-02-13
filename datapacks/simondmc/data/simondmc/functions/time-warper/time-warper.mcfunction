@@ -1,2 +1,0 @@
-execute as @a if score @s timewarper matches 1.. unless score #global timewarper matches 1 run function simondmc:time-warper/on
-execute as @a if score @s timewarper matches 1.. if score #global timewarper matches 1 run function simondmc:time-warper/off

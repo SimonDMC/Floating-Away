@@ -2,4 +2,4 @@
 
 scoreboard objectives add timewarper minecraft.used:minecraft.carrot_on_a_stick
 
-function simondmc:time-warper/time-warper
+function simondmc:mechanics/time-warper
