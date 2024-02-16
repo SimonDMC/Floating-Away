@@ -16,7 +16,7 @@ summon item_display 68.5 88.2 -72 {Rotation:[-90F,0F],Tags:["display","elevator-
 summon text_display 68.97 88.18 -72 {Rotation:[90F,0F],Tags:["display","elevator-text"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[2.2f,2.2f,1f]},text:'{"text":"19↑","color":"red"}',background:16711680}
 
 # keycards
-summon minecraft:item_display 38.375 86.625 -61.5625 {Tags:["display","keycard"],item: {Count: 1b, id: "minecraft:kelp", tag: {CustomModelData: 6}}}
+summon minecraft:item_display 38.375 86.625 -61.5625 {Tags:["display","keycard","f102-o"],item: {Count: 1b, id: "minecraft:kelp", tag: {CustomModelData: 6}}}
 summon minecraft:item_display 31.375 86.625 -61.5625 {Tags:["display","keycard"],item: {Count: 1b, id: "minecraft:kelp", tag: {CustomModelData: 6}}}
 summon minecraft:item_display 24.375 86.625 -61.5625 {Tags:["display","keycard"],item: {Count: 1b, id: "minecraft:kelp", tag: {CustomModelData: 6}}}
 summon minecraft:item_display 29.625 86.625 -57.4375 {Tags:["display","keycard"],item: {Count: 1b, id: "minecraft:kelp", tag: {CustomModelData: 6}}, transformation: {left_rotation: [0.0f, 1.0f, 0.0f, 0.0f], right_rotation: [0.0f, 0.0f, 0.0f, 1.0f], scale: [1.0f, 1.0f, 1.0f], translation: [0.0f, 0.0f, 0.0f]}}
@@ -77,7 +77,7 @@ summon minecraft:block_display 52.5 85.5 -18.5 {Tags:["display","darkness"],bloc
 summon minecraft:block_display 52.5 85.5 -18.0 {Tags:["display","darkness"],block_state: {Name: "minecraft:pink_stained_glass"}, transformation: {left_rotation: [0.0f, 0.0f, 0.0f, 1.0f], right_rotation: [0.0f, 0.0f, 0.0f, 1.0f], scale: [5.0f, 4.0f, 5.0f], translation: [-0.5f, -0.5f, -0.5f]}}
 
 # manual power source
-summon minecraft:block_display 49.5 86.5 -26.9375 {Tags:["display","power-source"],block_state: {Name: "minecraft:lime_stained_glass", Properties: {face: "wall", facing: "north", powered: "false"}}, transformation: {left_rotation: [0.0f, 1.0f, 0.0f, 0.0f], right_rotation: [0.0f, 0.0f, 0.0f, 1.0f], scale: [1.0f, 1.0f, 1.0f], translation: [0f, 0f, 0f]}}
+summon minecraft:block_display 49.5 86.5 -26.9375 {Tags:["display","power-source"],block_state: {Name: "minecraft:lime_stained_glass", Properties: {face: "wall", facing: "north", powered: "false"}}, transformation: {left_rotation: [0.0f, 1.0f, 0.0f, 0.0f], right_rotation:[0f,0f,1f,0f], scale: [1.0f, 1.0f, 1.0f], translation: [0f, 0f, 0f]}}
 
 # storage room scaffolding (has to be fake because item frames cant be on scaffoldings :/)
 summon minecraft:block_display 59.5 85.5 -16.5 {Tags:["display","scaffolding"],block_state: {Name: "minecraft:scaffolding", Properties: {bottom: "false", distance: "7", waterlogged: "false"}}, transformation: {left_rotation: [0.0f, 0.0f, 0.0f, 1.0f], right_rotation: [0.0f, 0.0f, 0.0f, 1.0f], scale: [1.0f, 1.0f, 1.0f], translation: [-0.5f, -0.5f, -0.5f]}}
