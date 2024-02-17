@@ -17,3 +17,5 @@ execute as @e[type=painting] run data merge entity @s {Invulnerable:1b}
 scoreboard objectives add timewarper minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add combinationlock dummy
 scoreboard objectives add powersource dummy
+scoreboard objectives add waterdispenser dummy
+scoreboard objectives add sequencelock dummy

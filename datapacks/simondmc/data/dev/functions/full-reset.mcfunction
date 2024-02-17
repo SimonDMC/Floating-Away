@@ -1,3 +1,3 @@
-function dev:refresh-displays
-function dev:refresh-interactions
+function dev:reset-displays
+function dev:reset-interactions
 function dev:reset-misc
