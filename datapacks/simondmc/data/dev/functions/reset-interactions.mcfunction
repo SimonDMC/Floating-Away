@@ -37,6 +37,7 @@ summon interaction 35.6875 39.25 16.0625 {width:0.125f,height:0.125f,Tags:["inte
 
 # no book stealing
 summon interaction 32.0 85.0 -67.0 {width:4.001f,height:3.001f,Tags:["interaction","bookshelves"]}
+
 # no flower stealing
 summon interaction 67.5 88.0 -67.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
 summon interaction 38.5 88.0 -68.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
@@ -45,3 +46,9 @@ summon interaction 31.5 88.0 -54.5 {width:0.376f,height:0.376f,Tags:["interactio
 summon interaction 30.5 88.0 -49.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
 summon interaction 31.5 96.0 -44.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
 summon interaction 30.5 96.0 -39.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
+summon interaction 20.5 87.0 4.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
+summon interaction 20.5 89.0 1.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
+summon interaction 20.5 91.0 2.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
+
+# emergency exit door opening
+summon interaction 42.0 88.0 -10.0 {width:2.001f,height:2f,Tags:["interaction","emergency-exit-block"]}

@@ -7,6 +7,9 @@ function simondmc:mechanics/power-source/sys
 function simondmc:mechanics/keycard
 function simondmc:mechanics/water-dispenser/sys
 function simondmc:mechanics/sequence-lock/sys
+function simondmc:mechanics/emergency-exit
+function simondmc:mechanics/tnt
+function simondmc:mechanics/float-arrows
 
 # misc
 function simondmc:settings

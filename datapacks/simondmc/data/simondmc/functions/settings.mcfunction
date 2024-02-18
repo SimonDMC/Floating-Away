@@ -13,9 +13,14 @@ execute as @e[type=item_frame,tag=!interactable] run data merge entity @s {Invul
 # paintings
 execute as @e[type=painting] run data merge entity @s {Invulnerable:1b}
 
+# item despawning
+execute as @e[type=item,nbt={Age:10s}] run data merge entity @s {Age:5}
+
 # scoreboards
 scoreboard objectives add timewarper minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add combinationlock dummy
 scoreboard objectives add powersource dummy
 scoreboard objectives add waterdispenser dummy
 scoreboard objectives add sequencelock dummy
+scoreboard objectives add emergencyexit dummy
+scoreboard objectives add tnt dummy
