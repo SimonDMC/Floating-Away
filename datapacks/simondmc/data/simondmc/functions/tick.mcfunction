@@ -10,6 +10,11 @@ function simondmc:mechanics/sequence-lock/sys
 function simondmc:mechanics/emergency-exit
 function simondmc:mechanics/tnt
 function simondmc:mechanics/float-arrows
+function simondmc:mechanics/guards/sys
+
+# story
+function simondmc:story/exit
+function simondmc:story/chase/guards
 
 # misc
 function simondmc:settings

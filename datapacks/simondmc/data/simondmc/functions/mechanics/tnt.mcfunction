@@ -26,4 +26,6 @@ execute as @e[type=tnt,nbt={fuse:1s}] if predicate simondmc:tnt-wall run setbloc
 execute as @e[type=tnt,nbt={fuse:1s}] if predicate simondmc:tnt-wall run setblock 4 96 -13 air destroy
 # and set spawnpoint for intro part of chase
 execute as @e[type=tnt,nbt={fuse:1s}] if predicate simondmc:tnt-wall run spawnpoint @a 4 97 -17 0
+# start hall guard animation
+execute as @e[type=tnt,nbt={fuse:1s}] if predicate simondmc:tnt-wall run scoreboard players set $hall-anim guards 1
 execute as @e[type=tnt,nbt={fuse:1s}] at @s run kill @s

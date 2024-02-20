@@ -24,3 +24,5 @@ scoreboard objectives add waterdispenser dummy
 scoreboard objectives add sequencelock dummy
 scoreboard objectives add emergencyexit dummy
 scoreboard objectives add tnt dummy
+scoreboard objectives add guards dummy
+scoreboard objectives add arrow dummy
