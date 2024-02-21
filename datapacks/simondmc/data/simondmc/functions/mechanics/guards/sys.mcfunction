@@ -25,7 +25,7 @@ execute as @a if score @s guards matches 1 run data modify storage simondmc:guar
 execute as @a if score @s guards matches 1 run data modify storage simondmc:guards pitch set from entity @s Rotation[1]
 execute as @a if score @s guards matches 1 at @s run function simondmc:mechanics/guards/armor-stand with storage simondmc:guards
 execute as @a if score @s guards matches 1 run gamemode spectator @a
-execute as @a if score @s guards matches 1..60 at @s as @a run spectate @e[tag=guard,limit=1,sort=nearest] @s
+execute as @a if score @s guards matches 1..60 at @s as @a run spectate @e[tag=hall-guard,limit=1,sort=nearest] @s
 execute as @a if score @s guards matches 2 run loot replace entity @e[tag=guard-anim-player] armor.head loot simondmc:player-head
 # remove door because it will be replaced with a closed one and we stopsound next tick
 execute as @a if score @s guards matches 2 run fill 31 85 -10 31 86 -11 air

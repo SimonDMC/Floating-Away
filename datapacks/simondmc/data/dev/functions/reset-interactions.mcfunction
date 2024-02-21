@@ -33,6 +33,9 @@ summon interaction 35.3125 39.25 16.0625 {width:0.125f,height:0.125f,Tags:["inte
 summon interaction 35.5 39.25 16.0625 {width:0.125f,height:0.125f,Tags:["interaction","sequence-lock-int","button-9"]}
 summon interaction 35.6875 39.25 16.0625 {width:0.125f,height:0.125f,Tags:["interaction","sequence-lock-int","button-3"]}
 
+# picking up float arrows
+summon interaction 7.25 88.0 -8.3 {width:1.25f,height:0.1f,Tags:["interaction","float-arrows-int"]}
+
 ## BLOCKING
 
 # no book stealing

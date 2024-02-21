@@ -16,6 +16,9 @@ execute as @e[type=painting] run data merge entity @s {Invulnerable:1b}
 # item despawning
 execute as @e[type=item,nbt={Age:10s}] run data merge entity @s {Age:5}
 
+# death
+execute as @a if score @s death matches 1.. run function simondmc:death
+
 # scoreboards
 scoreboard objectives add timewarper minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add combinationlock dummy
@@ -26,3 +29,5 @@ scoreboard objectives add emergencyexit dummy
 scoreboard objectives add tnt dummy
 scoreboard objectives add guards dummy
 scoreboard objectives add arrow dummy
+scoreboard objectives add story dummy
+scoreboard objectives add death deathCount

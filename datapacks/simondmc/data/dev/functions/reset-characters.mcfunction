@@ -3,6 +3,10 @@ kill @e[tag=character]
 # receptionist
 summon villager 52.0 85 -52.5 {Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","receptionist"],VillagerData:{profession:"minecraft:nitwit",type:"minecraft:plains"},Offers:{}}
 
+# hall guards
+summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}
+summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}
+
 # audience villagers
 # https://gist.github.com/SimonDMC/35cc5bb2b387a46a1eddc7ced4189d17
 summon villager 0.5 86.5 -1.8 {Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","audience"],VillagerData:{profession:"minecraft:weaponsmith",type:"minecraft:taiga"},Offers:{}}

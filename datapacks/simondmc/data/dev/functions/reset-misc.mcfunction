@@ -21,6 +21,9 @@ setblock 41 91 -11 air
 # restore tnt breakage
 clone 2 79 -13 6 83 -13 2 96 -13
 
+# close presentation hall door
+setblock 19 83 -5 air
+
 # mechanics scoreboards
 scoreboard players reset * combinationlock
 scoreboard players reset * powersource
@@ -28,3 +31,4 @@ scoreboard players reset * timewarper
 scoreboard players reset * waterdispenser
 scoreboard players reset * sequencelock
 scoreboard players reset * emergencyexit
+scoreboard players reset * guards

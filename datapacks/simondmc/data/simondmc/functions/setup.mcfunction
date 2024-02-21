@@ -14,3 +14,6 @@ function simondmc:mechanics/time-warper/macros/17 {"command":"tick rate 17"}
 function simondmc:mechanics/time-warper/macros/18 {"command":"tick rate 18"}
 function simondmc:mechanics/time-warper/macros/19 {"command":"tick rate 19"}
 function simondmc:mechanics/time-warper/macros/20 {"command":"tick rate 20"}
+
+# make sure villagers have no trades (they gain them again after relogging)
+execute as @e[type=villager] run data modify entity @s Offers set value {}
