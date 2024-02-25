@@ -20,9 +20,18 @@ execute unless score $machine-gun guards matches 1 run scoreboard players operat
 execute unless score $machine-gun guards matches 1 run scoreboard players operation $player.y arrow += $random.y arrow
 execute unless score $machine-gun guards matches 1 run scoreboard players operation $player.z arrow += $random.z arrow
 
-# make arrow deal increased damage
-execute at @s run summon arrow ~ ~2 ~ {Tags:["guard-arrow"],damage:6d}
+# make arrow deal modified damage
+execute if score $DAMAGE guards matches 3 unless score $machine-gun guards matches 1 at @s run summon arrow ~ ~2 ~ {Tags:["guard-arrow"],damage:3d}
+execute if score $DAMAGE guards matches 6 at @s run summon arrow ~ ~2 ~ {Tags:["guard-arrow"],damage:6d}
+execute if score $machine-gun guards matches 1 at @s run summon arrow ~ ~2 ~ {Tags:["guard-arrow"],damage:6d}
+
 execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[0] double 0.0001 run scoreboard players get $player.x arrow
 execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[1] double 0.0001 run scoreboard players get $player.y arrow
 execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[2] double 0.0001 run scoreboard players get $player.z arrow
+
+# shoot ahead if in corridor 2
+execute if entity @a[predicate=simondmc:corridor-2] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[0] double 0.00014 run scoreboard players get $player.x arrow
+execute if entity @a[predicate=simondmc:corridor-2] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[1] double 0.00005 run scoreboard players get $player.y arrow
+execute if entity @a[predicate=simondmc:corridor-2] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[2] double 0.00014 run scoreboard players get $player.z arrow
+
 tag @e[tag=guard-arrow] add has-motion

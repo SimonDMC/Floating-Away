@@ -6,6 +6,7 @@ execute if score $hall-anim guards matches 0.. run scoreboard players add $hall-
 execute if score $hall-anim guards matches 0.. as @e[tag=hall-guard] at @s run tp @s ~ ~ ~ facing entity @p
 # start shooting slow(er)
 execute if score $hall-anim guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 10
+execute if score $hall-anim guards matches 1 run scoreboard players set $DAMAGE guards 6
 # open door
 execute if score $hall-anim guards matches 20 run setblock 19 83 -5 redstone_torch
 # guards in

@@ -11,12 +11,14 @@ function simondmc:mechanics/emergency-exit
 function simondmc:mechanics/tnt/sys
 function simondmc:mechanics/float-arrows/sys
 function simondmc:mechanics/guards/sys
+function simondmc:mechanics/trapdoor
 
 # story
 function simondmc:story/exit
 function simondmc:story/chase/general-guards
 function simondmc:story/chase/hall-guards
 function simondmc:story/chase/corridor-guards
+function simondmc:story/chase/misc
 
 # misc
 function simondmc:settings
