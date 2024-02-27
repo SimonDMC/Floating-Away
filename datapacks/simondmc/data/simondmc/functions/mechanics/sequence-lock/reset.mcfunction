@@ -1,4 +1,5 @@
 # scheduled by simondmc:mechanics/sequence-lock/press upon clicking the wrong button in the sequence
+# also called by simondmc:death upon death in chase sequence
 
 # reset interactions
 execute as @e[tag=sequence-lock-int] at @s run tp ~ ~ 16.0625
@@ -24,7 +25,7 @@ execute as @e[tag=seq-btn-9,tag=sequence-lock-digit] run data merge entity @s {t
 scoreboard players reset $progress sequencelock
 
 # sound effect
-execute as @a at @s run playsound minecraft:block.note_block.bass master @s ~ ~ ~ 1 0
+playsound minecraft:block.note_block.bass master @a 35 39 16 1 0
 
 # reset door
 setblock 36 36 15 air

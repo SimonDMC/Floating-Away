@@ -32,3 +32,4 @@ scoreboard objectives add arrow dummy
 scoreboard objectives add story dummy
 scoreboard objectives add death deathCount
 scoreboard objectives add trapdoor dummy
+scoreboard objectives add trap dummy

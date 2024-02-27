@@ -34,6 +34,8 @@ execute if score $phase story matches 7 run kill @e[tag=hall-guard]
 execute if score $phase story matches 7 run kill @e[tag=vent-guard]
 execute if score $phase story matches 7 run kill @e[tag=corridor-guard]
 execute if score $phase story matches 7 run kill @e[tag=corridor-2-guard]
+execute if score $phase story matches 7 run kill @e[tag=corridor-3-guard]
+execute if score $phase story matches 7 run kill @e[tag=quartz-guard]
 # new vent shooting guards
 execute if score $phase story matches 7 run summon armor_stand -6 92 -18 {Tags:["character","guard","vent-guard"],Rotation:[90f,0f],Invulnerable:1b}
 execute if score $phase story matches 7 run summon armor_stand -7 92 -17 {Tags:["character","guard","vent-guard"],Rotation:[90f,0f],Invulnerable:1b}
@@ -51,13 +53,51 @@ execute if score $phase story matches 7 run setblock -37 70 -2 air
 # open 1->2 door
 execute if score $phase story matches 7 run setblock -45 73 20 minecraft:lever[powered=true,facing=south]
 execute if score $phase story matches 7 run setblock -45 71 19 minecraft:redstone_torch
-# close corridor 1 doors
+# close corridor 2 doors
 execute if score $phase story matches 7 run setblock -42 71 35 air
 execute if score $phase story matches 7 run setblock -39 71 35 air
-# remove corridor 1 guard turn block
+# remove corridor 2 guard turn block
 execute if score $phase story matches 7 run setblock -40 69 32 air
 # open big trapdoor
 execute if score $phase story matches 7 run setblock -14 70 31 lever[powered=true,facing=west]
 execute if score $phase story matches 7 run scoreboard players reset $closed trapdoor
+# close underground trapdoor
+execute if score $phase story matches 7 run setblock 3 53 16 minecraft:lever[face=ceiling,facing=north]
+execute if score $phase story matches 7 run setblock 4 54 16 minecraft:iron_trapdoor[facing=south,half=bottom]
+# close corridor 3 doors
+execute if score $phase story matches 7 run setblock 8 55 30 air
+execute if score $phase story matches 7 run setblock 8 55 27 air
+# remove corridor 3 guard turn block
+execute if score $phase story matches 7 run setblock 5 65 29 air
+# reset trap
+execute if score $phase story matches 7 run setblock 4 57 59 lever[facing=north]
+# close quartz 1 doors
+execute if score $phase story matches 7 run setblock 2 37 39 air
+execute if score $phase story matches 7 run setblock 2 37 42 air
+# remove quartz 1 guard turn block
+execute if score $phase story matches 7 run setblock 3 35 40 air
+# close 1->2 door
+execute if score $phase story matches 7 run setblock 14 39 20 minecraft:lever[facing=west]
+execute if score $phase story matches 7 run setblock 15 36 21 minecraft:redstone_torch
+# close quartz 2 doors
+execute if score $phase story matches 7 run setblock 23 37 19 air
+execute if score $phase story matches 7 run setblock 20 37 19 air
+# remove quartz 2 guard turn block
+execute if score $phase story matches 7 run setblock 22 35 20 air
+# reset sequence lock (2->3) door
+execute if score $phase story matches 7 run function simondmc:mechanics/sequence-lock/reset
+# close quartz 3 doors
+execute if score $phase story matches 7 run setblock 38 37 10 air
+execute if score $phase story matches 7 run setblock 38 37 7 air
+# remove quartz 3 guard turn block
+execute if score $phase story matches 7 run setblock 37 35 8 air
+# close 3->4 door
+execute if score $phase story matches 7 run setblock 31 39 -6 minecraft:lever[facing=east]
+execute if score $phase story matches 7 run setblock 30 36 -7 minecraft:redstone_torch
+# close quartz 4 doors
+execute if score $phase story matches 7 run setblock 17 37 -5 air
+execute if score $phase story matches 7 run setblock 20 37 -5 air
+# remove quartz 4 guard turn block
+execute if score $phase story matches 7 run setblock 18 35 -6 air
 
 scoreboard players reset @a death
