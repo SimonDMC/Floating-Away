@@ -99,5 +99,17 @@ execute if score $phase story matches 7 run setblock 17 37 -5 air
 execute if score $phase story matches 7 run setblock 20 37 -5 air
 # remove quartz 4 guard turn block
 execute if score $phase story matches 7 run setblock 18 35 -6 air
+# prune quartz items
+execute if score $phase story matches 7 run kill @e[tag=quartz-block]
+execute if score $phase story matches 7 run clear @a quartz_block
+# remove return blockade
+execute if score $phase story matches 7 run fill 31 38 -7 31 39 -7 air
+# clear quartz place room
+execute if score $phase story matches 7 run fill 29 38 -8 -2 40 -6 air replace minecraft:quartz_block
+execute if score $phase story matches 7 run fill 28 40 -7 -1 40 -7 air
+# reset elevator door
+execute if score $phase story matches 7 run fill -3 38 -6 -3 40 -8 iron_block
+execute if score $phase story matches 7 as @e[tag=end-elevator-door] run data merge entity @s {transformation:{translation:[-0.5f,-0.5f,-0.5f]}}
+execute if score $phase story matches 7 run scoreboard players reset * elevator
 
 scoreboard players reset @a death

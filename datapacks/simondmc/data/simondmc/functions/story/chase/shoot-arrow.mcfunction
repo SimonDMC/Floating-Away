@@ -29,12 +29,15 @@ execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[0] 
 execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[1] double 0.0001 run scoreboard players get $player.y arrow
 execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[2] double 0.0001 run scoreboard players get $player.z arrow
 
-# shoot sharper, more direct shots if in corridor 2 or underground
+# shoot sharper, more direct shots if directly following
 execute if entity @a[predicate=simondmc:corridor-2] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[0] double 0.00014 run scoreboard players get $player.x arrow
 execute if entity @a[predicate=simondmc:corridor-2] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[1] double 0.00005 run scoreboard players get $player.y arrow
 execute if entity @a[predicate=simondmc:corridor-2] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[2] double 0.00014 run scoreboard players get $player.z arrow
 
 execute if entity @a[predicate=simondmc:underground] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[0] double 0.00014 run scoreboard players get $player.x arrow
 execute if entity @a[predicate=simondmc:underground] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[2] double 0.00014 run scoreboard players get $player.z arrow
+
+execute if entity @a[predicate=simondmc:quartz-4] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[0] double 0.00014 run scoreboard players get $player.x arrow
+execute if entity @a[predicate=simondmc:quartz-4] as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[2] double 0.00014 run scoreboard players get $player.z arrow
 
 tag @e[tag=guard-arrow] add has-motion

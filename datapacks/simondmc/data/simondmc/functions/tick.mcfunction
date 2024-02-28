@@ -23,6 +23,7 @@ function simondmc:story/chase/corridor-1/corridor-1-guards
 function simondmc:story/chase/corridor-2/corridor-2-guards
 function simondmc:story/chase/corridor-3/corridor-3-guards
 function simondmc:story/chase/quartz/quartz-guards
+function simondmc:story/chase/quartz/elevator
 function simondmc:story/chase/misc
 
 # misc

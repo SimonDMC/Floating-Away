@@ -10,6 +10,7 @@ execute if score $shoot-timer guards >= $SHOOT-PERIOD guards if entity @e[tag=ma
 execute if score $shoot-timer guards >= $SHOOT-PERIOD guards if entity @a[predicate=simondmc:corridor-2] as @e[tag=shooting-guard,tag=corridor-2-guard,limit=1,sort=random] run function simondmc:story/chase/shoot-arrow
 execute if score $shoot-timer guards >= $SHOOT-PERIOD guards if entity @a[predicate=simondmc:underground,predicate=!simondmc:corridor-3] as @e[tag=shooting-guard,tag=corridor-2-guard,limit=1,sort=random] run function simondmc:story/chase/shoot-arrow
 execute if score $shoot-timer guards >= $SHOOT-PERIOD guards if entity @a[predicate=simondmc:corridor-3] as @e[tag=corridor-3-guard,limit=1,sort=random] run function simondmc:story/chase/shoot-arrow
+execute if score $shoot-timer guards >= $SHOOT-PERIOD guards if entity @a[predicate=simondmc:quartz-4] as @e[tag=quartz-4-guard,tag=shooting-guard,limit=1,sort=random] run function simondmc:story/chase/shoot-arrow
 execute if score $shoot-timer guards >= $SHOOT-PERIOD guards run scoreboard players reset $shoot-timer guards
 # remove ground arrows
 scoreboard players add @e[type=arrow] arrow 1
