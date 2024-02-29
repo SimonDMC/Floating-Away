@@ -1,0 +1,4 @@
+# called by simondmc:start/start-area after clicking the creator text
+
+tellraw @s [{"text":"\n"},{"text":"Map by SimonDMC","color":"yellow","bold":true},{"text":"\n"},{"text":"> simondmc.com","color":"green","clickEvent":{"action":"open_url","value":"https://simondmc.com"}},{"text":"\n"},{"text":"> youtube.com/SimonDMC","color":"red","clickEvent":{"action":"open_url","value":"https://youtube.com/SimonDMC"}},{"text":"\n\n"},{"text":"Special thanks to:","color":"yellow"},{"text":"\n"},{"text":"> EurekaX ","clickEvent":{"action":"open_url","value":"https://youtube.com/EurekaX"}},{"text":"(We'll see what you do)\n"},{"text":"\n"},{"text":"More of my maps:","color":"#88FF73"},{"text":" ","color":"green"},{"text":"simondmc.com/maps","color":"green","clickEvent":{"action":"open_url","value":"https://simondmc.com/maps"}}]
+execute at @s run playsound ui.button.click master @s

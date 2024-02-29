@@ -25,6 +25,8 @@ function simondmc:story/chase/corridor-3/corridor-3-guards
 function simondmc:story/chase/quartz/quartz-guards
 function simondmc:story/chase/quartz/elevator
 function simondmc:story/chase/misc
+function simondmc:story/chase/quartz/end
 
 # misc
 function simondmc:settings
+function simondmc:start/start-area

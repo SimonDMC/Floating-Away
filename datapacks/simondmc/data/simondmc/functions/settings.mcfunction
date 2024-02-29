@@ -34,3 +34,5 @@ scoreboard objectives add death deathCount
 scoreboard objectives add trapdoor dummy
 scoreboard objectives add trap dummy
 scoreboard objectives add elevator dummy
+scoreboard objectives add endtrigger trigger
+scoreboard objectives add start dummy
