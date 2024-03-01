@@ -7,6 +7,15 @@ summon villager 52.0 85 -52.5 {Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["characte
 summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}
 summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}
 
+# employer interview room
+summon armor_stand 12.8 85.5 -56.5 {Tags:["character","employer-I"],Invulnerable:1b,Rotation:[-90f, 0f]}
+
+# employer work corridor
+summon armor_stand 33.5 105 44.5 {Tags:["character","employer-W"],Invulnerable:1b,Rotation:[0f, 0f]}
+
+# chair armor stand, not really a character but i don't have a better place to put it
+summon armor_stand 17.3 83.7 -56.5 {Tags:["character","interview-chair"],NoGravity:1b,Invisible:1b}
+
 # audience villagers
 # https://gist.github.com/SimonDMC/35cc5bb2b387a46a1eddc7ced4189d17
 summon villager 0.5 86.5 -1.8 {Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","audience"],VillagerData:{profession:"minecraft:weaponsmith",type:"minecraft:taiga"},Offers:{}}
