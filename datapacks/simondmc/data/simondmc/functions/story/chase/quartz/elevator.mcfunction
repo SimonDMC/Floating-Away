@@ -26,4 +26,6 @@ execute if score $end elevator matches 352 run setblock -5 64 -7 minecraft:gold_
 # prune old guards because they target if you up arrow to the top
 execute if score $end elevator matches 352 run kill @e[tag=vent-guard]
 execute if score $end elevator matches 352 run setblock -5 64 -7 minecraft:gold_block
-execute if score $end elevator matches 352 run scoreboard players set $done story 1
+execute if score $end elevator matches 362 run scoreboard players set $done story 1
+execute if score $end elevator matches 362 run scoreboard players set $phase story 8
+execute if score $end elevator matches 362 run scoreboard players reset $end elevator

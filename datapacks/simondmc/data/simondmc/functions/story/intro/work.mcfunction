@@ -1,7 +1,7 @@
 # ticking function, controls the work mechanisms in the offices as well as the employer animations
 
 # conveyor belts
-execute if score $conveyor-timer work matches 0.. run scoreboard players add $conveyor-timer work 1
+execute if score $phase story matches 2..4 if score $conveyor-timer work matches 0.. run scoreboard players add $conveyor-timer work 1
 
 # row 4
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 run clone 39 105 -42 39 105 46 39 105 -41 replace move
@@ -29,7 +29,7 @@ execute if score $conveyor-timer work matches 15 if block 25 105 -39 gray_concre
 execute if score $conveyor-timer work matches 15 if block 25 105 -39 black_concrete run setblock 25 105 -42 black_concrete
 
 # move player along because why not :3
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 as @a[x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1 air run tp @s ~ ~ ~1
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 as @a[x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1.1 air run tp @s ~ ~ ~1
 
 execute if score $conveyor-timer work matches 16.. run scoreboard players set $conveyor-timer work 0
 
@@ -75,8 +75,8 @@ execute if score $tutorial-anim work matches 17..23 as @e[tag=employer-W] at @s 
 execute if score $tutorial-anim work matches 24 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -35 0
 execute if score $tutorial-anim work matches 84 run scoreboard players set $conveyor-enabled work 1
 execute if score $tutorial-anim work matches 104 run scoreboard players set $tutorial-phase work 1
-execute if score $tutorial-anim work matches 159 run scoreboard players reset $conveyor-enabled work
-execute if score $tutorial-anim work matches 159 run scoreboard players reset $tutorial-anim work
+execute if score $tutorial-anim work matches 154 run scoreboard players reset $conveyor-enabled work
+execute if score $tutorial-anim work matches 154 run scoreboard players reset $tutorial-anim work
 
 execute if score $tutorial-phase work matches 1 run title @a actionbar "Left Click to pick up conveyor item"
 execute if score $tutorial-phase work matches 2 run title @a actionbar "Right Click to pick up chip"
@@ -98,36 +98,41 @@ execute if score $employer-leave-anim work matches 101 run scoreboard players se
 execute if score $employer-leave-anim work matches 101 run scoreboard players set $phase story 4
 
 execute if score $shift-end-anim work matches 0.. run scoreboard players add $shift-end-anim work 1
-execute if score $employer-leave-anim work matches 1 run title @a times 40 40 0
-execute if score $employer-leave-anim work matches 1 run title @a title "\u2304"
-execute if score $employer-leave-anim work matches 20 run scoreboard players set $phase story 5
-execute if score $employer-leave-anim work matches 50 run clear @a feather
-execute if score $employer-leave-anim work matches 50..222 run gamemode spectator @a
-execute if score $employer-leave-anim work matches 50..222 run tp @a 33.5 106.3 17.0 180 15.5
-execute if score $employer-leave-anim work matches 81 as @a at @s run playsound block.bell.use master @s
-execute if score $employer-leave-anim work matches 100 as @a at @s run playsound block.bell.use master @s
-execute if score $employer-leave-anim work matches 140 run fill 31 103 14 35 103 -40 redstone_torch replace minecraft:stripped_mangrove_wood
-execute if score $employer-leave-anim work matches 140 run setblock 33 103 -43 minecraft:redstone_torch
-execute if score $employer-leave-anim work matches 140 as @e[tag=work-villager,tag=row-3] at @s run tp @s ~1.3 ~-.5 ~ -90 0
-execute if score $employer-leave-anim work matches 140 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~-1.3 ~-.5 ~ 90 0
-execute if score $employer-leave-anim work matches 141..155 as @e[tag=work-villager,tag=row-3] at @s run tp @s ~.2 ~ ~
-execute if score $employer-leave-anim work matches 156 as @e[tag=work-villager,tag=row-3] at @s run tp @s ~ ~ ~ -180 0
-execute if score $employer-leave-anim work matches 157..222 as @e[tag=work-villager,tag=row-3] at @s run tp @s ^ ^ ^.2
-execute if score $employer-leave-anim work matches 157..161 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~-.2 ~ ~
-execute if score $employer-leave-anim work matches 162 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~ ~ ~ -180 0
-execute if score $employer-leave-anim work matches 163..222 as @e[tag=work-villager,tag=row-4] at @s run tp @s ^ ^ ^.2
-execute if score $employer-leave-anim work matches 223 run title @a times 0 10 30
+execute if score $shift-end-anim work matches 1 run title @a times 80 40 0
+execute if score $shift-end-anim work matches 1 run title @a title "\u2304"
+execute if score $shift-end-anim work matches 80 run scoreboard players set $phase story 5
+execute if score $shift-end-anim work matches 80 run clear @a feather
+execute if score $shift-end-anim work matches 80..272 run gamemode spectator @a
+execute if score $shift-end-anim work matches 80..272 run tp @a 33.5 106.3 17.0 180 15.5
+execute if score $shift-end-anim work matches 121 as @a at @s run playsound block.bell.use master @s
+execute if score $shift-end-anim work matches 140 as @a at @s run playsound block.bell.use master @s
+execute if score $shift-end-anim work matches 180 run fill 31 103 14 35 103 -40 redstone_torch replace minecraft:stripped_mangrove_wood
+execute if score $shift-end-anim work matches 180 run setblock 33 103 -43 minecraft:redstone_torch
+execute if score $shift-end-anim work matches 180 as @e[tag=work-villager,tag=row-3] at @s run tp @s ~1.3 ~-.5 ~ -90 0
+execute if score $shift-end-anim work matches 180 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~-1.3 ~-.5 ~ 90 0
+execute if score $shift-end-anim work matches 181..195 as @e[tag=work-villager,tag=row-3] at @s run tp @s ~.2 ~ ~
+execute if score $shift-end-anim work matches 196 as @e[tag=work-villager,tag=row-3] at @s run tp @s ~ ~ ~ -180 0
+execute if score $shift-end-anim work matches 197..272 as @e[tag=work-villager,tag=row-3] at @s run tp @s ^ ^ ^.2
+execute if score $shift-end-anim work matches 197..211 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~-.2 ~ ~
+execute if score $shift-end-anim work matches 212 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~ ~ ~ -180 0
+execute if score $shift-end-anim work matches 213..272 as @e[tag=work-villager,tag=row-4] at @s run tp @s ^ ^ ^.2
+execute if score $shift-end-anim work matches 273 run title @a times 0 20 40
+execute if score $shift-end-anim work matches 273 run title @a title "\u2304"
 # get the player far enough that they don't hear the doors closing and villagers dying
 # in the y-direction so nothing unloads
-execute if score $employer-leave-anim work matches 224 run tp @a 33.5 180.00 -31.5
-execute if score $employer-leave-anim work matches 225 run fill 31 103 14 35 103 -40 minecraft:stripped_mangrove_wood replace redstone_torch
-execute if score $employer-leave-anim work matches 225 run kill @e[tag=work-villager]
-execute if score $employer-leave-anim work matches 225 run setblock 34 106 -42 minecraft:polished_blackstone_button[facing=south]
-execute if score $employer-leave-anim work matches 225 run fill 34 105 8 34 106 8 air
-execute if score $employer-leave-anim work matches 225 run setblock 35 103 8 minecraft:redstone_torch
-execute if score $employer-leave-anim work matches 225 run kill @e[tag=basket-chip]
-execute if score $employer-leave-anim work matches 225 run kill @e[tag=conveyor-item]
-execute if score $employer-leave-anim work matches 225 run kill @e[tag=chips-int]
-execute if score $employer-leave-anim work matches 226 run tp @a 37.8 105.50 8.50 -90 35
-execute if score $employer-leave-anim work matches 253 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
-execute if score $employer-leave-anim work matches 253 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
+execute if score $shift-end-anim work matches 274 run tp @a 33.5 180.00 -31.5
+execute if score $shift-end-anim work matches 275 run fill 31 103 14 35 103 -40 minecraft:stripped_mangrove_wood replace redstone_torch
+execute if score $shift-end-anim work matches 275 as @e[tag=work-villager] at @s run tp @s ~ ~-10 ~
+execute if score $shift-end-anim work matches 275 run setblock 34 106 -42 minecraft:polished_blackstone_button[facing=south]
+execute if score $shift-end-anim work matches 275 run fill 34 105 8 34 106 8 air
+execute if score $shift-end-anim work matches 275 run setblock 35 103 8 minecraft:redstone_torch
+execute if score $shift-end-anim work matches 275 run setblock 33 103 -43 air
+execute if score $shift-end-anim work matches 275 run kill @e[tag=basket-chip]
+execute if score $shift-end-anim work matches 275 run kill @e[tag=conveyor-item]
+execute if score $shift-end-anim work matches 275 run kill @e[tag=chips-int]
+execute if score $shift-end-anim work matches 276 run kill @e[tag=work-villager]
+execute if score $shift-end-anim work matches 277 run tp @a 37.8 105.50 8.50 -90 35
+execute if score $shift-end-anim work matches 277 run gamemode adventure @a
+execute if score $shift-end-anim work matches 353 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
+execute if score $shift-end-anim work matches 353 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
+execute if score $shift-end-anim work matches 353 run scoreboard players reset $shift-end-anim work

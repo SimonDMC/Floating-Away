@@ -51,14 +51,14 @@ execute if block 14 39 20 lever[powered=false] run setblock 15 42 21 air
 
 # quartz 2
 # open doors
-execute if score $quartz-anim-2 guards matches 30 run setblock 23 37 19 redstone_torch
-execute if score $quartz-anim-2 guards matches 30 run setblock 20 37 19 redstone_torch
+execute if score $quartz-anim-2 guards matches 40 run setblock 23 37 19 redstone_torch
+execute if score $quartz-anim-2 guards matches 40 run setblock 20 37 19 redstone_torch
 # spawn guards
-execute if score $quartz-anim-2 guards matches 30 run summon armor_stand 22 38 18 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
-execute if score $quartz-anim-2 guards matches 30 run summon armor_stand 21 38 17 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
-execute if score $quartz-anim-2 guards matches 30 run summon armor_stand 22 38 16 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
+execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 22 38 18 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
+execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 21 38 17 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
+execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 22 38 16 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
 # turn the third guard
-execute if score $quartz-anim-2 guards matches 43 run setblock 22 35 20 minecraft:magenta_glazed_terracotta[facing=east]
+execute if score $quartz-anim-2 guards matches 53 run setblock 22 35 20 minecraft:magenta_glazed_terracotta[facing=east]
 
 # door 2->3 passthrough
 execute if block 36 36 15 redstone_torch run setblock 36 42 15 minecraft:deepslate_coal_ore

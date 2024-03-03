@@ -1,5 +1,9 @@
 # called by simondmc:settings whenever a player dies
 
+# death during folio exploration (you shouldn't be able to die anywhere but in case you do)
+# everyone back to spawn
+execute if score $phase story matches 5 run tp @a 34.0 85 -10.0 90 12.3
+
 # death during hall ambush
 # everyone back to spawn
 execute if score $phase story matches 6 run tp @a 4 97 -17 0 0
@@ -29,7 +33,7 @@ execute if score $phase story matches 7 run scoreboard players reset * guards
 execute if score $phase story matches 7 run scoreboard players set $shooting guards 1
 execute if score $phase story matches 7 run scoreboard players set $SHOOT-PERIOD guards 10
 execute if score $phase story matches 7 run scoreboard players set $corridor-anim-1 guards 0
-execute if score $phase story matches 7 run scoreboard players set $DAMAGE guards 3
+execute if score $phase story matches 7 run scoreboard players set $DAMAGE guards 2
 execute if score $phase story matches 7 run kill @e[tag=hall-guard]
 execute if score $phase story matches 7 run kill @e[tag=vent-guard]
 execute if score $phase story matches 7 run kill @e[tag=corridor-guard]

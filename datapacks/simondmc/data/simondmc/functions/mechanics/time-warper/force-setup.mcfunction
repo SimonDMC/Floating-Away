@@ -25,5 +25,5 @@ tag @r[tag=!paused-1,tag=!paused-2,tag=!paused-3,tag=!paused-4,tag=!paused-5,tag
 execute unless entity @e[tag=paused-8-placeholder] as @a[tag=paused-8] at @s run summon marker ~ ~ ~ {Tags:["paused-8-placeholder","paused-placeholder"],Invulnerable:1b,NoGravity:1b}
 
 # keep in place
-tp @a 31.5 107 -59.5 -270 0
+tp @a 31.5 107 -59.5
 gamemode spectator @a

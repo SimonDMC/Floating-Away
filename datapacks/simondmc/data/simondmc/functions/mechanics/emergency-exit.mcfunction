@@ -28,4 +28,5 @@ execute if score $count emergencyexit matches 4 as @e[tag=emergency-exit] run da
 execute if score $count emergencyexit matches 5 unless score $done emergencyexit matches 1 as @a at @s run playsound entity.experience_orb.pickup master @s ~ ~ ~ 1 0
 execute if score $count emergencyexit matches 5 unless score $done emergencyexit matches 1 run setblock 41 91 -11 redstone_block
 execute if score $count emergencyexit matches 5 unless score $done emergencyexit matches 1 run kill @e[tag=emergency-exit]
+execute if score $count emergencyexit matches 5 unless score $done emergencyexit matches 1 run spawnpoint @a 34 85 -10 90
 execute if score $count emergencyexit matches 5 unless score $done emergencyexit matches 1 run scoreboard players set $done emergencyexit 1

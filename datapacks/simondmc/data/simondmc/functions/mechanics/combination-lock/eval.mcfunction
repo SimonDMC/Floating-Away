@@ -6,7 +6,7 @@ execute if score $1 combinationlock matches 6 if score $2 combinationlock matche
 execute if score $1 combinationlock matches 6 if score $2 combinationlock matches 8 if score $3 combinationlock matches 7 if score $4 combinationlock matches 9 run scoreboard players set $done combinationlock 1
 
 # if not marked as correct, at least one digit has to be wrong
-execute unless score $correct combinationlock matches 1 as @a at @s run playsound entity.villager.no master @s
+execute unless score $correct combinationlock matches 1 as @a at @s run playsound block.note_block.didgeridoo master @s
 execute unless score $correct combinationlock matches 1 run function simondmc:mechanics/combination-lock/reset
 scoreboard players reset $correct combinationlock
 scoreboard players reset $evalqueued combinationlock

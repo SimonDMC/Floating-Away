@@ -20,7 +20,7 @@ execute as @e[type=item,nbt={Age:10s}] run data merge entity @s {Age:5}
 execute as @a if score @s death matches 1.. run function simondmc:death
 
 # cache
-execute if score $started start matches 1 unless score $cached timewarper matches 1 run function simondmc:mechanics/time-warper/force-setup
+execute if score $phase story matches 1..7 unless score $cached timewarper matches 1 run function simondmc:mechanics/time-warper/force-setup
 
 # make sure villagers have no trades (they gain them again after relogging for some reason)
 execute as @e[type=villager] run data modify entity @s Offers set value {}

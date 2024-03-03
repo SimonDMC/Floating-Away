@@ -16,6 +16,9 @@ summon armor_stand 33.5 105 44.5 {Tags:["character","employer-W"],Invulnerable:1
 # chair armor stand, not really a character but i don't have a better place to put it
 summon armor_stand 17.3 83.7 -56.5 {Tags:["character","interview-chair"],NoGravity:1b,Invisible:1b}
 
+# lobby chair
+summon armor_stand 28.8 92.6 -59.5 {Tags:["character","lobby-chair"],NoGravity:1b,Invisible:1b}
+
 # audience and work villagers
 # https://gist.github.com/SimonDMC/35cc5bb2b387a46a1eddc7ced4189d17
 summon villager 0.5 86.5 -1.8 {Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","audience"],VillagerData:{profession:"minecraft:nitwit",type:"minecraft:savanna"},Offers:{}}
