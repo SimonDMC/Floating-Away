@@ -20,6 +20,7 @@ execute if score $end elevator matches 50..362 as @a[x=-6.0,y=66.7,z=-8.0,dy=1,d
 # elevate blocks
 execute if score $end elevator matches 55 as @e[tag=end-elevator] run data merge entity @s {start_interpolation:0,interpolation_duration:297,transformation:{translation:[-0.5f,26.49f,-0.5f]}}
 # reached the top
+execute if score $end elevator matches 300 as @e[tag=ending-stand] run data merge entity @s {CustomNameVisible:1b}
 execute if score $end elevator matches 352 run fill -6 64 -8 -4 64 -6 minecraft:quartz_block
 execute if score $end elevator matches 352 run setblock -5 64 -7 minecraft:gold_block
 # prune old guards because they target if you up arrow to the top

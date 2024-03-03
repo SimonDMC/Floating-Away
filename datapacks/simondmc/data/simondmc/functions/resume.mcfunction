@@ -20,5 +20,4 @@ tag @a remove paused-7
 tag @a remove paused-8
 gamemode adventure @a
 scoreboard players reset $paused start
-scoreboard players set $cached timewarper 1
 function simondmc:mechanics/time-warper/setup

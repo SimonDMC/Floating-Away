@@ -42,3 +42,5 @@ scoreboard objectives add trap dummy
 scoreboard objectives add elevator dummy
 scoreboard objectives add endtrigger trigger
 scoreboard objectives add start dummy
+scoreboard objectives add work dummy
+scoreboard objectives add presentation dummy

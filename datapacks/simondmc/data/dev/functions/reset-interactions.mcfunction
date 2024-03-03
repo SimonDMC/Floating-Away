@@ -41,6 +41,26 @@ summon interaction 35.6875 39.25 16.0625 {width:0.125f,height:0.125f,Tags:["inte
 # picking up float arrows
 summon interaction 7.25 88.0 -8.3 {width:1.25f,height:0.1f,Tags:["interaction","float-arrows-int"]}
 
+# picking up chips
+summon interaction 37.5 105.125 9.5 {width:0.8f,height:0.3f,Tags:["interaction","chips-int"]}
+
+# picking up bases
+summon interaction 39.5 106 3.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+summon interaction 39.5 106 -1.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+summon interaction 39.5 106 -5.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+summon interaction 39.5 106 -9.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+summon interaction 39.5 106 -13.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+summon interaction 39.5 106 -17.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+summon interaction 39.5 106 -21.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+summon interaction 39.5 106 -25.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
+
+# placing down merged
+summon interaction 39.5 106 6.5 {width:0.99f,height:0.05f,Tags:["interaction","place-merged-int"]}
+summon interaction 39.5 106 7.5 {width:0.99f,height:0.05f,Tags:["interaction","place-merged-int"]}
+summon interaction 39.5 106 8.5 {width:0.99f,height:0.05f,Tags:["interaction","place-merged-int"]}
+summon interaction 39.5 106 9.5 {width:0.99f,height:0.05f,Tags:["interaction","place-merged-int"]}
+summon interaction 39.5 106 10.5 {width:0.99f,height:0.05f,Tags:["interaction","place-merged-int"]}
+
 ## BLOCKING
 
 # no book stealing
@@ -60,3 +80,6 @@ summon interaction 20.5 91.0 2.5 {width:0.376f,height:0.376f,Tags:["interaction"
 
 # emergency exit door opening
 summon interaction 42.0 88.0 -10.0 {width:2.001f,height:2f,Tags:["interaction","emergency-exit-block"]}
+
+# starting elevator (so that you can't press the button while not being fully in the elevator)
+summon interaction 60.8 105.0 -44.5 {width:3f,height:3f,Tags:["interaction","elevator-block"]}

@@ -13,10 +13,12 @@ function simondmc:mechanics/float-arrows/sys
 function simondmc:mechanics/guards/sys
 function simondmc:mechanics/trapdoor
 function simondmc:mechanics/trap
+function simondmc:mechanics/elevator
 
 # story
 function simondmc:story/intro/interview
 function simondmc:story/intro/work
+function simondmc:story/intro/presentation
 function simondmc:story/exit
 function simondmc:story/chase/guards
 function simondmc:story/chase/hall/hall-guards
