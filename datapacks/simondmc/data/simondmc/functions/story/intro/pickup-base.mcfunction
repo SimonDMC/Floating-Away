@@ -1,8 +1,8 @@
 # called by simondmc:story/intro/work whenever the conveyor item is left clicked
 
-# don't pick it up if the player already has a base or merged
+# don't pick it up if the player already has one or an item in their offhand
 execute on attacker if entity @s[nbt={Inventory:[{id:"minecraft:feather",tag:{CustomModelData:1}}]}] run return 0
-execute on attacker if entity @s[nbt={Inventory:[{id:"minecraft:feather",tag:{CustomModelData:3}}]}] run return 0
+execute on attacker if entity @s[nbt={Inventory:[{Slot:-106b}]}] run return 0
 execute on attacker run item replace entity @s weapon.offhand with feather{display:{Name:'{"text":"Conveyor Item","italic":false}'},CustomModelData:1}
 execute at @s run kill @e[tag=tech-base,limit=1,sort=nearest]
 kill @s

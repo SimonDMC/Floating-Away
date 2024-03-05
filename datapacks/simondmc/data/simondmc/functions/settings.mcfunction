@@ -13,8 +13,11 @@ execute as @e[type=item_frame,tag=!interactable] run data merge entity @s {Invul
 # paintings
 execute as @e[type=painting] run data merge entity @s {Invulnerable:1b}
 
-# item despawning
+# make items never despawn
 execute as @e[type=item,nbt={Age:10s}] run data merge entity @s {Age:5}
+
+# make dropped items insta-pickup to prevent losing them
+execute as @e[type=item,nbt={PickupDelay:40s}] run data merge entity @s {PickupDelay:0}
 
 # death
 execute as @a if score @s death matches 1.. run function simondmc:death

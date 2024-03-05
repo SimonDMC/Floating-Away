@@ -8,7 +8,7 @@ summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guar
 summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}
 
 # employer interview room
-summon armor_stand 12.8 85.5 -56.5 {Tags:["character","employer-I"],Invulnerable:1b,Rotation:[-90f, 0f]}
+summon armor_stand 12.8 85.3 -56.5 {Tags:["character","employer-I"],Invulnerable:1b,Invisible:1b,NoGravity:1b,Rotation:[-90f, 0f],ArmorItems:[{},{},{},{id:"minecraft:blue_candle",Count:1b,tag:{CustomModelData:2}}]}
 
 # employer work corridor
 summon armor_stand 33.5 105 44.5 {Tags:["character","employer-W"],Invulnerable:1b,Rotation:[0f, 0f]}

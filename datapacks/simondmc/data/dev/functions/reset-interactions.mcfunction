@@ -61,6 +61,9 @@ summon interaction 39.5 106 8.5 {width:0.99f,height:0.05f,Tags:["interaction","p
 summon interaction 39.5 106 9.5 {width:0.99f,height:0.05f,Tags:["interaction","place-merged-int"]}
 summon interaction 39.5 106 10.5 {width:0.99f,height:0.05f,Tags:["interaction","place-merged-int"]}
 
+# chase trapdoors lever
+summon interaction -13.0 69.1 31.5 {width:1f,height:1.2f,Tags:["interaction","trapdoor-lever-int"]}
+
 ## BLOCKING
 
 # no book stealing

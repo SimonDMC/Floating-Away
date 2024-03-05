@@ -63,7 +63,9 @@ execute if score $phase story matches 7 run setblock -39 71 35 air
 # remove corridor 2 guard turn block
 execute if score $phase story matches 7 run setblock -40 69 32 air
 # open big trapdoor
-execute if score $phase story matches 7 run setblock -14 70 31 lever[powered=true,facing=west]
+execute if score $phase story matches 7 run fill -14 71 32 -14 71 30 minecraft:iron_trapdoor[open=true,facing=west,half=top] 
+execute if score $phase story matches 7 run fill -15 71 32 -15 71 30 minecraft:iron_trapdoor[open=true,facing=east,half=top]
+execute if score $phase story matches 7 as @e[tag=trapdoor-lever] run data merge entity @s {block_state:{Properties:{powered:"true"}}}
 execute if score $phase story matches 7 run scoreboard players reset $closed trapdoor
 # close underground trapdoor
 execute if score $phase story matches 7 run setblock 3 53 16 minecraft:lever[face=ceiling,facing=north]

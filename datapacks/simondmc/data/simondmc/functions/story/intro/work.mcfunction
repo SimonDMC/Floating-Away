@@ -53,9 +53,10 @@ execute as @e[tag=place-merged-int] if data entity @s attack run function simond
 execute as @e[tag=place-merged-int] run data remove entity @s attack
 
 # enter office
-execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 run fill 34 105 8 34 106 8 barrier
-execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 run scoreboard players set $tutorial-anim work 0
-execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 run scoreboard players set $phase story 3
+# only start cutscene once the previous dialogue finishes
+execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 unless score $start-anim story matches 0.. run fill 34 105 8 34 106 8 barrier
+execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $tutorial-anim work 0
+execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $phase story 3
 
 # assemblies completed
 execute if score $phase story matches 4 run title @a actionbar [{"text":"Assemblies Completed: "},{"score":{"name":"$merged","objective":"work"}}]
@@ -65,7 +66,7 @@ execute as @e[tag=work-villager] at @s if block ~ ~-2 ~ reinforced_deepslate run
 
 # anims
 execute if score $tutorial-anim work matches 0.. run scoreboard players add $tutorial-anim work 1
-execute if score $tutorial-anim work matches 1 run tellraw @a "Scene 2 Dialogue B"
+execute if score $tutorial-anim work matches 1 as @a at @s run playsound characters.test-run voice @s
 execute if score $tutorial-anim work matches 1..4 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
 execute if score $tutorial-anim work matches 5 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -90 0
 execute if score $tutorial-anim work matches 6..15 as @e[tag=employer-W] at @s run tp @s ~.3 ~ ~
@@ -73,10 +74,10 @@ execute if score $tutorial-anim work matches 16 as @e[tag=employer-W] at @s run 
 execute if score $tutorial-anim work matches 16 run setblock 35 103 8 air
 execute if score $tutorial-anim work matches 17..23 as @e[tag=employer-W] at @s run tp @s ~ ~ ~-.3
 execute if score $tutorial-anim work matches 24 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -35 0
-execute if score $tutorial-anim work matches 84 run scoreboard players set $conveyor-enabled work 1
-execute if score $tutorial-anim work matches 104 run scoreboard players set $tutorial-phase work 1
-execute if score $tutorial-anim work matches 154 run scoreboard players reset $conveyor-enabled work
-execute if score $tutorial-anim work matches 154 run scoreboard players reset $tutorial-anim work
+execute if score $tutorial-anim work matches 247 run scoreboard players set $conveyor-enabled work 1
+execute if score $tutorial-anim work matches 267 run scoreboard players set $tutorial-phase work 1
+execute if score $tutorial-anim work matches 317 run scoreboard players reset $conveyor-enabled work
+execute if score $tutorial-anim work matches 317 run scoreboard players reset $tutorial-anim work
 
 execute if score $tutorial-phase work matches 1 run title @a actionbar "Left Click to pick up conveyor item"
 execute if score $tutorial-phase work matches 2 run title @a actionbar "Right Click to pick up chip"
@@ -84,18 +85,18 @@ execute if score $tutorial-phase work matches 3 run title @a actionbar "F to com
 execute if score $tutorial-phase work matches 4 run title @a actionbar "Left Click to place onto conveyor belt"
 
 execute if score $employer-leave-anim work matches 0.. run scoreboard players add $employer-leave-anim work 1
-execute if score $employer-leave-anim work matches 1 run tellraw @a "Scene 2 Dialogue C"
-execute if score $employer-leave-anim work matches 40 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 0 0
-execute if score $employer-leave-anim work matches 41..47 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
-execute if score $employer-leave-anim work matches 48 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 90 0
-execute if score $employer-leave-anim work matches 48 run setblock 35 103 8 minecraft:redstone_torch
-execute if score $employer-leave-anim work matches 49..58 as @e[tag=employer-W] at @s run tp @s ~-.3 ~ ~
-execute if score $employer-leave-anim work matches 59 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 180 0
-execute if score $employer-leave-anim work matches 59 run setblock 35 103 8 air
-execute if score $employer-leave-anim work matches 60..80 as @e[tag=employer-W] at @s run tp @s ~ ~ ~-.3
-execute if score $employer-leave-anim work matches 81 as @e[tag=employer-W] run kill @s
-execute if score $employer-leave-anim work matches 101 run scoreboard players set $conveyor-enabled work 1
-execute if score $employer-leave-anim work matches 101 run scoreboard players set $phase story 4
+execute if score $employer-leave-anim work matches 1 as @a at @s run playsound characters.nice-job voice @s
+execute if score $employer-leave-anim work matches 100 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 0 0
+execute if score $employer-leave-anim work matches 101..107 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
+execute if score $employer-leave-anim work matches 108 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 90 0
+execute if score $employer-leave-anim work matches 108 run setblock 35 103 8 minecraft:redstone_torch
+execute if score $employer-leave-anim work matches 109..118 as @e[tag=employer-W] at @s run tp @s ~-.3 ~ ~
+execute if score $employer-leave-anim work matches 119 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 180 0
+execute if score $employer-leave-anim work matches 119 run setblock 35 103 8 air
+execute if score $employer-leave-anim work matches 120..140 as @e[tag=employer-W] at @s run tp @s ~ ~ ~-.3
+execute if score $employer-leave-anim work matches 141 as @e[tag=employer-W] run kill @s
+execute if score $employer-leave-anim work matches 161 run scoreboard players set $conveyor-enabled work 1
+execute if score $employer-leave-anim work matches 161 run scoreboard players set $phase story 4
 
 execute if score $shift-end-anim work matches 0.. run scoreboard players add $shift-end-anim work 1
 execute if score $shift-end-anim work matches 1 run title @a times 80 40 0
@@ -133,6 +134,6 @@ execute if score $shift-end-anim work matches 275 run kill @e[tag=chips-int]
 execute if score $shift-end-anim work matches 276 run kill @e[tag=work-villager]
 execute if score $shift-end-anim work matches 277 run tp @a 37.8 105.50 8.50 -90 35
 execute if score $shift-end-anim work matches 277 run gamemode adventure @a
-execute if score $shift-end-anim work matches 353 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
-execute if score $shift-end-anim work matches 353 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
-execute if score $shift-end-anim work matches 353 run scoreboard players reset $shift-end-anim work
+execute if score $shift-end-anim work matches 343 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
+execute if score $shift-end-anim work matches 343 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
+execute if score $shift-end-anim work matches 343 run scoreboard players reset $shift-end-anim work
