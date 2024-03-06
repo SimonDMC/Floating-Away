@@ -4,7 +4,7 @@
 execute if score $phase story matches 2..4 if score $conveyor-timer work matches 0.. run scoreboard players add $conveyor-timer work 1
 
 # row 4
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 run clone 39 105 -42 39 105 46 39 105 -41 replace move
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 run clone 39 105 -42 39 105 34 39 105 -41 replace move
 # this could be tracked with a scoreboard but would probably be prone to errors and if i accidentally
 # reset the scoreboard it would mess up so id say this is better
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 if block 39 105 -39 gray_concrete run setblock 39 105 -42 gray_concrete
@@ -14,17 +14,17 @@ execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work 
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 as @a at @s run playsound minecraft:block.chain.place master @s
 
 # row 3
-execute if score $conveyor-timer work matches 15 run clone 27 105 47 27 105 -41 27 105 -42 replace move
-execute if score $conveyor-timer work matches 15 if block 27 105 44 gray_concrete run setblock 27 105 47 gray_concrete
-execute if score $conveyor-timer work matches 15 if block 27 105 44 black_concrete run setblock 27 105 47 black_concrete
+execute if score $conveyor-timer work matches 15 run clone 27 105 35 27 105 -41 27 105 -42 replace move
+execute if score $conveyor-timer work matches 15 if block 27 105 32 gray_concrete run setblock 27 105 35 gray_concrete
+execute if score $conveyor-timer work matches 15 if block 27 105 32 black_concrete run setblock 27 105 35 black_concrete
 
 # row 5
-execute if score $conveyor-timer work matches 15 run clone 41 105 47 41 105 -41 41 105 -42 replace move
-execute if score $conveyor-timer work matches 15 if block 41 105 44 gray_concrete run setblock 41 105 47 gray_concrete
-execute if score $conveyor-timer work matches 15 if block 41 105 44 black_concrete run setblock 41 105 47 black_concrete
+execute if score $conveyor-timer work matches 15 run clone 41 105 35 41 105 -41 41 105 -42 replace move
+execute if score $conveyor-timer work matches 15 if block 41 105 32 gray_concrete run setblock 41 105 35 gray_concrete
+execute if score $conveyor-timer work matches 15 if block 41 105 32 black_concrete run setblock 41 105 35 black_concrete
 
 # row 2
-execute if score $conveyor-timer work matches 15 run clone 25 105 -42 25 105 46 25 105 -41 replace move
+execute if score $conveyor-timer work matches 15 run clone 25 105 -42 25 105 34 25 105 -41 replace move
 execute if score $conveyor-timer work matches 15 if block 25 105 -39 gray_concrete run setblock 25 105 -42 gray_concrete
 execute if score $conveyor-timer work matches 15 if block 25 105 -39 black_concrete run setblock 25 105 -42 black_concrete
 
@@ -67,13 +67,21 @@ execute as @e[tag=work-villager] at @s if block ~ ~-2 ~ reinforced_deepslate run
 # anims
 execute if score $tutorial-anim work matches 0.. run scoreboard players add $tutorial-anim work 1
 execute if score $tutorial-anim work matches 1 as @a at @s run playsound characters.test-run voice @s
-execute if score $tutorial-anim work matches 1..4 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
-execute if score $tutorial-anim work matches 5 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -90 0
-execute if score $tutorial-anim work matches 6..15 as @e[tag=employer-W] at @s run tp @s ~.3 ~ ~
-execute if score $tutorial-anim work matches 16 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -180 0
-execute if score $tutorial-anim work matches 16 run setblock 35 103 8 air
-execute if score $tutorial-anim work matches 17..23 as @e[tag=employer-W] at @s run tp @s ~ ~ ~-.3
-execute if score $tutorial-anim work matches 24 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -35 0
+execute if score $tutorial-anim work matches 1 run scoreboard players set $employer-walking story 1
+execute if score $tutorial-anim work matches 1..5 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
+execute if score $tutorial-anim work matches 6 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -90 0
+execute if score $tutorial-anim work matches 7..16 as @e[tag=employer-W] at @s run tp @s ~.3 ~ ~
+execute if score $tutorial-anim work matches 17 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -180 0
+execute if score $tutorial-anim work matches 17 run setblock 35 103 8 air
+execute if score $tutorial-anim work matches 18..24 as @e[tag=employer-W] at @s run tp @s ~ ~ ~-.3
+execute if score $tutorial-anim work matches 25 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -25 0
+execute if score $tutorial-anim work matches 25 run scoreboard players reset $employer-walking story
+execute if score $tutorial-anim work matches 35 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:11}
+execute if score $tutorial-anim work matches 35 as @e[tag=employer-W] run item replace entity @s weapon.mainhand with feather{CustomModelData:1}
+execute if score $tutorial-anim work matches 139 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:12}
+execute if score $tutorial-anim work matches 170 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:11}
+execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:1}
+execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item replace entity @s weapon.mainhand with air
 execute if score $tutorial-anim work matches 247 run scoreboard players set $conveyor-enabled work 1
 execute if score $tutorial-anim work matches 267 run scoreboard players set $tutorial-phase work 1
 execute if score $tutorial-anim work matches 317 run scoreboard players reset $conveyor-enabled work
@@ -86,6 +94,7 @@ execute if score $tutorial-phase work matches 4 run title @a actionbar "Left Cli
 
 execute if score $employer-leave-anim work matches 0.. run scoreboard players add $employer-leave-anim work 1
 execute if score $employer-leave-anim work matches 1 as @a at @s run playsound characters.nice-job voice @s
+execute if score $employer-leave-anim work matches 100 run scoreboard players set $employer-walking story 1
 execute if score $employer-leave-anim work matches 100 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 0 0
 execute if score $employer-leave-anim work matches 101..107 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
 execute if score $employer-leave-anim work matches 108 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 90 0
@@ -134,6 +143,6 @@ execute if score $shift-end-anim work matches 275 run kill @e[tag=chips-int]
 execute if score $shift-end-anim work matches 276 run kill @e[tag=work-villager]
 execute if score $shift-end-anim work matches 277 run tp @a 37.8 105.50 8.50 -90 35
 execute if score $shift-end-anim work matches 277 run gamemode adventure @a
-execute if score $shift-end-anim work matches 343 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
-execute if score $shift-end-anim work matches 343 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
-execute if score $shift-end-anim work matches 343 run scoreboard players reset $shift-end-anim work
+execute if score $shift-end-anim work matches 333 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
+execute if score $shift-end-anim work matches 333 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
+execute if score $shift-end-anim work matches 333 run scoreboard players reset $shift-end-anim work

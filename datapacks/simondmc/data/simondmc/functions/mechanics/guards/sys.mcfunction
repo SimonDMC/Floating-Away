@@ -43,6 +43,7 @@ execute as @a if score @s guards matches 60 run title @a times 0 0 20
 execute as @a if score @s guards matches 60 run title @a title "\u2304"
 execute as @a if score @s guards matches 60 run gamemode adventure @a
 execute as @a if score @s guards matches 60 run kill @e[tag=guard-anim-player]
+execute as @a if score @s guards matches 60 run function simondmc:mechanics/guards/reset-room
 execute as @a if score @s guards matches 60 run scoreboard players reset $in-anim guards
 execute as @a if score @s guards matches 60 as @e[tag=guard] at @s run tp @s ~ ~ ~ -90 0
 execute as @a if score @s guards matches 60 run scoreboard players reset @s guards

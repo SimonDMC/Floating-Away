@@ -16,7 +16,7 @@ execute if score $phase story matches 7 run function simondmc:mechanics/trap
 execute if score $phase story matches 5 run function simondmc:mechanics/elevator
 
 # story
-execute if score $phase story matches 1..2 run function simondmc:story/intro/interview
+execute if score $phase story matches 1..3 run function simondmc:story/intro/interview
 execute if score $phase story matches 2..5 run function simondmc:story/intro/work
 execute if score $phase story matches 5 run function simondmc:story/intro/presentation
 execute if score $phase story matches 5 run function simondmc:story/exit
