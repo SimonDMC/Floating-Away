@@ -1,6 +1,9 @@
 # ran by the player by clicking the tellraw from simondmc:start/click-start, starts the map :D
 # has to be ran directly by the player to cache time warper tick rate commands
 
+# refuse to start if the map has already started
+execute if score $phase story matches 1.. run return 0
+
 # cache
 function simondmc:mechanics/time-warper/setup
 # fade from black
@@ -16,3 +19,5 @@ item replace entity @a armor.chest with minecraft:leather_chestplate{display:{co
 item replace entity @a armor.legs with minecraft:leather_leggings{display:{color:0},Unbreakable:true,HideFlags:4}
 item replace entity @a armor.feet with minecraft:leather_boots{display:{color:0},Unbreakable:true,HideFlags:4}
 execute as @a at @s run playsound minecraft:block.fire.extinguish master @s ~ ~ ~ 1 2
+# clear chat
+tellraw @a "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"

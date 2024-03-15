@@ -7,7 +7,7 @@ execute as @a if score @s endtrigger matches 230419 run tellraw @s ["",{"text":"
 execute as @a if score @s endtrigger matches 573214 run gamemode spectator @s
 
 # give feedback
-execute as @a if score @s endtrigger matches 433684 run tellraw @s ["",{"text":"Give Feedback","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"Have feedback to share? I'd love to hear it! Let me know what you liked, disliked, if you found any bugs or anything else ","color":"green"},{"text":"here","bold":true,"color":"aqua","clickEvent":{"action":"open_url","value":"https://simondmc.com/folio-industries/feedback"}},{"text":"!","color":"green"}]
+execute as @a if score @s endtrigger matches 433684 run tellraw @s ["",{"text":"Give Feedback","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"Have feedback to share? I'd love to hear it! Let me know what you liked, disliked, if you found any bugs or anything else ","color":"green"},{"text":"here","bold":true,"color":"aqua","clickEvent":{"action":"open_url","value":"https://simondmc.com/name-here/feedback"}},{"text":"!","color":"green"}]
 
 # allow clicking if ended
 scoreboard players reset @a endtrigger

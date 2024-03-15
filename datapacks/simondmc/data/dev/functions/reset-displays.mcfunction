@@ -110,10 +110,6 @@ summon minecraft:text_display 35.305 39.215 16.125 {Tags:["display","sequence-lo
 summon minecraft:text_display 35.4925 39.215 16.125 {Tags:["display","sequence-lock-digit", "seq-btn-9"],alignment:"center",background:0,default_background:0b,line_width:200,see_through:0b,shadow:0b,text:'"9"',text_opacity:-146f,transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.6f,0.6f,0.6f],translation:[0.0f,0.0f,0.0f]}}
 summon minecraft:text_display 35.68 39.215 16.125 {Tags:["display","sequence-lock-digit", "seq-btn-3"],alignment:"center",background:0,default_background:0b,line_width:200,see_through:0b,shadow:0b,text:'"3"',text_opacity:-146f,transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.6f,0.6f,0.6f],translation:[0.0f,0.0f,0.0f]}}
 
-# float arrows on the ground
-summon minecraft:item_display 7.5 88.0315 -8.125 {Tags:["display","float-arrow"],item:{Count:1b,id:"minecraft:carrot"},transformation:{left_rotation:[0.7010574f,0.09229595f,-0.09229595f,0.7010574f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.59999996f,0.5999997f,0.5999997f],translation:[0.0f,0.0f,0.0f]}}
-summon minecraft:item_display 7.0 88.0 -8.5 {Tags:["display","float-arrow"],item:{Count:1b,id:"minecraft:carrot"},transformation:{left_rotation:[-0.09841033f,-0.7002252f,0.7002252f,-0.09841033f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.59999996f,0.59999937f,0.59999937f],translation:[0.0f,0.0f,0.0f]}}
-
 # ending elevator doors
 summon minecraft:block_display -2.499 38.5 -5.0 {brightness:{block:13,sky:13},Tags:["display","end-elevator-door","door-left"],block_state:{Name:"minecraft:iron_block"},transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[-0.5f,-0.5f,-0.5f]}}
 summon minecraft:block_display -2.499 38.5 -6.0 {brightness:{block:13,sky:13},Tags:["display","end-elevator-door","door-left"],block_state:{Name:"minecraft:iron_block"},transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[-0.5f,-0.5f,-0.5f]}}

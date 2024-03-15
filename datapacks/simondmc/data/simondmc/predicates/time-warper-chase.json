@@ -5,7 +5,7 @@
         "location": {
             "position": {
                 "x": {
-                    "min": 32.0,
+                    "min": 30.0,
                     "max": 38.0
                 },
                 "y": {

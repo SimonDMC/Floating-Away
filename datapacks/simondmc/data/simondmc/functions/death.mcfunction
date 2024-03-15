@@ -11,6 +11,8 @@ execute if score $phase story matches 6 run tp @a 4 97 -17 0 0
 execute if score $phase story matches 6 run clone 2 79 -13 6 83 -13 2 96 -13
 # reset chase
 execute if score $phase story matches 6 run scoreboard players reset * guards
+execute if score $phase story matches 6 run scoreboard players reset $security-anim guards
+execute if score $phase story matches 6 run stopsound @a voice
 execute if score $phase story matches 6 run kill @e[tag=hall-guard]
 execute if score $phase story matches 6 run kill @e[tag=vent-guard]
 execute if score $phase story matches 6 run summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}

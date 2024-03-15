@@ -21,6 +21,8 @@ execute if predicate simondmc:tnt-wall run setblock 4 96 -13 air destroy
 execute if predicate simondmc:tnt-wall run spawnpoint @a 4 97 -17 0
 # start hall guard animation
 execute if predicate simondmc:tnt-wall run scoreboard players set $hall-anim guards 0
+# start boss animation
+execute if predicate simondmc:tnt-wall run scoreboard players set $security-anim presentation 0
 # advance story phase
 execute if predicate simondmc:tnt-wall run scoreboard players set $phase story 6
 execute at @s run kill @s

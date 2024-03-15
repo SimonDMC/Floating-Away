@@ -22,6 +22,7 @@ execute if score $phase story matches 5 run function simondmc:story/intro/presen
 execute if score $phase story matches 5 run function simondmc:story/exit
 execute if score $phase story matches 6..7 run function simondmc:story/chase/guards
 execute if score $phase story matches 6 run function simondmc:story/chase/hall/hall-guards
+execute if score $phase story matches 6 run function simondmc:story/chase/hall/boss
 execute if score $phase story matches 6..7 run function simondmc:story/chase/vents/vent-guards
 execute if score $phase story matches 7 run function simondmc:story/chase/corridor-1/corridor-1-guards
 execute if score $phase story matches 7 run function simondmc:story/chase/corridor-2/corridor-2-guards

@@ -11,8 +11,6 @@ execute if score $start-anim story matches 170 as @e[tag=employer-I] run item re
 execute if score $start-anim story matches 216 as @e[tag=employer-I] run item replace entity @s armor.head with blue_candle{CustomModelData:3}
 execute if score $start-anim story matches 244 as @e[tag=employer-I] run item replace entity @s armor.head with blue_candle{CustomModelData:6}
 execute if score $start-anim story matches 269 as @e[tag=employer-I] run item replace entity @s armor.head with blue_candle{CustomModelData:2}
-execute if score $start-anim story matches 291 as @e[tag=employer-I] run item replace entity @s armor.head with blue_candle{CustomModelData:6}
-execute if score $start-anim story matches 303 as @e[tag=employer-I] run item replace entity @s armor.head with blue_candle{CustomModelData:2}
 execute if score $start-anim story matches 330 run title @a times 20 20 20
 execute if score $start-anim story matches 330 run title @a title "\u2304"
 # tp to work corridor

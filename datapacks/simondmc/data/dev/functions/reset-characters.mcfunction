@@ -4,20 +4,23 @@ kill @e[tag=character]
 summon villager 52.0 85 -52.5 {Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","receptionist"],VillagerData:{profession:"minecraft:nitwit",type:"minecraft:plains"},Offers:{}}
 
 # hall guards
-summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}
-summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f]}
+summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f],DisabledSlots:4144959}
+summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f],DisabledSlots:4144959}
 
 # employer interview room
-summon armor_stand 12.8 85.3 -56.5 {Tags:["character","employer-I"],Invulnerable:1b,Invisible:1b,NoGravity:1b,Rotation:[-90f, 0f],ArmorItems:[{},{},{},{id:"minecraft:blue_candle",Count:1b,tag:{CustomModelData:2}}]}
+summon armor_stand 12.8 85.3 -56.5 {Tags:["character","employer-I"],Invulnerable:1b,Invisible:1b,NoGravity:1b,Rotation:[-90f, 0f],ArmorItems:[{},{},{},{id:"minecraft:blue_candle",Count:1b,tag:{CustomModelData:2}}],DisabledSlots:4144959}
 
 # employer work corridor
-summon armor_stand 33.5 105 32.5 {Tags:["character","employer-W"],Invulnerable:1b,Invisible:1b,NoGravity:1b,Rotation:[0f, 0f],ArmorItems:[{},{},{},{id:"minecraft:blue_candle",Count:1b,tag:{CustomModelData:1}}]}
+summon armor_stand 33.5 105 32.5 {Tags:["character","employer-W"],Invulnerable:1b,Invisible:1b,NoGravity:1b,Rotation:[0f, 0f],ArmorItems:[{},{},{},{id:"minecraft:blue_candle",Count:1b,tag:{CustomModelData:1}}],DisabledSlots:4144959}
 
 # chair armor stand, not really a character but i don't have a better place to put it
-summon armor_stand 17.3 83.7 -56.5 {Tags:["character","interview-chair"],NoGravity:1b,Invisible:1b}
+summon armor_stand 17.3 83.7 -56.5 {Tags:["character","interview-chair"],NoGravity:1b,Invisible:1b,DisabledSlots:4144959}
 
 # lobby chair
-summon armor_stand 28.8 92.6 -59.5 {Tags:["character","lobby-chair"],NoGravity:1b,Invisible:1b}
+summon armor_stand 28.8 92.6 -59.5 {Tags:["character","lobby-chair"],NoGravity:1b,Invisible:1b,DisabledSlots:4144959}
+
+# boss
+summon armor_stand 17 88 -9 {Tags:["character","boss"],Invulnerable:1b,Rotation:[90f, 0f],Invisible:1b,ArmorItems:[{},{},{},{id:"minecraft:white_candle",Count:1b,tag:{CustomModelData:1}}],Pose:{LeftArm:[350f,0f,2f],RightArm:[350f,0f,358f]},DisabledSlots:4144959}
 
 # audience and work villagers
 # https://gist.github.com/SimonDMC/35cc5bb2b387a46a1eddc7ced4189d17
@@ -227,4 +230,4 @@ summon villager 29.2 105.5 -39.5 {Rotation:[90f,35f],Silent:1b,Invulnerable:1b,N
 summon villager 37.8 105.5 -39.5 {Rotation:[-90f,35f],Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","work-villager","row-4"],VillagerData:{profession:"minecraft:farmer",type:"minecraft:swamp"},Offers:{}}
 summon villager 43.2 105.5 -39.5 {Rotation:[90f,35f],Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","work-villager","row-5"],VillagerData:{profession:"minecraft:librarian",type:"minecraft:plains"},Offers:{}}
 # make them look at the guy
-execute as @e[tag=audience] at @s run tp @s ~ ~ ~ facing entity @e[tag=presenter,limit=1] 
+execute as @e[tag=audience] at @s run tp @s ~ ~ ~ facing 9 89 -9
