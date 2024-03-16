@@ -22,7 +22,6 @@ execute unless score $machine-gun guards matches 1 run scoreboard players operat
 
 # make arrow deal modified damage
 execute if score $DAMAGE guards matches 2 unless score $machine-gun guards matches 1 at @s run summon arrow ~ ~1.5 ~ {Tags:["guard-arrow"],damage:2d}
-execute if score $DAMAGE guards matches 3 unless score $machine-gun guards matches 1 at @s run summon arrow ~ ~1.5 ~ {Tags:["guard-arrow"],damage:3d}
 execute if score $DAMAGE guards matches 6 at @s run summon arrow ~ ~1.5 ~ {Tags:["guard-arrow"],damage:6d}
 execute if score $machine-gun guards matches 1 at @s run summon arrow ~ ~1.5 ~ {Tags:["guard-arrow"],damage:6d}
 

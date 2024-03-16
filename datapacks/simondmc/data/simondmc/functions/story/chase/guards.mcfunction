@@ -24,3 +24,6 @@ execute as @e[tag=guard] at @s run function simondmc:story/chase/guard-movement
 
 # melee guards
 execute as @a at @s as @e[tag=guard,distance=..2] run damage @p 8 mob_attack by @s
+
+# reduce arrow damage while in the first corridor
+execute as @a if predicate simondmc:corridor-1-shoot run effect give @s resistance 1 0 true

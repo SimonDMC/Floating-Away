@@ -10,17 +10,17 @@ execute if score $hall-anim guards matches 1 run scoreboard players set $DAMAGE 
 # open door
 execute if score $hall-anim guards matches 20 run setblock 19 83 -5 redstone_torch
 # guards in
-execute if score $hall-anim guards matches 30..46 as @e[tag=hall-guard-L] at @s run tp @s ~ ~ ~-0.05 
-execute if score $hall-anim guards matches 30..46 as @e[tag=hall-guard-R] at @s run tp @s ~ ~ ~0.05 
-execute if score $hall-anim guards matches 50..89 as @e[tag=hall-guard] at @s run tp @s ~-0.05 ~ ~
-execute if score $hall-anim guards matches 90..106 as @e[tag=hall-guard-L] at @s run tp @s ~ ~ ~0.05
-execute if score $hall-anim guards matches 90..106 as @e[tag=hall-guard-R] at @s run tp @s ~ ~ ~-0.05
+execute if score $hall-anim guards matches 30..33 as @e[tag=hall-guard-L] at @s run tp @s ~ ~ ~-0.2
+execute if score $hall-anim guards matches 30..33 as @e[tag=hall-guard-R] at @s run tp @s ~ ~ ~0.2 
+execute if score $hall-anim guards matches 43..52 as @e[tag=hall-guard] at @s run tp @s ~-.2 ~ ~
+execute if score $hall-anim guards matches 62..65 as @e[tag=hall-guard-L] at @s run tp @s ~ ~ ~0.2
+execute if score $hall-anim guards matches 62..65 as @e[tag=hall-guard-R] at @s run tp @s ~ ~ ~-0.2
 # guards start shooting
-execute if score $hall-anim guards matches 110 run tag @e[tag=hall-guard] add shooting-guard
-execute if score $hall-anim guards matches 110 run scoreboard players set $shooting guards 1
+execute if score $hall-anim guards matches 65 run tag @e[tag=hall-guard] add shooting-guard
+execute if score $hall-anim guards matches 65 run scoreboard players set $shooting guards 1
 # speed up over time if the player isn't getting out
-execute if score $hall-anim guards matches 150 run scoreboard players set $SHOOT-PERIOD guards 8
-execute if score $hall-anim guards matches 190 run scoreboard players set $SHOOT-PERIOD guards 5
+execute if score $hall-anim guards matches 120 unless score $vent-guards guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 8
+execute if score $hall-anim guards matches 170 unless score $vent-guards guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 5
 # activate MACHINE GUN if player REALLY isn't getting out
-execute if score $hall-anim guards matches 230 run scoreboard players set $machine-gun guards 1
-execute if score $hall-anim guards matches 230 run scoreboard players set $SHOOT-PERIOD guards 2
+execute if score $hall-anim guards matches 230 unless score $vent-guards guards matches 1 run scoreboard players set $machine-gun guards 1
+execute if score $hall-anim guards matches 230 unless score $vent-guards guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 2

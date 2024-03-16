@@ -1,5 +1,8 @@
 # called by simondmc:settings whenever a player dies
 
+# increment death stat
+scoreboard players add $deaths stats 1
+
 # death during folio exploration (you shouldn't be able to die anywhere but in case you do)
 # everyone back to spawn
 execute if score $phase story matches 5 run tp @a 34.0 85 -10.0 90 12.3

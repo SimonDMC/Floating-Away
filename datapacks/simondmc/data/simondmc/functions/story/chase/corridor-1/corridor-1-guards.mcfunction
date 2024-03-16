@@ -21,9 +21,9 @@ execute if score $corridor-anim-1 guards matches 138 run setblock -37 70 -2 deep
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players set $machine-gun guards 1
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players set $SHOOT-PERIOD guards 3
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run tag @e[tag=middle-guard] add machine-gun-guard
-execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..3] run scoreboard players reset $machine-gun
-execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..3] run scoreboard players set $SHOOT-PERIOD guards 10
-execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..3] run tag @e[tag=machine-gun-guard] remove machine-gun-guard
+execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run scoreboard players reset $machine-gun
+execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run scoreboard players set $SHOOT-PERIOD guards 10
+execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run tag @e[tag=machine-gun-guard] remove machine-gun-guard
 
 # 1->2 door
 # allow guard passthrough if open

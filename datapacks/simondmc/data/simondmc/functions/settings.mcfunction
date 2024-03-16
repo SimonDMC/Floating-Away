@@ -3,9 +3,14 @@
 # effects
 effect give @a saturation infinite 0 true
 
+# knockback resistance
+execute as @a run attribute @s generic.knockback_resistance base set 0.5
+
 # interactable item frames
-execute as @e[type=item_frame,nbt=!{Item:{}},tag=interactable] run data merge entity @s {Invulnerable:1b}
 execute as @e[type=item_frame,nbt={Item:{}},tag=interactable] run data merge entity @s {Invulnerable:0b}
+
+# remove empty item frames
+execute as @e[type=item_frame,nbt=!{Item:{}},tag=interactable] run kill @s
 
 # cosmetic item frames
 execute as @e[type=item_frame,tag=!interactable] run data merge entity @s {Invulnerable:1b}
@@ -47,3 +52,4 @@ scoreboard objectives add endtrigger trigger
 scoreboard objectives add start dummy
 scoreboard objectives add work dummy
 scoreboard objectives add presentation dummy
+scoreboard objectives add stats dummy

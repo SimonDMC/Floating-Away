@@ -4,32 +4,32 @@
 execute if score $phase story matches 2..4 if score $conveyor-timer work matches 0.. run scoreboard players add $conveyor-timer work 1
 
 # row 4
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 run clone 39 105 -42 39 105 34 39 105 -41 replace move
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 run clone 39 105 -42 39 105 34 39 105 -41 replace move
 # this could be tracked with a scoreboard but would probably be prone to errors and if i accidentally
 # reset the scoreboard it would mess up so id say this is better
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 if block 39 105 -39 gray_concrete run setblock 39 105 -42 gray_concrete
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 if block 39 105 -39 black_concrete run setblock 39 105 -42 black_concrete
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 if block 39 105 -39 gray_concrete run setblock 39 105 -42 gray_concrete
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 if block 39 105 -39 black_concrete run setblock 39 105 -42 black_concrete
 # move items along conveyor
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 as @e[tag=conveyor-item] at @s run tp @s ~ ~ ~1
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 as @a at @s run playsound minecraft:block.chain.place master @s
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @e[tag=conveyor-item] at @s run tp @s ~ ~ ~1
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @a at @s run playsound minecraft:block.chain.place master @s
 
 # row 3
-execute if score $conveyor-timer work matches 15 run clone 27 105 35 27 105 -41 27 105 -42 replace move
-execute if score $conveyor-timer work matches 15 if block 27 105 32 gray_concrete run setblock 27 105 35 gray_concrete
-execute if score $conveyor-timer work matches 15 if block 27 105 32 black_concrete run setblock 27 105 35 black_concrete
+execute if score $conveyor-timer work matches 16 run clone 27 105 35 27 105 -41 27 105 -42 replace move
+execute if score $conveyor-timer work matches 16 if block 27 105 32 gray_concrete run setblock 27 105 35 gray_concrete
+execute if score $conveyor-timer work matches 16 if block 27 105 32 black_concrete run setblock 27 105 35 black_concrete
 
 # row 5
-execute if score $conveyor-timer work matches 15 run clone 41 105 35 41 105 -41 41 105 -42 replace move
-execute if score $conveyor-timer work matches 15 if block 41 105 32 gray_concrete run setblock 41 105 35 gray_concrete
-execute if score $conveyor-timer work matches 15 if block 41 105 32 black_concrete run setblock 41 105 35 black_concrete
+execute if score $conveyor-timer work matches 16 run clone 41 105 35 41 105 -41 41 105 -42 replace move
+execute if score $conveyor-timer work matches 16 if block 41 105 32 gray_concrete run setblock 41 105 35 gray_concrete
+execute if score $conveyor-timer work matches 16 if block 41 105 32 black_concrete run setblock 41 105 35 black_concrete
 
 # row 2
-execute if score $conveyor-timer work matches 15 run clone 25 105 -42 25 105 34 25 105 -41 replace move
-execute if score $conveyor-timer work matches 15 if block 25 105 -39 gray_concrete run setblock 25 105 -42 gray_concrete
-execute if score $conveyor-timer work matches 15 if block 25 105 -39 black_concrete run setblock 25 105 -42 black_concrete
+execute if score $conveyor-timer work matches 16 run clone 25 105 -42 25 105 34 25 105 -41 replace move
+execute if score $conveyor-timer work matches 16 if block 25 105 -39 gray_concrete run setblock 25 105 -42 gray_concrete
+execute if score $conveyor-timer work matches 16 if block 25 105 -39 black_concrete run setblock 25 105 -42 black_concrete
 
 # move player along because why not :3
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 15 as @a[x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1.1 air run tp @s ~ ~ ~1
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @a[x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1.1 air run tp @s ~ ~ ~1
 
 execute if score $conveyor-timer work matches 16.. run scoreboard players set $conveyor-timer work 0
 
@@ -67,6 +67,7 @@ execute as @e[tag=work-villager] at @s if block ~ ~-2 ~ reinforced_deepslate run
 # anims
 execute if score $tutorial-anim work matches 0.. run scoreboard players add $tutorial-anim work 1
 execute if score $tutorial-anim work matches 1 as @a at @s run playsound characters.test-run voice @s
+execute if score $tutorial-anim work matches 1 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" So! Your job is simple. See what I\u2019m holding right now? These will start coming in from the conveyor belt in front of you.","color":"gray"}]
 execute if score $tutorial-anim work matches 1 run scoreboard players set $employer-walking story 1
 execute if score $tutorial-anim work matches 1..5 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
 execute if score $tutorial-anim work matches 6 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -90 0
@@ -78,22 +79,27 @@ execute if score $tutorial-anim work matches 25 as @e[tag=employer-W] at @s run 
 execute if score $tutorial-anim work matches 25 run scoreboard players reset $employer-walking story
 execute if score $tutorial-anim work matches 35 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:11}
 execute if score $tutorial-anim work matches 35 as @e[tag=employer-W] run item replace entity @s weapon.mainhand with feather{CustomModelData:1}
+execute if score $tutorial-anim work matches 118 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" You pick one up, then you pick up a chip from the basket next to you, and you click it into place. Everything clear? Let\u2019s do a test run.","color":"gray"}]
 execute if score $tutorial-anim work matches 139 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:12}
 execute if score $tutorial-anim work matches 170 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:11}
 execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:1}
 execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item replace entity @s weapon.mainhand with air
 execute if score $tutorial-anim work matches 247 run scoreboard players set $conveyor-enabled work 1
 execute if score $tutorial-anim work matches 267 run scoreboard players set $tutorial-phase work 1
+# don't let the player pick up the conveyor item before conveyor starts moving because it messes up the tutorial
+execute if score $tutorial-anim work matches 267 run setblock 39 106 5 air
 execute if score $tutorial-anim work matches 317 run scoreboard players reset $conveyor-enabled work
 execute if score $tutorial-anim work matches 317 run scoreboard players reset $tutorial-anim work
 
+# yes i know i could make all of them keybind-dependent but Left Click looks so much better than Left Button so it's worth the tradeoff
 execute if score $tutorial-phase work matches 1 run title @a actionbar "Left Click to pick up conveyor item"
 execute if score $tutorial-phase work matches 2 run title @a actionbar "Right Click to pick up chip"
-execute if score $tutorial-phase work matches 3 run title @a actionbar "F to combine"
+execute if score $tutorial-phase work matches 3 run title @a actionbar [{"keybind":"key.swapOffhand"},{"text":" to combine"}]
 execute if score $tutorial-phase work matches 4 run title @a actionbar "Left Click to place onto conveyor belt"
 
 execute if score $employer-leave-anim work matches 0.. run scoreboard players add $employer-leave-anim work 1
 execute if score $employer-leave-anim work matches 1 as @a at @s run playsound characters.nice-job voice @s
+execute if score $employer-leave-anim work matches 1 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" Nice, you seem to be getting the hang of it, so I\u2019ll turn this thing on. Best of luck!","color":"gray"}]
 execute if score $employer-leave-anim work matches 100 run scoreboard players set $employer-walking story 1
 execute if score $employer-leave-anim work matches 100 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 0 0
 execute if score $employer-leave-anim work matches 101..107 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3

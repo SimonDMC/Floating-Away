@@ -21,3 +21,8 @@ item replace entity @a armor.feet with minecraft:leather_boots{display:{color:0}
 execute as @a at @s run playsound minecraft:block.fire.extinguish master @s ~ ~ ~ 1 2
 # clear chat
 tellraw @a "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+# initialize stats
+scoreboard players set $seconds stats 0
+scoreboard players set $minutes stats 0
+scoreboard players set $hours stats 0
+scoreboard players set $deaths stats 0

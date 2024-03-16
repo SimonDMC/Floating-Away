@@ -64,6 +64,9 @@ summon interaction 39.5 106 10.5 {width:0.99f,height:0.05f,Tags:["interaction","
 # chase trapdoors lever
 summon interaction -13.0 69.1 31.5 {width:1f,height:1.2f,Tags:["interaction","trapdoor-lever-int"],response:1b}
 
+# end room map creator armor stand
+summon interaction -7.5 65.0 -6.5 {width:1f,height:2f,Tags:["interaction","creator-stand-int"],response:1b}
+
 ## BLOCKING
 
 # no book stealing
