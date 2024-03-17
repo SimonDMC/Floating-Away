@@ -51,3 +51,28 @@ execute if block ~ 65 ~ deepslate_emerald_ore run tag @s add elevated
 
 # advance stun timer
 execute if score @s guards matches 1.. run scoreboard players remove @s guards 1
+
+# walking model animation (steps)
+execute if score $override guard-walk-anim matches 1 run scoreboard players set $moving guard-walk-anim 1
+execute if block ~ ~-1.1 ~ deepslate_coal_ore run scoreboard players set $moving guard-walk-anim 1
+execute if block ~ ~4.9 ~ deepslate_coal_ore run scoreboard players set $moving guard-walk-anim 1
+execute if block ~ ~8.9 ~ deepslate_coal_ore run scoreboard players set $moving guard-walk-anim 1
+execute if block ~ ~8 ~ nether_gold_ore run scoreboard players set $moving guard-walk-anim 1
+execute if block ~ ~9 ~ nether_gold_ore run scoreboard players set $moving guard-walk-anim 1
+execute if score $moving guard-walk-anim matches 1 run scoreboard players add @s guard-walk-anim 1
+# system explained in simondmc:story/intro/interview
+execute if score $moving guard-walk-anim matches 1 run scoreboard players operation $walk-phase guard-walk-anim = @s guard-walk-anim
+execute if score $moving guard-walk-anim matches 1 run scoreboard players operation $walk-phase guard-walk-anim -= $CONST_1 story
+execute if score $moving guard-walk-anim matches 1 run scoreboard players operation $walk-phase guard-walk-anim /= $CONST_2 story
+execute if score $moving guard-walk-anim matches 1 run scoreboard players operation $walk-phase guard-walk-anim %= $CONST_8 story
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 0 run item replace entity @s armor.head with black_candle{CustomModelData:4}
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 1 run item replace entity @s armor.head with black_candle{CustomModelData:5}
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 2 run item replace entity @s armor.head with black_candle{CustomModelData:4}
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 3 run item replace entity @s armor.head with black_candle{CustomModelData:1}
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 4 run item replace entity @s armor.head with black_candle{CustomModelData:2}
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 5 run item replace entity @s armor.head with black_candle{CustomModelData:3}
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 6 run item replace entity @s armor.head with black_candle{CustomModelData:2}
+execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 7 run item replace entity @s armor.head with black_candle{CustomModelData:1}
+# force stationary if not moving
+execute unless score $moving guard-walk-anim matches 1 run item replace entity @s armor.head with black_candle{CustomModelData:1}
+scoreboard players reset $moving guard-walk-anim

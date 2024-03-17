@@ -10,13 +10,16 @@ execute if score $hall-anim guards matches 1 run scoreboard players set $DAMAGE 
 # open door
 execute if score $hall-anim guards matches 20 run setblock 19 83 -5 redstone_torch
 # guards in
+execute if score $hall-anim guards matches 30 run scoreboard players set $override guard-walk-anim 1
 execute if score $hall-anim guards matches 30..33 as @e[tag=hall-guard-L] at @s run tp @s ~ ~ ~-0.2
 execute if score $hall-anim guards matches 30..33 as @e[tag=hall-guard-R] at @s run tp @s ~ ~ ~0.2 
 execute if score $hall-anim guards matches 43..52 as @e[tag=hall-guard] at @s run tp @s ~-.2 ~ ~
 execute if score $hall-anim guards matches 62..65 as @e[tag=hall-guard-L] at @s run tp @s ~ ~ ~0.2
 execute if score $hall-anim guards matches 62..65 as @e[tag=hall-guard-R] at @s run tp @s ~ ~ ~-0.2
+execute if score $hall-anim guards matches 65 run scoreboard players reset $override guard-walk-anim
 # guards start shooting
 execute if score $hall-anim guards matches 65 run tag @e[tag=hall-guard] add shooting-guard
+execute if score $hall-anim guards matches 65 as @e[tag=hall-guard] run item replace entity @s weapon.mainhand with bow
 execute if score $hall-anim guards matches 65 run scoreboard players set $shooting guards 1
 # speed up over time if the player isn't getting out
 execute if score $hall-anim guards matches 120 unless score $vent-guards guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 8

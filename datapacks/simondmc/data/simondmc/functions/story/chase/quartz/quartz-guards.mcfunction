@@ -39,9 +39,9 @@ execute if score $quartz-anim-1 guards matches 1 run fill 28 40 -7 -1 40 -7 ligh
 execute if score $quartz-anim-1 guards matches 30 run setblock 2 37 39 redstone_torch
 execute if score $quartz-anim-1 guards matches 30 run setblock 2 37 42 redstone_torch
 # spawn guards
-execute if score $quartz-anim-1 guards matches 30 run summon armor_stand 1 38 40 {Tags:["character","guard","quartz-guard"],Rotation:[-90f,0f],Invulnerable:1b}
-execute if score $quartz-anim-1 guards matches 30 run summon armor_stand 0 38 41 {Tags:["character","guard","quartz-guard"],Rotation:[-90f,0f],Invulnerable:1b}
-execute if score $quartz-anim-1 guards matches 30 run summon armor_stand -1 38 40 {Tags:["character","guard","quartz-guard"],Rotation:[-90f,0f],Invulnerable:1b}
+execute if score $quartz-anim-1 guards matches 30 run summon armor_stand 1 38 40 {Tags:["character","guard","quartz-guard"],Rotation:[-90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-1 guards matches 30 run summon armor_stand 0 38 41 {Tags:["character","guard","quartz-guard"],Rotation:[-90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-1 guards matches 30 run summon armor_stand -1 38 40 {Tags:["character","guard","quartz-guard"],Rotation:[-90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
 # turn the third guard
 execute if score $quartz-anim-1 guards matches 43 run setblock 3 35 40 minecraft:magenta_glazed_terracotta[facing=north]
 
@@ -54,9 +54,9 @@ execute if block 14 39 20 lever[powered=false] run setblock 15 42 21 air
 execute if score $quartz-anim-2 guards matches 40 run setblock 23 37 19 redstone_torch
 execute if score $quartz-anim-2 guards matches 40 run setblock 20 37 19 redstone_torch
 # spawn guards
-execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 22 38 18 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
-execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 21 38 17 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
-execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 22 38 16 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b}
+execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 22 38 18 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 21 38 17 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-2 guards matches 40 run summon armor_stand 22 38 16 {Tags:["character","guard","quartz-guard"],Rotation:[0f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
 # turn the third guard
 execute if score $quartz-anim-2 guards matches 53 run setblock 22 35 20 minecraft:magenta_glazed_terracotta[facing=east]
 
@@ -69,9 +69,9 @@ execute unless block 36 36 15 redstone_torch run setblock 36 42 15 air
 execute if score $quartz-anim-3 guards matches 25 run setblock 38 37 10 redstone_torch
 execute if score $quartz-anim-3 guards matches 25 run setblock 38 37 7 redstone_torch
 # spawn guards
-execute if score $quartz-anim-3 guards matches 25 run summon armor_stand 39 38 8 {Tags:["character","guard","quartz-guard"],Rotation:[90f,0f],Invulnerable:1b}
-execute if score $quartz-anim-3 guards matches 25 run summon armor_stand 40 38 9 {Tags:["character","guard","quartz-guard"],Rotation:[90f,0f],Invulnerable:1b}
-execute if score $quartz-anim-3 guards matches 25 run summon armor_stand 41 38 8 {Tags:["character","guard","quartz-guard"],Rotation:[90f,0f],Invulnerable:1b}
+execute if score $quartz-anim-3 guards matches 25 run summon armor_stand 39 38 8 {Tags:["character","guard","quartz-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-3 guards matches 25 run summon armor_stand 40 38 9 {Tags:["character","guard","quartz-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-3 guards matches 25 run summon armor_stand 41 38 8 {Tags:["character","guard","quartz-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
 # turn the third guard
 execute if score $quartz-anim-3 guards matches 38 run setblock 37 35 8 minecraft:magenta_glazed_terracotta[facing=north]
 
@@ -84,15 +84,16 @@ execute if block 31 39 -6 lever[powered=false] run setblock 30 42 -7 air
 execute if score $quartz-anim-4 guards matches 30 run setblock 17 37 -5 redstone_torch
 execute if score $quartz-anim-4 guards matches 30 run setblock 20 37 -5 redstone_torch
 # spawn guards
-execute if score $quartz-anim-4 guards matches 30 run summon armor_stand 18 38 -4 {Tags:["character","guard","quartz-guard","quartz-4-guard"],Rotation:[-180f,0f],Invulnerable:1b}
-execute if score $quartz-anim-4 guards matches 30 run summon armor_stand 19 38 -3 {Tags:["character","guard","quartz-guard","quartz-4-guard"],Rotation:[-180f,0f],Invulnerable:1b}
-execute if score $quartz-anim-4 guards matches 30 run summon armor_stand 18 38 -2 {Tags:["character","guard","quartz-guard","quartz-4-guard"],Rotation:[-180f,0f],Invulnerable:1b}
+execute if score $quartz-anim-4 guards matches 30 run summon armor_stand 18 38 -4 {Tags:["character","guard","quartz-guard","quartz-4-guard"],Rotation:[-180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-4 guards matches 30 run summon armor_stand 19 38 -3 {Tags:["character","guard","quartz-guard","quartz-4-guard"],Rotation:[-180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $quartz-anim-4 guards matches 30 run summon armor_stand 18 38 -2 {Tags:["character","guard","quartz-guard","quartz-4-guard"],Rotation:[-180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
 # turn the third guard
 execute if score $quartz-anim-4 guards matches 43 run setblock 18 35 -6 minecraft:magenta_glazed_terracotta[facing=west]
 # block return so that player can't run all the way back and place quartz in unintended places
 execute if score $quartz-anim-4 guards matches 30 run fill 31 38 -7 31 39 -7 barrier
 # starting shooting so the player is forced to block up
 execute if score $quartz-anim-4 guards matches 30 as @e[tag=quartz-4-guard] if predicate simondmc:quartz-4 run tag @s add shooting-guard
+execute if score $quartz-anim-4 guards matches 30 as @e[tag=quartz-4-guard] if predicate simondmc:quartz-4 run item replace entity @s weapon.mainhand with bow
 execute if score $quartz-anim-4 guards matches 30 run scoreboard players set $SHOOT-PERIOD guards 3
 execute if score $quartz-anim-4 guards matches 30 run scoreboard players set $machine-gun guards 1
 
