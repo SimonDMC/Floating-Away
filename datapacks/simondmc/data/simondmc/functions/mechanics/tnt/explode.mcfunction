@@ -6,7 +6,7 @@ particle explosion ~ ~ ~ 1 1 1 0 10
 # make sure the player doesnt die haha
 effect give @a resistance 1 4 true
 # enhanced launching (only in first zone so the player can't enter the chase without arrows)
-execute as @a[distance=...3] if predicate simondmc:tnt-1-zone run effect give @s levitation 1 30 true
+execute as @a[distance=...5] if predicate simondmc:tnt-1-zone run effect give @s levitation 1 30 true
 schedule function simondmc:mechanics/tnt/clear-levitation 2t
 # but deal a little damage
 execute as @a[distance=..2] run damage @s 5 out_of_world

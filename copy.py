@@ -1,5 +1,6 @@
 import os
 import shutil
+from playsound import playsound
 
 def duplicate_directory(source_dir, dest_dir):
     # Delete the destination directory if it already exists
@@ -8,6 +9,9 @@ def duplicate_directory(source_dir, dest_dir):
     
     # Copy the entire directory tree without the .git directory
     shutil.copytree(source_dir, dest_dir, ignore=shutil.ignore_patterns('.git*'))
+
+    # Play a sound to indicate that the copy is complete
+    playsound('./copy.wav')
 
 # Get the current directory
 current_dir = os.path.dirname(os.path.abspath(__file__))

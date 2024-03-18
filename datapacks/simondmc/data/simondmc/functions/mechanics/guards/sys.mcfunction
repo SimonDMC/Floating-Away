@@ -5,14 +5,16 @@ execute if block 27 85 -4 spruce_trapdoor[open=true] if block 27 86 -4 spruce_tr
 execute if block 27 85 -3 spruce_trapdoor[open=true] if block 27 86 -3 spruce_trapdoor[open=true] run fill 30 85 -3 28 86 -3 air
 
 # reveal vision if at least partially unflicked
-execute if block 27 85 -4 spruce_trapdoor[open=false] run fill 30 85 -4 28 86 -4 structure_void
-execute if block 27 86 -4 spruce_trapdoor[open=false] run fill 30 85 -4 28 86 -4 structure_void
-execute if block 27 85 -3 spruce_trapdoor[open=false] run fill 30 85 -3 28 86 -3 structure_void
-execute if block 27 86 -3 spruce_trapdoor[open=false] run fill 30 85 -3 28 86 -3 structure_void
+execute if block 27 85 -4 spruce_trapdoor[open=false] run fill 30 85 -4 28 86 -4 light[level=0]
+execute if block 27 86 -4 spruce_trapdoor[open=false] run fill 30 85 -4 28 86 -4 light[level=0]
+execute if block 27 85 -3 spruce_trapdoor[open=false] run fill 30 85 -3 28 86 -3 light[level=0]
+execute if block 27 86 -3 spruce_trapdoor[open=false] run fill 30 85 -3 28 86 -3 light[level=0]
 
-# start animation if in structure block
+# start animation if in structure block or light block level zero (so you can click trapdoors through it)
 execute as @a if predicate simondmc:guard-room unless score $in-anim guards matches 1 at @s if block ~ ~ ~ structure_void run scoreboard players set @s guards 0
 execute as @a if predicate simondmc:guard-room unless score $in-anim guards matches 1 at @s if block ~ ~1 ~ structure_void run scoreboard players set @s guards 0
+execute as @a if predicate simondmc:guard-room unless score $in-anim guards matches 1 at @s if block ~ ~ ~ light[level=0] run scoreboard players set @s guards 0
+execute as @a if predicate simondmc:guard-room unless score $in-anim guards matches 1 at @s if block ~ ~1 ~ light[level=0] run scoreboard players set @s guards 0
 # also start it if near a closed trapdoor and above quartz ore 
 # (trapdoor window exception because you cant put structure voids in the trapdoors)
 execute as @a if predicate simondmc:guard-room at @s if block ~ ~-2 ~ nether_quartz_ore if block ~ ~ ~ spruce_trapdoor[open=false] run scoreboard players set @s guards 0

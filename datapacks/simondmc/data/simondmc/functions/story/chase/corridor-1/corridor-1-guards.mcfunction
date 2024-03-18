@@ -8,9 +8,9 @@ execute if score $corridor-anim-1 guards matches 2 run setblock -45 71 19 air
 execute if score $corridor-anim-1 guards matches 41 run setblock -19 71 2 minecraft:redstone_torch
 execute if score $corridor-anim-1 guards matches 41 run setblock -16 71 2 minecraft:redstone_torch
 # spawn guards
-execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -18 72 3 {Tags:["character","guard","corridor-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
-execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -17 72 4 {Tags:["character","guard","corridor-guard","middle-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
-execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -18 72 5 {Tags:["character","guard","corridor-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}]}
+execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -18 72 3 {Tags:["character","guard","corridor-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -17 72 4 {Tags:["character","guard","corridor-guard","middle-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -18 72 5 {Tags:["character","guard","corridor-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
 # turn the third guard
 execute if score $corridor-anim-1 guards matches 58 run setblock -18 69 -1 minecraft:magenta_glazed_terracotta[facing=west]
 # break wood block once they get there and allow passthrough

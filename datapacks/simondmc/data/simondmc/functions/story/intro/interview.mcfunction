@@ -1,7 +1,9 @@
 # ticking function, controls the intro cutscene/animation up until the player enters the office
 
-execute if score $start-anim story matches 0.. run scoreboard players add $start-anim story 1
+execute if score $start-anim story matches 0.. run scoreboard players add $start-anim story 1 
 execute if score $start-anim story matches 1..360 run ride @r mount @e[tag=interview-chair,limit=1]
+# clear actionbar of sneak to dismount
+execute if score $start-anim story matches 10 run title @a actionbar ""
 execute if score $start-anim story matches 70 as @a at @s run playsound characters.interview voice @s
 execute if score $start-anim story matches 70 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" Alright, I think we\u2019re done here. Do you have any questions? No? Well, in that case, I think the outcome is clear - welcome to Folio!","color":"gray"}]
 execute if score $start-anim story matches 74 as @e[tag=employer-I] run item replace entity @s armor.head with blue_candle{CustomModelData:6}
