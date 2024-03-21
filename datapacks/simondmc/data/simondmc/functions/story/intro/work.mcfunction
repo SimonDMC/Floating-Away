@@ -67,7 +67,7 @@ execute as @e[tag=work-villager] at @s if block ~ ~-2 ~ reinforced_deepslate run
 # anims
 execute if score $tutorial-anim work matches 0.. run scoreboard players add $tutorial-anim work 1
 execute if score $tutorial-anim work matches 1 as @a at @s run playsound characters.test-run voice @s
-execute if score $tutorial-anim work matches 1 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" So! Your job is simple. See what I\u2019m holding right now? These will start coming in from the conveyor belt in front of you.","color":"gray"}]
+execute if score $tutorial-anim work matches 1 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" So! Your job is simple. You see what I\u2019m holding right now? These will start coming in from the conveyor belt in front of you.","color":"gray"}]
 execute if score $tutorial-anim work matches 1 run scoreboard players set $employer-walking story 1
 execute if score $tutorial-anim work matches 1..5 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
 execute if score $tutorial-anim work matches 6 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -90 0

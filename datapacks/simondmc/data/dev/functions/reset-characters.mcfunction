@@ -4,8 +4,8 @@ kill @e[tag=character]
 summon villager 52.0 85 -52.5 {Silent:1b,Invulnerable:1b,NoAI:1b,Tags:["character","receptionist"],VillagerData:{profession:"minecraft:nitwit",type:"minecraft:plains"},Offers:{}}
 
 # hall guards
-summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard"],Invulnerable:1b,Invisible:1b,Rotation:[-90f, 0f],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
-summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard"],Invulnerable:1b,Invisible:1b,Rotation:[-90f, 0f],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard","high-melee-guard"],Invulnerable:1b,Invisible:1b,Rotation:[-90f, 0f],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard","high-melee-guard"],Invulnerable:1b,Invisible:1b,Rotation:[-90f, 0f],DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
 
 # employer interview room
 summon armor_stand 12.8 85.3 -56.5 {Tags:["character","employer-I"],Invulnerable:1b,Invisible:1b,NoGravity:1b,Rotation:[-90f, 0f],ArmorItems:[{},{},{},{id:"minecraft:blue_candle",Count:1b,tag:{CustomModelData:2}}],DisabledSlots:4144959}

@@ -54,3 +54,4 @@ scoreboard objectives add work dummy
 scoreboard objectives add presentation dummy
 scoreboard objectives add stats dummy
 scoreboard objectives add guard-walk-anim dummy
+scoreboard objectives add music dummy

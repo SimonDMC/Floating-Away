@@ -37,3 +37,4 @@ execute if score $phase story matches 1.. run function simondmc:story/armor
 function simondmc:settings
 execute unless score $phase story matches 1.. run function simondmc:start/start-area
 execute if score $phase story matches 1..7 if score $cached timewarper matches 1 run function simondmc:timer
+execute if score $phase story matches 1..8 run function simondmc:music/music

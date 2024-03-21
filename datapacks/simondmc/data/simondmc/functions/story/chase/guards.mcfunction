@@ -20,10 +20,11 @@ execute as @e[type=arrow] at @s positioned ~ ~-2 ~ if entity @e[type=villager,di
 execute as @e[type=arrow] if score @s arrow matches 10.. at @s positioned ~ ~-2 ~ if entity @e[type=armor_stand,distance=..1] run kill @s
 
 # movement
-execute as @e[tag=guard] at @s run function simondmc:story/chase/guard-movement
+execute as @e[tag=guard,tag=!stationary-vent-guard] at @s run function simondmc:story/chase/guard-movement
 
 # melee guards
 execute as @a at @s as @e[tag=guard,distance=..2] run damage @p 8 mob_attack by @s
+execute as @a at @s as @e[tag=high-melee-guard,distance=..2] run damage @p 14 mob_attack by @s
 
 # reduce arrow damage while in the first corridor
 execute if score $phase story matches 7 as @a if predicate simondmc:corridor-1-shoot run effect give @s resistance 1 0 true

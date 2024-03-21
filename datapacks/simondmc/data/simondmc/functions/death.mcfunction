@@ -16,10 +16,9 @@ execute if score $phase story matches 6 run clone 2 79 -13 6 83 -13 2 96 -13
 execute if score $phase story matches 6 run scoreboard players reset * guards
 execute if score $phase story matches 6 run scoreboard players reset $security-anim guards
 execute if score $phase story matches 6 run stopsound @a voice
-execute if score $phase story matches 6 run kill @e[tag=hall-guard]
-execute if score $phase story matches 6 run kill @e[tag=vent-guard]
-execute if score $phase story matches 6 run summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f],Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
-execute if score $phase story matches 6 run summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard"],Invulnerable:1b,Rotation:[-90f, 0f],Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+execute if score $phase story matches 6 run kill @e[tag=guard]
+execute if score $phase story matches 6 run summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard","high-melee-guard"],Invulnerable:1b,Rotation:[-90f, 0f],Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+execute if score $phase story matches 6 run summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard","high-melee-guard"],Invulnerable:1b,Rotation:[-90f, 0f],Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
 execute if score $phase story matches 6 run scoreboard players set $DAMAGE guards 6
 execute if score $phase story matches 6 run clear @a carrot
 execute if score $phase story matches 6 run clear @a potato
@@ -29,6 +28,7 @@ execute if score $phase story matches 6 run kill @e[tag=float-arrow]
 execute if score $phase story matches 6 run summon minecraft:item_display 7.5 88.0315 -8.125 {Tags:["display","float-arrow"],item:{Count:1b,id:"minecraft:carrot"},transformation:{left_rotation:[0.7010574f,0.09229595f,-0.09229595f,0.7010574f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.59999996f,0.5999997f,0.5999997f],translation:[0.0f,0.0f,0.0f]}}
 execute if score $phase story matches 6 run summon minecraft:item_display 7.0 88.0 -8.5 {Tags:["display","float-arrow"],item:{Count:1b,id:"minecraft:carrot"},transformation:{left_rotation:[-0.09841033f,-0.7002252f,0.7002252f,-0.09841033f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.59999996f,0.59999937f,0.59999937f],translation:[0.0f,0.0f,0.0f]}}
 # give back wall-breaking tnt
+execute if score $phase story matches 6 run clear @a tnt
 execute if score $phase story matches 6 run give @r tnt{CanPlaceOn:["minecraft:redstone_block"],display:{Lore:['{"text":" "}','{"text":"Strong enough to destroy","color":"dark_gray"}','{"text":"wood, but not strong","color":"dark_gray"}','{"text":"enough to shatter metal.","color":"dark_gray"}','{"text":" "}','{"text":"Can be placed on:","color":"gray","italic":false}','{"text":"Rusty Block of Iron","color":"dark_gray","italic":false}']},HideFlags:16}
 
 # death during chase
@@ -46,9 +46,13 @@ execute if score $phase story matches 7 run kill @e[tag=corridor-2-guard]
 execute if score $phase story matches 7 run kill @e[tag=corridor-3-guard]
 execute if score $phase story matches 7 run kill @e[tag=quartz-guard]
 # new vent shooting guards
-execute if score $phase story matches 7 run summon armor_stand -6 92 -18 {Tags:["character","guard","vent-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],HandItems:[{id:"minecraft:bow",Count:1b},{}],CustomName:'{"text":"Guard"}'}
-execute if score $phase story matches 7 run summon armor_stand -7 92 -17 {Tags:["character","guard","vent-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],HandItems:[{id:"minecraft:bow",Count:1b},{}],CustomName:'{"text":"Guard"}'}
-execute if score $phase story matches 7 run summon armor_stand -8 92 -16 {Tags:["character","guard","vent-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],HandItems:[{id:"minecraft:bow",Count:1b},{}],CustomName:'{"text":"Guard"}'}
+execute if score $phase story matches 7 run summon armor_stand -6 92 -18 {Tags:["character","guard","vent-guard","high-melee-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],HandItems:[{id:"minecraft:bow",Count:1b},{}],CustomName:'{"text":"Guard"}'}
+execute if score $phase story matches 7 run summon armor_stand -7 92 -17 {Tags:["character","guard","vent-guard","high-melee-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],HandItems:[{id:"minecraft:bow",Count:1b},{}],CustomName:'{"text":"Guard"}'}
+execute if score $phase story matches 7 run summon armor_stand -8 92 -16 {Tags:["character","guard","vent-guard","high-melee-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],HandItems:[{id:"minecraft:bow",Count:1b},{}],CustomName:'{"text":"Guard"}'}
+# new stationary vent guards
+execute if score $phase story matches 7 run summon armor_stand -5 108 -18 {Tags:["character","guard","stationary-vent-guard","high-melee-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+execute if score $phase story matches 7 run summon armor_stand -5 108 -17 {Tags:["character","guard","stationary-vent-guard","high-melee-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+execute if score $phase story matches 7 run summon armor_stand -5 108 -16 {Tags:["character","guard","stationary-vent-guard","high-melee-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
 # close corridor 1 doors
 execute if score $phase story matches 7 run setblock -19 71 2 air
 execute if score $phase story matches 7 run setblock -16 71 2 air

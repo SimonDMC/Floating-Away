@@ -12,17 +12,21 @@ schedule function simondmc:mechanics/tnt/clear-levitation 2t
 execute as @a[distance=..2] run damage @s 5 out_of_world
 execute as @a[distance=..2] run damage @s 5 explosion by @s
 # break wall if near
-execute if predicate simondmc:tnt-wall run fill 3 97 -13 5 99 -13 air destroy
-execute if predicate simondmc:tnt-wall run fill 2 98 -13 2 99 -13 air destroy
-execute if predicate simondmc:tnt-wall run setblock 5 100 -13 air destroy
-execute if predicate simondmc:tnt-wall run setblock 6 98 -13 air destroy
-execute if predicate simondmc:tnt-wall run setblock 4 96 -13 air destroy
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run fill 3 97 -13 5 99 -13 air destroy
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run fill 2 98 -13 2 99 -13 air destroy
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run setblock 5 100 -13 air destroy
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run setblock 6 98 -13 air destroy
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run setblock 4 96 -13 air destroy
 # and set spawnpoint for hall ambush
-execute if predicate simondmc:tnt-wall run spawnpoint @a 4 97 -17 0
-# start hall guard animation
-execute if predicate simondmc:tnt-wall run scoreboard players set $hall-anim guards 0
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run spawnpoint @a 4 97 -17 0
 # start boss animation
-execute if predicate simondmc:tnt-wall run scoreboard players set $security-anim presentation 0
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $security-anim presentation 0
+# spawn guards to prevent escaping
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall unless entity @e[tag=tnt-vent-guard] run function simondmc:mechanics/tnt/spawn-guards
+# snap player back to tnt if they're trying to escape
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run tp @a[distance=10..] @s
 # advance story phase
-execute if predicate simondmc:tnt-wall run scoreboard players set $phase story 6
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $phase story 6
+# start hall guard animation
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $hall-anim guards 0
 execute at @s run kill @s

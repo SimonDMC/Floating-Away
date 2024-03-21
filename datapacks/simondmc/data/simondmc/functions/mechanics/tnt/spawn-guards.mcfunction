@@ -1,0 +1,5 @@
+# called by simondmc:mechanics/tnt/explode, spawns stationary guards near the TNT dispenser to prevent going back
+
+summon armor_stand 21 91 -18 {Tags:["character","high-melee-guard","tnt-vent-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+summon armor_stand 21 91 -17 {Tags:["character","high-melee-guard","tnt-vent-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+summon armor_stand 21 91 -16 {Tags:["character","high-melee-guard","tnt-vent-guard"],Rotation:[90f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}

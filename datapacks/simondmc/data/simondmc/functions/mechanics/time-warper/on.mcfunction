@@ -8,3 +8,8 @@ scoreboard players reset $off-tick timewarper
 # replace item
 execute as @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick"}}] run item modify entity @s weapon.mainhand simondmc:time-warper/on
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b}]}] run item modify entity @s weapon.offhand simondmc:time-warper/on
+# slow down music
+execute if predicate simondmc:time-warper-decommissioned run stopsound @a ambient
+execute if predicate simondmc:time-warper-decommissioned as @a at @s run playsound music.decommissioned-slowing ambient @s
+execute if predicate simondmc:time-warper-decommissioned run scoreboard players reset $track-4-timer music
+scoreboard players set $slow-type music 1
