@@ -19,4 +19,7 @@ execute if score $start elevator matches 81 as @a at @s run fill 69 85 -77 69 87
 execute if score $start elevator matches 81 as @a at @s run playsound block.chain.break master @s ~ ~ ~ 1 0
 execute if score $start elevator matches 101 as @a at @s run fill 69 85 -76 69 87 -78 air
 execute if score $start elevator matches 101 as @a at @s run playsound block.chain.break master @s ~ ~ ~ 1 0
-execute if score $start elevator matches 101 run scoreboard players reset $start elevator
+execute if score $start elevator matches 121 run stopsound @a ambient
+execute if score $start elevator matches 121 as @a at @s run playsound music.office ambient @s
+execute if score $start elevator matches 121 run scoreboard players set $track music 3
+execute if score $start elevator matches 121 run scoreboard players reset $start elevator

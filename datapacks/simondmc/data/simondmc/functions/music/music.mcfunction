@@ -7,6 +7,12 @@
 # 3 - speeding
 # all of these have to be tracked separately due to various ending times to know when to restart it
 
+# initial playing handled in simondmc:mechanics/elevator
+execute if score $track music matches 3 run scoreboard players add $track-3-timer music 1
+execute if score $track-3-timer music matches 2700 run stopsound @a ambient
+execute if score $track-3-timer music matches 2700 as @a at @s run playsound music.office ambient @a
+execute if score $track-3-timer music matches 2700 run scoreboard players reset $track-3-timer music
+
 execute unless score $track music matches 4.. as @a if predicate simondmc:music/decommissioned run stopsound @a ambient
 execute unless score $track music matches 4.. as @a if predicate simondmc:music/decommissioned as @a at @s run playsound music.decommissioned ambient @s
 execute unless score $track music matches 4.. as @a if predicate simondmc:music/decommissioned run scoreboard players set $track music 4
