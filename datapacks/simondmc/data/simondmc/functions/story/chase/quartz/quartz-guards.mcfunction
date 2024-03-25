@@ -92,10 +92,10 @@ execute if score $quartz-anim-4 guards matches 43 run setblock 18 35 -6 minecraf
 # block return so that player can't run all the way back and place quartz in unintended places
 execute if score $quartz-anim-4 guards matches 30 run fill 31 38 -7 31 39 -7 barrier
 # starting shooting so the player is forced to block up
-execute if score $quartz-anim-4 guards matches 30 as @e[tag=quartz-4-guard] if predicate simondmc:quartz-4 run tag @s add shooting-guard
-execute if score $quartz-anim-4 guards matches 30 as @e[tag=quartz-4-guard] if predicate simondmc:quartz-4 run item replace entity @s weapon.mainhand with bow
-execute if score $quartz-anim-4 guards matches 30 run scoreboard players set $SHOOT-PERIOD guards 3
-execute if score $quartz-anim-4 guards matches 30 run scoreboard players set $machine-gun guards 1
+execute if score $quartz-anim-4 guards matches 50 as @e[tag=quartz-4-guard] if predicate simondmc:quartz-4 run tag @s add shooting-guard
+execute if score $quartz-anim-4 guards matches 50 as @e[tag=quartz-4-guard] if predicate simondmc:quartz-4 run item replace entity @s weapon.mainhand with bow
+execute if score $quartz-anim-4 guards matches 50 run scoreboard players set $SHOOT-PERIOD guards 3
+execute if score $quartz-anim-4 guards matches 50 run scoreboard players set $machine-gun guards 1
 
 # don't allow guard passthrough if blocking the path
 function simondmc:story/chase/quartz/guard-blocking

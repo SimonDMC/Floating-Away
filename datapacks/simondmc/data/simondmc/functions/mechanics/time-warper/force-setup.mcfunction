@@ -27,3 +27,11 @@ execute unless entity @e[tag=paused-8-placeholder] as @a[tag=paused-8] at @s run
 # keep in place
 tp @a 31.5 107 -59.5
 gamemode spectator @a
+stopsound @a voice
+stopsound @a ambient
+scoreboard players reset $track-1-timer music
+scoreboard players reset $track-2-timer music
+scoreboard players reset $track-3-timer music
+scoreboard players reset $track-4-timer music
+scoreboard players reset $track-5-timer music
+scoreboard players reset $track-6-timer music

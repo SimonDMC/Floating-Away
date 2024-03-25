@@ -29,6 +29,8 @@ execute as @a if score @s guards matches 1 at @s run function simondmc:mechanics
 execute as @a if score @s guards matches 1 run gamemode spectator @a
 execute as @a if score @s guards matches 1..60 at @s as @a run spectate @e[tag=hall-guard,limit=1,sort=nearest] @s
 execute as @a if score @s guards matches 2 run loot replace entity @e[tag=guard-anim-player] armor.head loot simondmc:player-head
+execute as @a if score @s guards matches 2 run item replace entity @e[tag=guard-anim-player] weapon.mainhand from entity @s weapon.mainhand
+execute as @a if score @s guards matches 2 run item replace entity @e[tag=guard-anim-player] weapon.offhand from entity @s weapon.offhand
 # remove door because it will be replaced with a closed one and we stopsound next tick
 execute as @a if score @s guards matches 2 run fill 31 85 -10 31 86 -11 air
 execute as @a if score @s guards matches 3 run stopsound @a * minecraft:block.wood.break

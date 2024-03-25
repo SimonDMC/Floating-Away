@@ -26,3 +26,6 @@ scoreboard players set $seconds stats 0
 scoreboard players set $minutes stats 0
 scoreboard players set $hours stats 0
 scoreboard players set $deaths stats 0
+# play first track
+execute as @a at @s run playsound music.welcome-to-folio ambient @s
+scoreboard players set $track music 1

@@ -21,3 +21,10 @@ tag @a remove paused-8
 gamemode adventure @a
 scoreboard players reset $paused start
 function simondmc:mechanics/time-warper/setup
+# start playing music again
+execute if score $track music matches 1 as @a at @s run playsound music.welcome-to-folio ambient @s
+execute if score $track music matches 2 as @a at @s run playsound music.stronger-than-gravity ambient @s
+execute if score $track music matches 3 as @a at @s run playsound music.ground-level ambient @s
+execute if score $track music matches 4 as @a at @s run playsound music.out-of-order ambient @s
+execute if score $track music matches 5 as @a at @s run playsound music.sneaking-around ambient @s
+execute if score $track music matches 6 as @a at @s run playsound music.floating-away ambient @s
