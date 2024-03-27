@@ -22,6 +22,13 @@ execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players se
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players set $SHOOT-PERIOD guards 3
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run tag @e[tag=middle-guard] add machine-gun-guard
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] as @e[tag=middle-guard] run item replace entity @s weapon.mainhand with bow
+# mark the player as not having flicked lever for glow clue
+execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players set $missed-lever guards 1
+# remove mark if lever flicked
+execute if block -45 73 20 lever[powered=false] run scoreboard players reset $missed-lever guards
+# also remove glowing hint if lever flicked
+execute if block -45 73 20 lever[powered=false] run kill @e[tag=corridor-lever]
+# start shooting fast
 execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run scoreboard players reset $machine-gun
 execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run scoreboard players set $SHOOT-PERIOD guards 10
 execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run tag @e[tag=machine-gun-guard] remove machine-gun-guard

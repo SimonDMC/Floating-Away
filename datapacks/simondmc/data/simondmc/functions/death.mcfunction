@@ -34,6 +34,10 @@ execute if score $phase story matches 6 run give @r tnt{CanPlaceOn:["minecraft:r
 # death during chase
 # everyone back to spawn
 execute if score $phase story matches 7 run tp @a -8 80 -3 90 0
+# increase amount of times player died due to not flicking 1->2 lever
+execute if score $phase story matches 7 if score $door-lever guards matches 1 run scoreboard players add $lever-misses story 1
+# and add a glowing hint if 5 misses
+execute if score $phase story matches 7 if score $lever-misses story matches 5 run summon minecraft:block_display -44.5 73.5 20.5 {Tags:["display","corridor-lever"],Glowing:1b,block_state:{Name:"minecraft:lever",Properties:{face:"wall",facing:"north",powered:"true"}},transformation:{left_rotation:[0.0f,1.0f,0.0f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[0.5f,-0.5f,0.5f]}}
 execute if score $phase story matches 7 run scoreboard players reset * guards
 execute if score $phase story matches 7 run scoreboard players set $shooting guards 1
 execute if score $phase story matches 7 run scoreboard players set $SHOOT-PERIOD guards 10

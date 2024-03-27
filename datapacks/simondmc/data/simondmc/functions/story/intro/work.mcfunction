@@ -152,6 +152,9 @@ execute if score $shift-end-anim work matches 277 run tp @a 37.8 105.50 8.50 -90
 execute if score $shift-end-anim work matches 277 run gamemode adventure @a
 execute if score $shift-end-anim work matches 333 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
 execute if score $shift-end-anim work matches 333 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
+execute if score $shift-end-anim work matches 353 run stopsound @a ambient
 execute if score $shift-end-anim work matches 353 run playsound sfx.audience-fadein voice @a 17 105 -1 4
 execute if score $shift-end-anim work matches 353 run schedule function simondmc:story/intro/audience-noise 5s
-execute if score $shift-end-anim work matches 353 run scoreboard players reset $shift-end-anim work
+execute if score $shift-end-anim work matches 363 as @a at @s run playsound music.stronger-than-gravity ambient @s
+execute if score $shift-end-anim work matches 363 run scoreboard players set $track music 2
+execute if score $shift-end-anim work matches 363 run scoreboard players reset $shift-end-anim work

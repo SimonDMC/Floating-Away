@@ -75,4 +75,6 @@ execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-wa
 execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 7 run item replace entity @s armor.head with black_candle{CustomModelData:1}
 # force stationary if not moving
 execute unless score $moving guard-walk-anim matches 1 run item replace entity @s armor.head with black_candle{CustomModelData:1}
+# force stationary if in front of pit (corridor 3)
+execute if block ~ ~8 ~ nether_gold_ore if block ~ ~-2 ~.3 air run item replace entity @s armor.head with black_candle{CustomModelData:1}
 scoreboard players reset $moving guard-walk-anim

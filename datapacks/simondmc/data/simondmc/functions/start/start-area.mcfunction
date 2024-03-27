@@ -18,7 +18,3 @@ execute as @e[tag=creator-int] if data entity @s interaction on target run funct
 execute as @e[tag=creator-int] if data entity @s attack unless data entity @s interaction on attacker run function simondmc:start/click-creator
 execute as @e[tag=creator-int] if data entity @s interaction run data remove entity @s interaction
 execute as @e[tag=creator-int] if data entity @s attack run data remove entity @s attack
-
-# stop sounds as soon as they've been preloaded
-stopsound @a voice
-stopsound @a ambient

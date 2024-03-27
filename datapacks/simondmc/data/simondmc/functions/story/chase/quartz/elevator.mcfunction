@@ -26,6 +26,8 @@ execute if score $end elevator matches 55 as @e[tag=end-elevator] run data merge
 execute if score $end elevator matches 300 as @e[tag=ending-stand] run data merge entity @s {CustomNameVisible:1b}
 execute if score $end elevator matches 352 run fill -6 64 -8 -4 64 -6 minecraft:quartz_block
 execute if score $end elevator matches 352 run setblock -5 64 -7 minecraft:gold_block
+# there are STILL ways to block yourself from reaching the top so tp to the top if still in elevator shaft
+execute as @a if predicate simondmc:in-elevator run tp @s -4.5 65 -6.5 90 0
 # prune old guards because they target if you up arrow to the top
 execute if score $end elevator matches 352 run kill @e[tag=vent-guard]
 execute if score $end elevator matches 352 run scoreboard players set $end-anim story 0

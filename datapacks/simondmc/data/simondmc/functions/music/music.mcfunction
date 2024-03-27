@@ -13,6 +13,12 @@ execute if score $track-1-timer music matches 2240 run stopsound @a ambient
 execute if score $track-1-timer music matches 2240 as @a at @s run playsound music.welcome-to-folio ambient @s
 execute if score $track-1-timer music matches 2240 run scoreboard players reset $track-1-timer music
 
+# initial playing handled in simondmc:story/intro/work
+execute if score $track music matches 2 run scoreboard players add $track-2-timer music 1
+execute if score $track-2-timer music matches 3200 run stopsound @a ambient
+execute if score $track-2-timer music matches 3200 as @a at @s run playsound music.stronger-than-gravity ambient @s
+execute if score $track-2-timer music matches 3200 run scoreboard players reset $track-2-timer music
+
 # initial playing handled in simondmc:mechanics/elevator
 execute if score $track music matches 3 run scoreboard players add $track-3-timer music 1
 execute if score $track-3-timer music matches 2700 run stopsound @a ambient

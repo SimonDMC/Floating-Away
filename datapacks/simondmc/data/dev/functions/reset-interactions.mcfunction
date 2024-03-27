@@ -8,7 +8,7 @@ summon interaction 31.5 95.4 -63.55 {width:1.2f,height:0.45f,Tags:["interaction"
 summon interaction 31.5 95.25 -54.6 {width:2.9f,height:1f,Tags:["interaction","start-room-int","creator-int"],response:1b}
 
 # water dispenser
-summon interaction 27.5 85.375 -55.0625 {width:0.375f,height:0.25f,Tags:["interaction","water-button-int"],response:1b}
+summon interaction 27.5 85.375 -55.0 {width:0.5f,height:0.3f,Tags:["interaction","water-button-int"],response:1b}
 
 # combination lock
 summon interaction 21.775 86.6 -32.0625 {width:0.1f,height:0.1f,Tags:["interaction","combination-lock-int","button-1"]}
