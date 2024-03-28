@@ -35,7 +35,7 @@ execute if score $phase story matches 6 run give @r tnt{CanPlaceOn:["minecraft:r
 # everyone back to spawn
 execute if score $phase story matches 7 run tp @a -8 80 -3 90 0
 # increase amount of times player died due to not flicking 1->2 lever
-execute if score $phase story matches 7 if score $door-lever guards matches 1 run scoreboard players add $lever-misses story 1
+execute if score $phase story matches 7 if score $missed-lever guards matches 1 run scoreboard players add $lever-misses story 1
 # and add a glowing hint if 5 misses
 execute if score $phase story matches 7 if score $lever-misses story matches 5 run summon minecraft:block_display -44.5 73.5 20.5 {Tags:["display","corridor-lever"],Glowing:1b,block_state:{Name:"minecraft:lever",Properties:{face:"wall",facing:"north",powered:"true"}},transformation:{left_rotation:[0.0f,1.0f,0.0f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[0.5f,-0.5f,0.5f]}}
 execute if score $phase story matches 7 run scoreboard players reset * guards
@@ -130,5 +130,15 @@ execute if score $phase story matches 7 run fill 28 40 -7 -1 40 -7 air
 execute if score $phase story matches 7 run fill -3 38 -6 -3 40 -8 iron_block
 execute if score $phase story matches 7 as @e[tag=end-elevator-door] run data merge entity @s {transformation:{translation:[-0.5f,-0.5f,-0.5f]}}
 execute if score $phase story matches 7 run scoreboard players reset * elevator
+# reset give up trigger
+execute if score $phase story matches 7 run scoreboard players reset @a give-up-trigger
+
+# reset music
+execute if score $phase story matches 6..7 run scoreboard players reset * music
+execute if score $phase story matches 6..7 run stopsound @a ambient
+execute if score $phase story matches 7 run scoreboard players set $track music 63
+execute if score $phase story matches 7 run scoreboard players set $track-63-timer music -1
+execute if score $phase story matches 7 as @a at @s run playsound music.floating-away-corridors-1 ambient @s
+execute if score $phase story matches 7 as @a at @s run tellraw @a[tag=music-debug] "starting 6-3"
 
 scoreboard players reset @a death

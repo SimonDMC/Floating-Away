@@ -55,3 +55,4 @@ scoreboard objectives add presentation dummy
 scoreboard objectives add stats dummy
 scoreboard objectives add guard-walk-anim dummy
 scoreboard objectives add music dummy
+scoreboard objectives add give-up-trigger trigger

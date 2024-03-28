@@ -27,6 +27,10 @@ execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wal
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run tp @a[distance=10..] @s
 # advance story phase
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $phase story 6
+# play hall segment of track 6
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $track music 61
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall as @a at @s run playsound music.floating-away-hall ambient @s 
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall as @a at @s run tellraw @a[tag=music-debug] "starting 6-1"
 # start hall guard animation
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $hall-anim guards 0
 execute at @s run kill @s

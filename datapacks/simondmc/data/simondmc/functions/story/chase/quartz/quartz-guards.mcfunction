@@ -96,6 +96,12 @@ execute if score $quartz-anim-4 guards matches 50 as @e[tag=quartz-4-guard] if p
 execute if score $quartz-anim-4 guards matches 50 as @e[tag=quartz-4-guard] if predicate simondmc:quartz-4 run item replace entity @s weapon.mainhand with bow
 execute if score $quartz-anim-4 guards matches 50 run scoreboard players set $SHOOT-PERIOD guards 3
 execute if score $quartz-anim-4 guards matches 50 run scoreboard players set $machine-gun guards 1
+# let the player give up after 20 seconds in case they blocked themselves in
+execute if score $quartz-anim-4 guards matches 400 unless score $end elevator matches -1.. run tellraw @a ["",{"text":"Give up? ","color":"green","clickEvent":{"action":"run_command","value":"/trigger give-up-trigger"}},{"text":"(in case you blocked yourself in)","color":"gray","clickEvent":{"action":"run_command","value":"/trigger give-up-trigger"}}]
+execute if score $quartz-anim-4 guards matches 400 unless score $end elevator matches -1.. run scoreboard players enable @a give-up-trigger
+execute as @a if score @s give-up-trigger matches 1.. run kill @a
+execute as @a if score @s give-up-trigger matches ..-1 run kill @a
+execute as @a if score @s give-up-trigger matches 0 run scoreboard players enable @a give-up-trigger
 
 # don't allow guard passthrough if blocking the path
 function simondmc:story/chase/quartz/guard-blocking

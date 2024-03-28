@@ -53,6 +53,7 @@ execute if block ~ 65 ~ deepslate_emerald_ore run tag @s add elevated
 execute if score @s guards matches 1.. run scoreboard players remove @s guards 1
 
 # walking model animation (steps)
+scoreboard players reset $moving guard-walk-anim
 execute if score $override guard-walk-anim matches 1 run scoreboard players set $moving guard-walk-anim 1
 execute if block ~ ~-1.1 ~ deepslate_coal_ore run scoreboard players set $moving guard-walk-anim 1
 execute if block ~ ~4.9 ~ deepslate_coal_ore run scoreboard players set $moving guard-walk-anim 1
@@ -77,4 +78,3 @@ execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-wa
 execute unless score $moving guard-walk-anim matches 1 run item replace entity @s armor.head with black_candle{CustomModelData:1}
 # force stationary if in front of pit (corridor 3)
 execute if block ~ ~8 ~ nether_gold_ore if block ~ ~-2 ~.3 air run item replace entity @s armor.head with black_candle{CustomModelData:1}
-scoreboard players reset $moving guard-walk-anim

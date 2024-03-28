@@ -28,6 +28,7 @@ execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players se
 execute if block -45 73 20 lever[powered=false] run scoreboard players reset $missed-lever guards
 # also remove glowing hint if lever flicked
 execute if block -45 73 20 lever[powered=false] run kill @e[tag=corridor-lever]
+execute if block -45 73 20 lever[powered=false] run scoreboard players reset $lever-misses story
 # start shooting fast
 execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run scoreboard players reset $machine-gun
 execute if block -45 73 20 lever[powered=false] if entity @a[x=-45.5,y=72,z=20.5,distance=..4] run scoreboard players set $SHOOT-PERIOD guards 10

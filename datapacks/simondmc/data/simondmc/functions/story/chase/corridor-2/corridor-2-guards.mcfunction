@@ -17,7 +17,7 @@ execute if score $corridor-anim-2 guards matches 130.. as @a if predicate simond
 execute if score $corridor-anim-2 guards matches 130 run scoreboard players set $override guard-walk-anim 1
 execute if score $corridor-anim-2 guards matches 130..200 unless score $closed trapdoor matches 1 as @e[tag=corridor-2-guard] run function simondmc:story/chase/corridor-2/move-forward
 # make sure player can't just hang out right above the pit waiting for guards to pass
-execute if score $corridor-anim-2 guards matches 170 as @a if predicate simondmc:pit-1-tunnel run damage @s 100 mob_attack by @e[tag=corridor-2-guard,limit=1]
+execute if score $corridor-anim-2 guards matches 180 unless score $closed trapdoor matches 1 as @a if predicate simondmc:pit-1-tunnel run damage @s 100 mob_attack by @e[tag=corridor-2-guard,limit=1]
 execute if score $corridor-anim-2 guards matches 200 run scoreboard players reset $override guard-walk-anim
 # activate machine gun if guards fall down
 execute if score $corridor-anim-2 guards matches 190 unless score $closed trapdoor matches 1 run scoreboard players set $machine-gun guards 1

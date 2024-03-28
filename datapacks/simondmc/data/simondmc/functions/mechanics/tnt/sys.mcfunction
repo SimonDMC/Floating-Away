@@ -11,5 +11,8 @@ execute if block 16 95 -17 stone_button[powered=true] unless score $pressed tnt 
 execute if block 16 95 -17 stone_button[powered=true] unless score $pressed tnt matches 1 run spawnpoint @a 21 91 -16 90
 execute if block 16 95 -17 stone_button[powered=true] unless score $pressed tnt matches 1 run scoreboard players set $pressed tnt 1
 
+# start playing music before explosion
+execute as @e[type=tnt,nbt={fuse:34s}] at @s run function simondmc:mechanics/tnt/music
+
 # fake explosion
 execute as @e[type=tnt,nbt={fuse:1s}] at @s run function simondmc:mechanics/tnt/explode
