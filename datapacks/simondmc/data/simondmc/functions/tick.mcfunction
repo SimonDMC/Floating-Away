@@ -28,7 +28,7 @@ execute if score $phase story matches 7 run function simondmc:story/chase/corrid
 execute if score $phase story matches 7 run function simondmc:story/chase/corridor-2/corridor-2-guards
 execute if score $phase story matches 7 run function simondmc:story/chase/corridor-3/corridor-3-guards
 execute if score $phase story matches 7 run function simondmc:story/chase/quartz/quartz-guards
-execute if score $phase story matches 7 run function simondmc:story/chase/quartz/elevator
+execute if score $phase story matches 7..8 run function simondmc:story/chase/quartz/elevator
 execute if score $phase story matches 7 run function simondmc:story/chase/misc
 execute if score $phase story matches 7..8 run function simondmc:story/chase/quartz/end
 execute if score $phase story matches 1.. run function simondmc:story/armor

@@ -137,8 +137,11 @@ execute if score $phase story matches 7 run scoreboard players reset @a give-up-
 execute if score $phase story matches 6..7 run scoreboard players reset * music
 execute if score $phase story matches 6..7 run stopsound @a ambient
 execute if score $phase story matches 7 run scoreboard players set $track music 63
-execute if score $phase story matches 7 run scoreboard players set $track-63-timer music -1
+execute if score $phase story matches 7 unless score $on timewarper matches 1 run scoreboard players set $track-63-timer music -1
+execute if score $phase story matches 7 unless score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 normal"
+execute if score $phase story matches 7 if score $on timewarper matches 1 run scoreboard players set $track-63-timer music 2
+execute if score $phase story matches 7 if score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 after tw death"
+execute if score $phase story matches 7 run function simondmc:mechanics/time-warper/macros/20 {"command":"tick rate 20"}
 execute if score $phase story matches 7 as @a at @s run playsound music.floating-away-corridors-1 ambient @s
-execute if score $phase story matches 7 as @a at @s run tellraw @a[tag=music-debug] "starting 6-3"
 
 scoreboard players reset @a death

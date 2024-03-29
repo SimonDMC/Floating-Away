@@ -103,5 +103,13 @@ execute as @a if score @s give-up-trigger matches 1.. run kill @a
 execute as @a if score @s give-up-trigger matches ..-1 run kill @a
 execute as @a if score @s give-up-trigger matches 0 run scoreboard players enable @a give-up-trigger
 
+# don't let guards through closed iron doors
+execute if block 15 38 21 iron_door[open=false] run setblock 14 36 21 air
+execute if block 15 38 21 iron_door[open=true] run setblock 14 36 21 deepslate_coal_ore
+execute if block 36 38 15 iron_door[open=false] run setblock 36 36 16 air
+execute if block 36 38 15 iron_door[open=true] run setblock 36 36 16 deepslate_coal_ore
+execute if block 30 38 -7 iron_door[open=false] run setblock 31 36 -7 air
+execute if block 30 38 -7 iron_door[open=true] run setblock 31 36 -7 deepslate_coal_ore
+
 # don't allow guard passthrough if blocking the path
 function simondmc:story/chase/quartz/guard-blocking

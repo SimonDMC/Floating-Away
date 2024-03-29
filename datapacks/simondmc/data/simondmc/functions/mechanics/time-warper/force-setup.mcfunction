@@ -34,4 +34,9 @@ scoreboard players reset $track-2-timer music
 scoreboard players reset $track-3-timer music
 scoreboard players reset $track-4-timer music
 scoreboard players reset $track-5-timer music
-scoreboard players reset $track-6-timer music
+scoreboard players reset $track-61-timer music
+scoreboard players reset $track-62-timer music
+scoreboard players reset $track-63-timer music
+scoreboard players reset $track-64-timer music
+scoreboard players reset $track-65-timer music
+scoreboard players reset $track-66-timer music

@@ -27,4 +27,9 @@ execute if score $track music matches 2 as @a at @s run playsound music.stronger
 execute if score $track music matches 3 as @a at @s run playsound music.ground-level ambient @s
 execute if score $track music matches 4 as @a at @s run playsound music.out-of-order ambient @s
 execute if score $track music matches 5 as @a at @s run playsound music.sneaking-around ambient @s
-execute if score $track music matches 6 as @a at @s run playsound music.floating-away ambient @s
+execute if score $track music matches 61 as @a at @s run playsound music.floating-away-hall ambient @s
+execute if score $track music matches 62 as @a at @s run playsound music.floating-away-vents ambient @s
+execute if score $track music matches 63 as @a at @s run playsound music.floating-away-corridors-1 ambient @s
+execute if score $track music matches 64 as @a at @s run playsound music.floating-away-underground ambient @s
+execute if score $track music matches 65 as @a at @s run playsound music.floating-away-corridor-3 ambient @s
+execute if score $track music matches 66 as @a at @s run playsound music.floating-away-quartz ambient @s

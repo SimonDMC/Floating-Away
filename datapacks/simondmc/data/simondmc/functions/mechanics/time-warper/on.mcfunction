@@ -12,4 +12,7 @@ execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b}]}] r
 execute if predicate simondmc:time-warper-decommissioned run stopsound @a ambient
 execute if predicate simondmc:time-warper-decommissioned as @a at @s run playsound music.out-of-order-slowing ambient @s
 execute if predicate simondmc:time-warper-decommissioned run scoreboard players reset $track-4-timer music
+execute if predicate simondmc:time-warper-chase run stopsound @a ambient
+execute if predicate simondmc:time-warper-chase as @a at @s run playsound music.floating-away-quartz-slowing ambient @s
+execute if predicate simondmc:time-warper-chase run scoreboard players reset $track-66-timer music
 scoreboard players set $slow-type music 1

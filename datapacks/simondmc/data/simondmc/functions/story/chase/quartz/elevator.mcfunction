@@ -14,6 +14,7 @@ execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $end elevator matc
 execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $end elevator matches 0.. as @e[tag=end-elevator-door] run data merge entity @s {start_interpolation:0,interpolation_duration:40,transformation:{translation:[-0.5f,-0.5f,-0.5f]}}
 # queue up ending music segment
 execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $end elevator matches 0.. run scoreboard players set $67-queued music 1
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $end elevator matches 0.. run tellraw @a[tag=music-debug] "queueing 6-7"
 # anim
 execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $end elevator matches 0.. run scoreboard players set $end elevator 0
 execute if score $end elevator matches 0.. run scoreboard players add $end elevator 1
@@ -25,6 +26,7 @@ execute if score $end elevator matches 50 run effect give @a jump_boost 1 200 tr
 # elevate player
 execute if score $end elevator matches 50 run effect give @a levitation infinite 1 true
 execute if score $end elevator matches 50..362 as @a[x=-6.0,y=66.7,z=-8.0,dy=1,dx=3,dz=3] run effect clear @s levitation
+execute if score $end elevator matches 362 run effect clear @a levitation
 # elevate blocks
 execute if score $end elevator matches 55 as @e[tag=end-elevator] run data merge entity @s {start_interpolation:0,interpolation_duration:297,transformation:{translation:[-0.5f,26.49f,-0.5f]}}
 # reached the top
@@ -38,4 +40,4 @@ execute if score $end elevator matches 352 run kill @e[tag=vent-guard]
 execute if score $end elevator matches 352 run scoreboard players set $end-anim story 0
 execute if score $end elevator matches 352 run scoreboard players set $done story 1
 execute if score $end elevator matches 352 run scoreboard players set $phase story 8
-execute if score $end elevator matches 355 run scoreboard players set $end elevator -1
+execute if score $end elevator matches 365 run scoreboard players set $end elevator -1

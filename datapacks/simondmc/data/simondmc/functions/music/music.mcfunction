@@ -56,6 +56,7 @@ execute if score $track music matches 61 if score $track-61-timer music matches 
 execute if score $track music matches 61 if score $track-61-timer music matches 265 unless score $62-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-1"
 execute if score $track-61-timer music matches 265 unless score $62-queued music matches 1 run scoreboard players reset $track-61-timer music
 # 6-2 queue up
+execute if score $track music matches 61 as @a if predicate simondmc:music/floating-away-vents if entity @s[nbt={Inventory:[{id:"minecraft:carrot"}]}] unless score $62-queued music matches 1 run tellraw @a[tag=music-debug] "queueing 6-2"
 execute if score $track music matches 61 as @a if predicate simondmc:music/floating-away-vents if entity @s[nbt={Inventory:[{id:"minecraft:carrot"}]}] run scoreboard players set $62-queued music 1
 execute if score $track-61-timer music matches 132 if score $62-queued music matches 1 run stopsound @a ambient
 execute if score $track-61-timer music matches 132 if score $62-queued music matches 1 run scoreboard players set $track music 62
@@ -71,6 +72,7 @@ execute if score $track music matches 62 if score $track-62-timer music matches 
 execute if score $track music matches 62 if score $track-62-timer music matches 265 unless score $63-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-2"
 execute if score $track-62-timer music matches 265 unless score $63-queued music matches 1 run scoreboard players reset $track-62-timer music
 # 6-3 queue up
+execute if score $track music matches 62 as @a if predicate simondmc:vent-exit unless score $63-queued music matches 1 run tellraw @a[tag=music-debug] "queueing 6-3"
 execute if score $track music matches 62 as @a if predicate simondmc:vent-exit run scoreboard players set $63-queued music 1
 execute if score $track-62-timer music matches 132 if score $63-queued music matches 1 run stopsound @a ambient
 execute if score $track-62-timer music matches 132 if score $63-queued music matches 1 run scoreboard players set $track music 63
@@ -86,6 +88,7 @@ execute if score $track music matches 63 if score $track-63-timer music matches 
 execute if score $track music matches 63 if score $track-63-timer music matches 265 unless score $64-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-3"
 execute if score $track-63-timer music matches 265 unless score $64-queued music matches 1 run scoreboard players reset $track-63-timer music
 # 6-4 queue up
+execute if score $track music matches 63 as @a if predicate simondmc:music/floating-away-underground unless score $64-queued music matches 1 run tellraw @a[tag=music-debug] "queueing 6-4"
 execute if score $track music matches 63 as @a if predicate simondmc:music/floating-away-underground run scoreboard players set $64-queued music 1
 execute if score $track-63-timer music matches 132 if score $64-queued music matches 1 run stopsound @a ambient
 execute if score $track-63-timer music matches 132 if score $64-queued music matches 1 run scoreboard players set $track music 64
@@ -101,6 +104,7 @@ execute if score $track music matches 64 if score $track-64-timer music matches 
 execute if score $track music matches 64 if score $track-64-timer music matches 265 unless score $65-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-4"
 execute if score $track-64-timer music matches 265 unless score $65-queued music matches 1 run scoreboard players reset $track-64-timer music
 # 6-5 queue up
+execute if score $track music matches 64 as @a if predicate simondmc:music/floating-away-corridor-3 unless score $65-queued music matches 1 run tellraw @a[tag=music-debug] "queueing 6-5"
 execute if score $track music matches 64 as @a if predicate simondmc:music/floating-away-corridor-3 run scoreboard players set $65-queued music 1
 execute if score $track-64-timer music matches 132 if score $65-queued music matches 1 run stopsound @a ambient
 execute if score $track-64-timer music matches 132 if score $65-queued music matches 1 run scoreboard players set $track music 65
@@ -116,6 +120,7 @@ execute if score $track music matches 65 if score $track-65-timer music matches 
 execute if score $track music matches 65 if score $track-65-timer music matches 265 unless score $66-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-5"
 execute if score $track-65-timer music matches 265 unless score $66-queued music matches 1 run scoreboard players reset $track-65-timer music
 # 6-6 queue up
+execute if score $track music matches 65 as @a if predicate simondmc:music/floating-away-quartz unless score $66-queued music matches 1 run tellraw @a[tag=music-debug] "queueing 6-6"
 execute if score $track music matches 65 as @a if predicate simondmc:music/floating-away-quartz run scoreboard players set $66-queued music 1
 execute if score $track-65-timer music matches 132 if score $66-queued music matches 1 run stopsound @a ambient
 execute if score $track-65-timer music matches 132 if score $66-queued music matches 1 run scoreboard players set $track music 66
@@ -127,17 +132,35 @@ execute if score $track-65-timer music matches 265 if score $66-queued music mat
 execute if score $track-65-timer music matches 265 if score $66-queued music matches 1 run tellraw @a[tag=music-debug] "standard 6-6"
 execute if score $track-65-timer music matches 265 if score $66-queued music matches 1 run scoreboard players reset $66-queued music
 execute if score $track music matches 66 run scoreboard players add $track-66-timer music 1
-execute if score $track music matches 66 if score $track-66-timer music matches 265 unless score $67-queued music matches 1 as @a at @s run playsound music.floating-away-quartz ambient @s
-execute if score $track music matches 66 if score $track-66-timer music matches 265 unless score $67-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-6"
-execute if score $track-66-timer music matches 265 unless score $67-queued music matches 1 run scoreboard players reset $track-66-timer music
+# slow down with timewarper
+execute unless score $slow-type music matches 1..3 if score $track music matches 66 if score $track-66-timer music matches 265 unless score $67-queued music matches 1 as @a at @s run playsound music.floating-away-quartz ambient @s
+execute unless score $slow-type music matches 1..3 if score $track music matches 66 if score $track-66-timer music matches 265 unless score $67-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-6"
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 265 unless score $67-queued music matches 1 run scoreboard players reset $track-66-timer music
+execute if score $slow-type music matches 1 if score $track music matches 66 if score $track-66-timer music matches 137 as @a at @s run playsound music.floating-away-quartz ambient @s ~ ~ ~ 1 0
+execute if score $slow-type music matches 1 if score $track music matches 66 if score $track-66-timer music matches 137 run tellraw @a[tag=music-debug] "looping 6-6 slow after slowing"
+execute if score $slow-type music matches 1 if score $track music matches 66 if score $track-66-timer music matches 137 run function simondmc:music/floating-away-quartz-slowing
+execute if score $slow-type music matches 2 if score $track music matches 66 if score $track-66-timer music matches 132 as @a at @s run playsound music.floating-away-quartz ambient @s ~ ~ ~ 1 0
+execute if score $slow-type music matches 2 if score $track music matches 66 if score $track-66-timer music matches 132 run tellraw @a[tag=music-debug] "looping 6-6 slow"
+execute if score $slow-type music matches 2 if score $track-66-timer music matches 132 run scoreboard players reset $track-66-timer music
+execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 unless score $67-queued music matches 1 as @a at @s run playsound music.floating-away-quartz ambient @s
+execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 unless score $67-queued music matches 1 run tellraw @a[tag=music-debug] "looping 6-6 after speeding"
+execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 unless score $67-queued music matches 1 run function simondmc:music/floating-away-quartz-speeding
 # 6-7 queue up handled in simondmc:story/chase/elevator
-execute if score $track-66-timer music matches 132 if score $67-queued music matches 1 run stopsound @a ambient
-execute if score $track-66-timer music matches 132 if score $67-queued music matches 1 run scoreboard players set $track music 67
-execute if score $track-66-timer music matches 132 if score $67-queued music matches 1 as @a at @s run playsound music.floating-away-ending ambient @s
-execute if score $track-66-timer music matches 132 if score $67-queued music matches 1 run tellraw @a[tag=music-debug] "early 6-7"
-execute if score $track-66-timer music matches 132 if score $67-queued music matches 1 run scoreboard players reset $67-queued music
-execute if score $track-66-timer music matches 265 if score $67-queued music matches 1 run scoreboard players set $track music 67
-execute if score $track-66-timer music matches 265 if score $67-queued music matches 1 as @a at @s run playsound music.floating-away-ending ambient @s
-execute if score $track-66-timer music matches 265 if score $67-queued music matches 1 run tellraw @a[tag=music-debug] "standard 6-7"
-execute if score $track-66-timer music matches 265 if score $67-queued music matches 1 run scoreboard players reset $67-queued music
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 132 if score $67-queued music matches 1 run stopsound @a ambient
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 132 if score $67-queued music matches 1 run scoreboard players set $track music 67
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 132 if score $67-queued music matches 1 as @a at @s run playsound music.floating-away-ending ambient @s
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 132 if score $67-queued music matches 1 run tellraw @a[tag=music-debug] "early 6-7"
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 132 if score $67-queued music matches 1 run scoreboard players reset $67-queued music
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 265 if score $67-queued music matches 1 run scoreboard players set $track music 67
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 265 if score $67-queued music matches 1 as @a at @s run playsound music.floating-away-ending ambient @s
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 265 if score $67-queued music matches 1 run tellraw @a[tag=music-debug] "standard 6-7"
+execute unless score $slow-type music matches 1..3 if score $track-66-timer music matches 265 if score $67-queued music matches 1 run scoreboard players reset $67-queued music
+execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 if score $67-queued music matches 1 run stopsound @a ambient
+execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 if score $67-queued music matches 1 as @a at @s run playsound music.floating-away-ending ambient @s
+execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 if score $67-queued music matches 1 run tellraw @a[tag=music-debug] "from slowing 6-7"
+execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 if score $67-queued music matches 1 run scoreboard players set $track music 67
 execute if score $track music matches 67 run scoreboard players add $track-67-timer music 1
+execute if score $track-67-timer music matches 260 run title @a times 0 1000 0
+execute if score $track-67-timer music matches 265 run title @a title {"text":"Map Name","color":"#9DFDFF"}
+execute if score $track-67-timer music matches 298 run title @a subtitle ["",{"text":"by "},{"text":"SimonDMC","color":"green"}]
+execute if score $track-67-timer music matches 330 run title @a clear
