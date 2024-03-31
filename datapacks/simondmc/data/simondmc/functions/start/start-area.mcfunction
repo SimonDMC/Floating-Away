@@ -27,6 +27,7 @@ execute unless score version intro matches 3700 unless score $wrong-version star
 
 # info anim
 execute if score $info-anim start matches 0.. run scoreboard players add $info-anim start 1
-execute if score $info-anim start matches 1 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"Adjust the volume of ","color":"yellow"},{"text":"Voice Acting ","color":"light_purple"},{"text":"(recommended 40%)","color":"gray"}]
-execute if score $info-anim start matches 21 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"Adjust the volume of the ","color":"yellow"},{"text":"Soundtrack ","color":"light_purple"},{"text":"(recommended 20%)","color":"gray"}]
-execute if score $info-anim start matches 41 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"The original soundtrack is fully ","color":"yellow"},{"text":"copyright-free","color":"green"}]
+execute if score $info-anim start matches 1 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"Adjust ","color":"yellow"},{"text":"Voice Acting ","color":"light_purple"},{"text":"in ","color":"yellow"},{"text":"Music & Sounds ","color":"green"},{"text":"(recommended 40%)","color":"gray"}]
+execute if score $info-anim start matches 21 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"Adjust the ","color":"yellow"},{"text":"Soundtrack ","color":"light_purple"},{"text":"in ","color":"yellow"},{"text":"Music & Sounds ","color":"green"},{"text":"(recommended 20%)","color":"gray"}]
+execute if score $info-anim start matches 41 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"The ","color":"yellow"},{"text":"original soundtrack","underlined":true,"color":"yellow","clickEvent":{"action":"open_url","value":"https://example.com"},"hoverEvent":{"action":"show_text","contents":"Click to open the soundtrack!"}},{"text":" is fully ","color":"yellow"},{"text":"copyright-free","color":"green"}]
+execute if score $info-anim start matches 61 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"This map is linear, so you won't need to backtrack","color":"yellow"}]

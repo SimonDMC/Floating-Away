@@ -3,6 +3,10 @@
 # increment death stat
 scoreboard players add $deaths stats 1
 
+# tp all items to some player to make sure you can't lose them
+# there was an issue where dropping an item a few ticks before dying would cause you to lose it
+tp @e[type=item] @r
+
 # death during folio exploration (you shouldn't be able to die anywhere but in case you do)
 # everyone back to spawn
 execute if score $phase story matches 5 run tp @a 34.0 85 -10.0 90 12.3
@@ -14,11 +18,13 @@ execute if score $phase story matches 6 run tp @a 4 97 -17 0 0
 execute if score $phase story matches 6 run clone 2 79 -13 6 83 -13 2 96 -13
 # reset chase
 execute if score $phase story matches 6 run scoreboard players reset * guards
-execute if score $phase story matches 6 run scoreboard players reset $security-anim guards
+execute if score $phase story matches 6 run scoreboard players reset $security-anim presentation
 execute if score $phase story matches 6 run stopsound @a voice
 execute if score $phase story matches 6 run kill @e[tag=guard]
 execute if score $phase story matches 6 run summon armor_stand 20 85 -4 {Tags:["character","hall-guard-L","hall-guard","guard","high-melee-guard"],Invulnerable:1b,Rotation:[-90f, 0f],Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
 execute if score $phase story matches 6 run summon armor_stand 20 85 -6 {Tags:["character","hall-guard-R","hall-guard","guard","high-melee-guard"],Invulnerable:1b,Rotation:[-90f, 0f],Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
+# reset audience
+execute if score $phase story matches 6 run function simondmc:story/chase/hall/reset-villagers
 execute if score $phase story matches 6 run scoreboard players set $DAMAGE guards 6
 execute if score $phase story matches 6 run clear @a carrot
 execute if score $phase story matches 6 run clear @a potato
@@ -64,6 +70,9 @@ execute if score $phase story matches 7 run setblock -16 71 2 air
 execute if score $phase story matches 7 run setblock -18 69 -1 air
 # restore wood block
 execute if score $phase story matches 7 run clone -39 64 -1 -44 65 -3 -44 72 -3
+# reset crate trapdoors
+execute if score $phase story matches 7 run fill -39 74 1 -40 74 -1 minecraft:spruce_trapdoor[facing=east,half=bottom]
+execute if score $phase story matches 7 run fill -41 76 -1 -44 76 -5 minecraft:spruce_trapdoor[facing=east,half=bottom]
 # remove wood block movement blocks
 execute if score $phase story matches 7 run fill -38 70 -5 -38 70 1 air
 execute if score $phase story matches 7 run setblock -37 70 -2 air

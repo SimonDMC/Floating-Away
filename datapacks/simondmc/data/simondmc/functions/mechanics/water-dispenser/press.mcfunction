@@ -15,6 +15,10 @@ scoreboard players add $count waterdispenser 1
 
 particle splash 27.5 85.5 -55.0 0 0 0 1 10 normal
 
+# crackling sounds
+execute if score $count waterdispenser matches 1..2 run playsound entity.turtle.egg_crack master @a 27.5 85.5 -54.5
+execute if score $count waterdispenser matches 3 run playsound entity.turtle.egg_break master @a 27.5 85.5 -54.5
+
 # fill room with water once clicked enough times
 execute if score $count waterdispenser matches 3 run setblock 27 85 -55 water
 execute if score $count waterdispenser matches 4 run setblock 27 86 -55 water

@@ -159,8 +159,4 @@ execute if score $slow-type music matches 3 if score $track music matches 66 if 
 execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 if score $67-queued music matches 1 as @a at @s run playsound music.floating-away-ending ambient @s
 execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 if score $67-queued music matches 1 run tellraw @a[tag=music-debug] "from slowing 6-7"
 execute if score $slow-type music matches 3 if score $track music matches 66 if score $track-66-timer music matches 255 if score $67-queued music matches 1 run scoreboard players set $track music 67
-execute if score $track music matches 67 run scoreboard players add $track-67-timer music 1
-execute if score $track-67-timer music matches 260 run title @a times 0 1000 0
-execute if score $track-67-timer music matches 265 run title @a title {"text":"Map Name","color":"#9DFDFF"}
-execute if score $track-67-timer music matches 298 run title @a subtitle ["",{"text":"by "},{"text":"SimonDMC","color":"green"}]
-execute if score $track-67-timer music matches 330 run title @a clear
+# some 6-7 music stuff is handled in simondmc:story/chase/quartz/elevator

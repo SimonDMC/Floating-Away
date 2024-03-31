@@ -13,7 +13,8 @@ execute as @a if score @s endtrigger matches 433684 at @s run playsound ui.butto
 execute as @a if score @s endtrigger matches 433684 run tellraw @s ["",{"text":"Give Feedback","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"Have feedback to share? I'd love to hear it! Let me know what you liked, disliked, if you found any bugs or anything else ","color":"green"},{"text":"here","bold":true,"color":"aqua","clickEvent":{"action":"open_url","value":"https://simondmc.com/name-here/feedback"}},{"text":"!","color":"green"}]
 
 # click armor stand
-execute as @e[tag=creator-stand-int] if data entity @s interaction on target run function simondmc:start/click-creator
+execute as @e[tag=creator-stand-int] if data entity @s interaction on target run playsound ui.button.click master @s
+execute as @e[tag=creator-stand-int] if data entity @s interaction on target run tellraw @s ["",{"text":"\n"},{"text":"Map by SimonDMC","bold":true,"color":"yellow"},{"text":"\n"},{"text":"> simondmc.com","color":"green","clickEvent":{"action":"open_url","value":"https://simondmc.com"}},{"text":"\n"},{"text":"> youtube.com/SimonDMC","color":"red","clickEvent":{"action":"open_url","value":"https://youtube.com/SimonDMC"}},{"text":"\n\n"},{"text":"Dedicated to ","color":"#A1A1FF"},{"text":"PoldsSlippers","color":"blue","clickEvent":{"action":"open_url","value":"https://youtube.com/PoldsSlippers"}},{"text":"\n\n"},{"text":"Listen to the original soundtrack ","color":"yellow","clickEvent":{"action":"open_url","value":"https://example.com"}},{"text":"here","bold":true,"color":"green","clickEvent":{"action":"open_url","value":"https://example.com"}},{"text":"!","color":"yellow","clickEvent":{"action":"open_url","value":"https://example.com"}},{"text":"\n\n"},{"text":"More of my maps:","color":"#88FF73"},{"text":" simondmc.com/maps","color":"green"}]
 execute as @e[tag=creator-stand-int] run data remove entity @s interaction
 
 # allow clicking if ended
@@ -23,8 +24,3 @@ execute if score $done story matches 1 run scoreboard players enable @a endtrigg
 # particles
 particle minecraft:cloud -7.5 68.5 -6.5 0.1 0.1 0.2 0 1
 particle minecraft:rain -7.5 68.5 -6.5 0.1 0.1 0.2 0 3
-
-# ending anim
-execute if score $end-anim story matches 0.. run scoreboard players add $end-anim story 1
-execute if score $end-anim story matches 20 as @a at @s run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
-execute if score $end-anim story matches 20 run tellraw @a [{"text":""},{"text":"Stats","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"Time Played:","color":"yellow"},{"text":" "},{"score":{"name":"$hours","objective":"stats"},"color":"green"},{"text":"h ","color":"green"},{"score":{"name":"$minutes","objective":"stats"},"color":"green"},{"text":"m ","color":"green"},{"score":{"name":"$seconds","objective":"stats"},"color":"green"},{"text":"s","color":"green"},{"text":"\n"},{"text":"Deaths: ","color":"yellow"},{"score":{"name":"$deaths","objective":"stats"},"color":"green"}]

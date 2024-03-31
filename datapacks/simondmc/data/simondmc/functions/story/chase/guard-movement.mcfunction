@@ -30,18 +30,18 @@ execute unless block ~ ~5.9 ~ magenta_glazed_terracotta unless block ~ ~-2.1 ~ m
 # why am i having a whole discussion here as if anyone else works on this code
 
 # move via tp
-execute unless score @s guards matches 1.. if block ~ ~-1.1 ~ deepslate_coal_ore run tp @s ^ ^ ^.3
-execute unless score @s guards matches 1.. if block ~ ~4.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.3
-execute unless score @s guards matches 1.. if block ~ ~8.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.3
+execute unless score @s guards matches 1.. if block ~ ~-1.1 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
+execute unless score @s guards matches 1.. if block ~ ~4.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
+execute unless score @s guards matches 1.. if block ~ ~8.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
 
 # move with gravity
 # basically when a guard is moved using a tp its y-momentum is reset so it doesn't respect gravity at all
-execute if block ~ ~8 ~ nether_gold_ore if block ~ ~ ~.3 air unless block ~ ~-2 ~.3 air store result score $guard.z guards run data get entity @s Pos[2] 1000
-execute if block ~ ~8 ~ nether_gold_ore if block ~ ~ ~.3 air unless block ~ ~-2 ~.3 air run scoreboard players add $guard.z guards 300
-execute if block ~ ~8 ~ nether_gold_ore if block ~ ~ ~.3 air unless block ~ ~-2 ~.3 air run execute store result entity @s Pos[2] double 0.001 run scoreboard players get $guard.z guards
-execute if block ~ ~9 ~ nether_gold_ore if block ~ ~ ~.3 air unless block ~ ~-2 ~.3 air store result score $guard.z guards run data get entity @s Pos[2] 1000
-execute if block ~ ~9 ~ nether_gold_ore if block ~ ~ ~.3 air unless block ~ ~-2 ~.3 air run scoreboard players add $guard.z guards 300
-execute if block ~ ~9 ~ nether_gold_ore if block ~ ~ ~.3 air unless block ~ ~-2 ~.3 air run execute store result entity @s Pos[2] double 0.001 run scoreboard players get $guard.z guards
+execute if block ~ ~8 ~ nether_gold_ore store result score $guard.z guards run data get entity @s Pos[2] 1000
+execute if block ~ ~8 ~ nether_gold_ore run scoreboard players add $guard.z guards 250
+execute if block ~ ~8 ~ nether_gold_ore run execute store result entity @s Pos[2] double 0.001 run scoreboard players get $guard.z guards
+execute if block ~ ~9 ~ nether_gold_ore store result score $guard.z guards run data get entity @s Pos[2] 1000
+execute if block ~ ~9 ~ nether_gold_ore run scoreboard players add $guard.z guards 250
+execute if block ~ ~9 ~ nether_gold_ore run execute store result entity @s Pos[2] double 0.001 run scoreboard players get $guard.z guards
 # this whole movement thing could maybe have been made easier if i just used four blocks and had everything adhere to gravity
 # but maybe not idk im writing this gravity-based system about a week later so maybe i knew what i was doing (unlikely)
 
@@ -76,5 +76,3 @@ execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-wa
 execute if score $moving guard-walk-anim matches 1 if score $walk-phase guard-walk-anim matches 7 run item replace entity @s armor.head with black_candle{CustomModelData:1}
 # force stationary if not moving
 execute unless score $moving guard-walk-anim matches 1 run item replace entity @s armor.head with black_candle{CustomModelData:1}
-# force stationary if in front of pit (corridor 3)
-execute if block ~ ~8 ~ nether_gold_ore if block ~ ~-2 ~.3 air run item replace entity @s armor.head with black_candle{CustomModelData:1}
