@@ -2,6 +2,8 @@
 # also turns off the time warper if it is on
 scoreboard players set $enabled timewarper 0
 execute if score $on timewarper matches 1 run function simondmc:mechanics/time-warper/off
+# play deactivation sound
+execute at @s run playsound block.conduit.deactivate master @s
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:0b}]}] run item modify entity @s hotbar.0 simondmc:time-warper/disabled
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:1b}]}] run item modify entity @s hotbar.1 simondmc:time-warper/disabled
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:2b}]}] run item modify entity @s hotbar.2 simondmc:time-warper/disabled

@@ -25,3 +25,9 @@ execute if score $current combinationlock matches 5 run scoreboard players set $
 
 # reset pressed
 scoreboard players reset $pressed combinationlock
+
+# close door behind player
+execute unless score $multiplayer stats matches 1 if entity @a[x=22.5,y=85,z=-24.5,distance=..3.5] run setblock 22 83 -32 air
+
+# unpress after three ticks
+execute as @e[tag=combination-lock-int] run function simondmc:mechanics/combination-lock/unpress

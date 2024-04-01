@@ -1,5 +1,7 @@
 # called by simondmc:mechanics/time-warper/sys, replaces the /disabled/ item with the /off/ item irrespective of the slot
 scoreboard players set $enabled timewarper 1
+# play activation sound
+execute at @s run playsound block.conduit.activate master @s
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:0b}]}] run item modify entity @s hotbar.0 simondmc:time-warper/off
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:1b}]}] run item modify entity @s hotbar.1 simondmc:time-warper/off
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:2b}]}] run item modify entity @s hotbar.2 simondmc:time-warper/off

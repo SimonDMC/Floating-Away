@@ -9,9 +9,16 @@ execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work 
 # reset the scoreboard it would mess up so id say this is better
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 if block 39 105 -39 gray_concrete run setblock 39 105 -42 gray_concrete
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 if block 39 105 -39 black_concrete run setblock 39 105 -42 black_concrete
-# move items along conveyor
+
+# move items along real conveyor
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @e[tag=conveyor-item] at @s run tp @s ~ ~ ~1
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @a at @s run playsound minecraft:block.chain.place master @s
+kill @e[tag=conveyor-item,x=39.5,y=106.5,z=34.5,distance=..1]
+
+# move items along fake conveyor
+execute if entity @e[tag=tech-base-fake,x=41.5,y=106.5,z=16.5,distance=...1] unless entity @e[tag=tech-base-fake,x=41.5,y=106.5,z=20.5,distance=...1] run summon minecraft:item_display 41.5 106.5 20.5 {Tags:["display","tech-base-fake"],item:{Count:1b,id:"minecraft:feather",tag:{CustomModelData:1,display:{Name:'{"text":"item/tech-base","italic":false,"color":"yellow"}'}}},transformation:{left_rotation:[0.0f,-0.3826835f,0.0f,0.9238795f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0000001f,0.9999999f,1.0000001f],translation:[0.0f,0.0f,0.0f]}}
+execute if score $conveyor-timer work matches 16 as @e[tag=tech-base-fake] at @s run tp @s ~ ~ ~-1
+kill @e[tag=tech-base-fake,x=41.5,y=106.5,z=-41.5,distance=..1]
 
 # row 3
 execute if score $conveyor-timer work matches 16 run clone 27 105 35 27 105 -41 27 105 -42 replace move
@@ -148,6 +155,7 @@ execute if score $shift-end-anim work matches 275 run kill @e[tag=basket-chip]
 execute if score $shift-end-anim work matches 275 run kill @e[tag=conveyor-item]
 execute if score $shift-end-anim work matches 275 run kill @e[tag=chips-int]
 execute if score $shift-end-anim work matches 276 run kill @e[tag=work-villager]
+execute if score $shift-end-anim work matches 276 run kill @e[tag=tech-base-fake]
 execute if score $shift-end-anim work matches 277 run tp @a 37.8 105.50 8.50 -90 35
 execute if score $shift-end-anim work matches 277 run gamemode adventure @a
 execute if score $shift-end-anim work matches 333 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern

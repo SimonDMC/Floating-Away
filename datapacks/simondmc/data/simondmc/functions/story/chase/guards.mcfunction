@@ -16,7 +16,6 @@ execute if score $shoot-timer guards >= $SHOOT-PERIOD guards run scoreboard play
 scoreboard players add @e[type=arrow] arrow 1
 kill @e[type=arrow,nbt={inGround:1b}]
 # make sure arrows cannot get stuck above invulnerable villagers/guards
-execute as @e[type=arrow] at @s positioned ~ ~-2 ~ if entity @e[type=villager,distance=..1] run kill @s
 execute as @e[type=arrow] if score @s arrow matches 10.. at @s positioned ~ ~-2 ~ if entity @e[type=armor_stand,distance=..1] run kill @s
 
 # movement

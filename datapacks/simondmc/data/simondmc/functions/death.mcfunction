@@ -7,6 +7,9 @@ scoreboard players add $deaths stats 1
 # there was an issue where dropping an item a few ticks before dying would cause you to lose it
 tp @e[type=item] @r
 
+# reset all shot arrows
+kill @e[type=arrow]
+
 # death during folio exploration (you shouldn't be able to die anywhere but in case you do)
 # everyone back to spawn
 execute if score $phase story matches 5 run tp @a 34.0 85 -10.0 90 12.3

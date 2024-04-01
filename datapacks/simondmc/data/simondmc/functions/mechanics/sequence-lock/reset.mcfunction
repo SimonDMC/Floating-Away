@@ -11,7 +11,7 @@ execute as @e[tag=sequence-lock-button] run data merge entity @s {start_interpol
 execute as @e[tag=sequence-lock-digit,nbt={transformation:{translation:[0f,0f,-0.03125f]}}] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0f]}}
 
 # reset digit color
-execute as @e[tag=seq-btn-1,tag=sequence-lock-digit] run data merge entity @s {text:'"1"'}
+execute as @e[tag=seq-btn-1,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"1","color":"yellow"}'}
 execute as @e[tag=seq-btn-2,tag=sequence-lock-digit] run data merge entity @s {text:'"2"'}
 execute as @e[tag=seq-btn-3,tag=sequence-lock-digit] run data merge entity @s {text:'"3"'}
 execute as @e[tag=seq-btn-4,tag=sequence-lock-digit] run data merge entity @s {text:'"4"'}

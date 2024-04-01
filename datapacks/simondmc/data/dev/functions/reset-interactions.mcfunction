@@ -67,6 +67,9 @@ summon interaction -13.0 69.1 31.5 {width:1f,height:1.2f,Tags:["interaction","tr
 # end room map creator armor stand
 summon interaction -7.5 65.0 -6.5 {width:1f,height:2f,Tags:["interaction","creator-stand-int"],response:1b}
 
+# start room chair
+summon interaction 27.5 94 -59.5 {width:2.99f,height:0.51f,Tags:["interaction","chair-int"]}
+
 ## BLOCKING
 
 # no book stealing

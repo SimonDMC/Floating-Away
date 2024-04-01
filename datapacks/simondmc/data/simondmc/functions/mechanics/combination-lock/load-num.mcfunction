@@ -10,6 +10,37 @@ execute if entity @s[tag=button-8] run scoreboard players set $pressed combinati
 execute if entity @s[tag=button-9] run scoreboard players set $pressed combinationlock 9
 execute if entity @s[tag=button-0] run scoreboard players set $pressed combinationlock 0
 
+# press in button
+execute if entity @s[tag=button-1] run data merge entity @e[tag=comb-btn-1,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-2] run data merge entity @e[tag=comb-btn-2,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-3] run data merge entity @e[tag=comb-btn-3,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-4] run data merge entity @e[tag=comb-btn-4,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-5] run data merge entity @e[tag=comb-btn-5,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-6] run data merge entity @e[tag=comb-btn-6,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-7] run data merge entity @e[tag=comb-btn-7,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-8] run data merge entity @e[tag=comb-btn-8,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-9] run data merge entity @e[tag=comb-btn-9,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-R] run data merge entity @e[tag=comb-btn-R,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-0] run data merge entity @e[tag=comb-btn-0,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-B] run data merge entity @e[tag=comb-btn-B,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+
+# press in digit
+execute if entity @s[tag=button-1] run data merge entity @e[tag=comb-btn-digit-1,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-2] run data merge entity @e[tag=comb-btn-digit-2,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-3] run data merge entity @e[tag=comb-btn-digit-3,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-4] run data merge entity @e[tag=comb-btn-digit-4,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-5] run data merge entity @e[tag=comb-btn-digit-5,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-6] run data merge entity @e[tag=comb-btn-digit-6,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-7] run data merge entity @e[tag=comb-btn-digit-7,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-8] run data merge entity @e[tag=comb-btn-digit-8,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-9] run data merge entity @e[tag=comb-btn-digit-9,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-R] run data merge entity @e[tag=comb-btn-digit-R,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-0] run data merge entity @e[tag=comb-btn-digit-0,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+execute if entity @s[tag=button-B] run data merge entity @e[tag=comb-btn-digit-B,limit=1] {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,0.035f]}}
+
+# unpress after 3 ticks
+scoreboard players set @s combinationlock 0
+
 # backspace
 execute if entity @s[tag=button-B] run scoreboard players remove $current combinationlock 1
 execute if score $current combinationlock matches 1 as @e[tag=comb-digit-1] run data merge entity @s {text: '""'}

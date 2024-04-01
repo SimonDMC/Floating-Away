@@ -31,3 +31,8 @@ execute if score $info-anim start matches 1 run tellraw @a ["",{"text":"> ","col
 execute if score $info-anim start matches 21 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"Adjust the ","color":"yellow"},{"text":"Soundtrack ","color":"light_purple"},{"text":"in ","color":"yellow"},{"text":"Music & Sounds ","color":"green"},{"text":"(recommended 20%)","color":"gray"}]
 execute if score $info-anim start matches 41 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"The ","color":"yellow"},{"text":"original soundtrack","underlined":true,"color":"yellow","clickEvent":{"action":"open_url","value":"https://example.com"},"hoverEvent":{"action":"show_text","contents":"Click to open the soundtrack!"}},{"text":" is fully ","color":"yellow"},{"text":"copyright-free","color":"green"}]
 execute if score $info-anim start matches 61 run tellraw @a ["",{"text":"> ","color":"green"},{"text":"This map is linear, so you won't need to backtrack","color":"yellow"}]
+
+# chair
+execute as @e[tag=chair-int] if data entity @s interaction on target run tp @a 28.8 94.5 -59.5 -90 0
+execute as @e[tag=chair-int] if data entity @s interaction on target run ride @s mount @e[tag=lobby-chair,limit=1]
+execute as @e[tag=chair-int] if data entity @s interaction run data remove entity @s interaction
