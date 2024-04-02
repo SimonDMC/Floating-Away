@@ -85,7 +85,7 @@ summon interaction 31.5 96.0 -44.5 {width:0.376f,height:0.376f,Tags:["interactio
 summon interaction 30.5 96.0 -39.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
 summon interaction 20.5 87.0 4.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
 summon interaction 20.5 89.0 1.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
-summon interaction 20.5 91.0 2.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
+summon interaction 20.5 91.0 3.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}
 
 # emergency exit door opening
 summon interaction 42.0 88.0 -10.0 {width:2.001f,height:2f,Tags:["interaction","emergency-exit-block"]}

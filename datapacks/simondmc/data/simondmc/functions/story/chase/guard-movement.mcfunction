@@ -46,8 +46,8 @@ execute if block ~ ~9 ~ nether_gold_ore run execute store result entity @s Pos[2
 # but maybe not idk im writing this gravity-based system about a week later so maybe i knew what i was doing (unlikely)
 
 # step up
-execute unless entity @s[tag=elevated] if block ~ ~10 ~ deepslate_emerald_ore run tp @s ~ ~1.25 ~
-execute if block ~ 65 ~ deepslate_emerald_ore run tag @s add elevated
+execute unless entity @s[tag=elevated] if block ~ ~10 ~-.25 deepslate_emerald_ore run tp @s ~ ~1.25 ~
+execute if block ~ 65 ~-.25 deepslate_emerald_ore run tag @s add elevated
 
 # advance stun timer
 execute if score @s guards matches 1.. run scoreboard players remove @s guards 1

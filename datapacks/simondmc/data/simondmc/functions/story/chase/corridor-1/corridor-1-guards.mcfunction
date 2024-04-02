@@ -12,11 +12,11 @@ execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -18 7
 execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -17 72 4 {Tags:["character","guard","corridor-guard","middle-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
 execute if score $corridor-anim-1 guards matches 41 run summon armor_stand -18 72 5 {Tags:["character","guard","corridor-guard"],Rotation:[180f,0f],Invulnerable:1b,Invisible:1b,DisabledSlots:4144959,ArmorItems:[{},{},{},{id:"minecraft:black_candle",Count:1b,tag:{CustomModelData:1}}],CustomName:'{"text":"Guard"}'}
 # turn the third guard
-execute if score $corridor-anim-1 guards matches 58 run setblock -18 69 -1 minecraft:magenta_glazed_terracotta[facing=west]
+execute if score $corridor-anim-1 guards matches 61 run setblock -18 69 -1 minecraft:magenta_glazed_terracotta[facing=west]
 # break wood block once they get there and allow passthrough
-execute if score $corridor-anim-1 guards matches 138 run fill -39 72 -1 -44 73 -3 air destroy
-execute if score $corridor-anim-1 guards matches 138 run fill -38 70 -5 -38 70 1 deepslate_coal_ore
-execute if score $corridor-anim-1 guards matches 138 run setblock -37 70 -2 deepslate_coal_ore
+execute if score $corridor-anim-1 guards matches 158 run fill -39 72 -1 -44 73 -3 air destroy
+execute if score $corridor-anim-1 guards matches 158 run fill -38 70 -5 -38 70 1 deepslate_coal_ore
+execute if score $corridor-anim-1 guards matches 158 run setblock -37 70 -2 deepslate_coal_ore
 # activate machine gun when player passes door
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players set $machine-gun guards 1
 execute if entity @a[x=-45.5,y=72,z=20.5,distance=..1] run scoreboard players set $SHOOT-PERIOD guards 3

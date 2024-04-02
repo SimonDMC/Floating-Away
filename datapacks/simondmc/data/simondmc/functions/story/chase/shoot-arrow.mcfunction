@@ -26,7 +26,7 @@ execute if score $DAMAGE guards matches 6 at @s run summon arrow ~ ~1.5 ~ {Tags:
 execute if score $machine-gun guards matches 1 at @s run summon arrow ~ ~1.5 ~ {Tags:["guard-arrow"],damage:6d,CustomName:'{"text":"Guard"}'}
 
 execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[0] double 0.0001 run scoreboard players get $player.x arrow
-execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[1] double 0.0001 run scoreboard players get $player.y arrow
+execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[1] double 0.000105 run scoreboard players get $player.y arrow
 execute as @e[tag=guard-arrow,tag=!has-motion] store result entity @s Motion[2] double 0.0001 run scoreboard players get $player.z arrow
 
 # shoot sharper, more direct shots if directly following

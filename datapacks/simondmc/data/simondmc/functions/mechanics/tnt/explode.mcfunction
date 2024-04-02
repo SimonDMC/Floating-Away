@@ -1,7 +1,7 @@
 # called by simondmc:mechanics/tnt/sys, creates the fake explosion
 
 # creeper is retextured to be invisible as i found that to be the cleanest way to hide it
-summon creeper ~ ~ ~ {Fuse:0,ignited:1b,Silent:1b,ExplosionRadius:8b}
+summon creeper ~ ~ ~ {Fuse:0,ignited:1b,Silent:1b}
 particle explosion ~ ~ ~ 1 1 1 0 10
 # make sure the player doesnt die haha
 effect give @a resistance 1 4 true

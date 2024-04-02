@@ -93,8 +93,6 @@ execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item 
 execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item replace entity @s weapon.mainhand with air
 execute if score $tutorial-anim work matches 247 run scoreboard players set $conveyor-enabled work 1
 execute if score $tutorial-anim work matches 267 run scoreboard players set $tutorial-phase work 1
-# don't let the player pick up the conveyor item before conveyor starts moving because it messes up the tutorial
-execute if score $tutorial-anim work matches 267 run setblock 39 106 5 air
 execute if score $tutorial-anim work matches 317 run scoreboard players reset $conveyor-enabled work
 execute if score $tutorial-anim work matches 317 run scoreboard players reset $tutorial-anim work
 
@@ -117,6 +115,8 @@ execute if score $employer-leave-anim work matches 119 as @e[tag=employer-W] at 
 execute if score $employer-leave-anim work matches 119 run setblock 35 103 8 air
 execute if score $employer-leave-anim work matches 120..140 as @e[tag=employer-W] at @s run tp @s ~ ~ ~-.3
 execute if score $employer-leave-anim work matches 141 as @e[tag=employer-W] run kill @s
+# don't let the player pick up the conveyor item before conveyor starts moving fully because it messes up the tutorial
+execute if score $employer-leave-anim work matches 161 run setblock 39 106 5 air
 execute if score $employer-leave-anim work matches 161 run scoreboard players set $conveyor-enabled work 1
 execute if score $employer-leave-anim work matches 161 run scoreboard players set $phase story 4
 

@@ -10,21 +10,21 @@ execute at @s run tp @s ~ ~ 16.03125
 
 # "press in" the corresponding digit and button
 execute if entity @s[tag=button-1] as @e[tag=seq-btn-1] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-1] as @e[tag=seq-btn-2,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"2","color":"yellow"}'}
+execute if entity @s[tag=button-1] unless score $progress sequencelock matches 1.. as @e[tag=seq-btn-2,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"2","color":"yellow"}'}
 execute if entity @s[tag=button-2] as @e[tag=seq-btn-2] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-2] as @e[tag=seq-btn-3,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"3","color":"yellow"}'}
+execute if entity @s[tag=button-2] if score $progress sequencelock matches 1 as @e[tag=seq-btn-3,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"3","color":"yellow"}'}
 execute if entity @s[tag=button-3] as @e[tag=seq-btn-3] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-3] as @e[tag=seq-btn-4,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"4","color":"yellow"}'}
+execute if entity @s[tag=button-3] if score $progress sequencelock matches 2 as @e[tag=seq-btn-4,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"4","color":"yellow"}'}
 execute if entity @s[tag=button-4] as @e[tag=seq-btn-4] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-4] as @e[tag=seq-btn-5,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"5","color":"yellow"}'}
+execute if entity @s[tag=button-4] if score $progress sequencelock matches 3 as @e[tag=seq-btn-5,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"5","color":"yellow"}'}
 execute if entity @s[tag=button-5] as @e[tag=seq-btn-5] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-5] as @e[tag=seq-btn-6,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"6","color":"yellow"}'}
+execute if entity @s[tag=button-5] if score $progress sequencelock matches 4 as @e[tag=seq-btn-6,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"6","color":"yellow"}'}
 execute if entity @s[tag=button-6] as @e[tag=seq-btn-6] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-6] as @e[tag=seq-btn-7,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"7","color":"yellow"}'}
+execute if entity @s[tag=button-6] if score $progress sequencelock matches 5 as @e[tag=seq-btn-7,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"7","color":"yellow"}'}
 execute if entity @s[tag=button-7] as @e[tag=seq-btn-7] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-7] as @e[tag=seq-btn-8,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"8","color":"yellow"}'}
+execute if entity @s[tag=button-7] if score $progress sequencelock matches 6 as @e[tag=seq-btn-8,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"8","color":"yellow"}'}
 execute if entity @s[tag=button-8] as @e[tag=seq-btn-8] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
-execute if entity @s[tag=button-8] as @e[tag=seq-btn-9,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"9","color":"yellow"}'}
+execute if entity @s[tag=button-8] if score $progress sequencelock matches 7 as @e[tag=seq-btn-9,tag=sequence-lock-digit] run data merge entity @s {text:'{"text":"9","color":"yellow"}'}
 execute if entity @s[tag=button-9] as @e[tag=seq-btn-9] run data merge entity @s {start_interpolation:0,interpolation_duration:3,transformation:{translation:[0f,0f,-0.03125f]}}
 
 # incorrect if clicked the wrong one

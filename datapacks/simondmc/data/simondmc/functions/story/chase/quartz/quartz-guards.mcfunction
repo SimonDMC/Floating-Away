@@ -1,7 +1,7 @@
 # ticking functions, controls the whole quartz tunnel leading to the end of the map
 
 # animations
-execute as @a[x=4,y=38,z=48,distance=..2] unless score $quartz-anim-1 guards matches 0.. run scoreboard players set $quartz-anim-1 guards 0
+execute as @a[x=4,y=38,z=46,distance=..2] unless score $quartz-anim-1 guards matches 0.. run scoreboard players set $quartz-anim-1 guards 0
 execute as @a[x=17,y=38,z=21,distance=..2] unless score $quartz-anim-2 guards matches 0.. run scoreboard players set $quartz-anim-2 guards 0
 execute as @a[x=36,y=38,z=12,distance=..2] unless score $quartz-anim-3 guards matches 0.. run scoreboard players set $quartz-anim-3 guards 0
 execute as @a[x=27,y=38,z=-7,distance=..2] unless score $quartz-anim-4 guards matches 0.. run scoreboard players set $quartz-anim-4 guards 0

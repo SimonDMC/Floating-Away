@@ -3,10 +3,6 @@
 # increment death stat
 scoreboard players add $deaths stats 1
 
-# tp all items to some player to make sure you can't lose them
-# there was an issue where dropping an item a few ticks before dying would cause you to lose it
-tp @e[type=item] @r
-
 # reset all shot arrows
 kill @e[type=arrow]
 
@@ -155,5 +151,9 @@ execute if score $phase story matches 7 if score $on timewarper matches 1 run sc
 execute if score $phase story matches 7 if score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 after tw death"
 execute if score $phase story matches 7 run function simondmc:mechanics/time-warper/macros/20 {"command":"tick rate 20"}
 execute if score $phase story matches 7 as @a at @s run playsound music.floating-away-corridors-1 ambient @s
+
+# tp all items to some player to make sure you can't lose them
+# there was an issue where dropping an item a few ticks before dying would cause you to lose it
+tp @e[type=item] @r
 
 scoreboard players reset @a death

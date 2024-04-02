@@ -3,5 +3,5 @@
 
 # modifies X-position instead of teleporting because TP cancels y-momentum
 execute store result score $guard.x guards run data get entity @s Pos[0] 1000
-scoreboard players add $guard.x guards 60
+scoreboard players add $guard.x guards 58
 execute store result entity @s Pos[0] double 0.001 run scoreboard players get $guard.x guards

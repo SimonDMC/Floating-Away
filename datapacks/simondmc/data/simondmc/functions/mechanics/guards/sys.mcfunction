@@ -43,6 +43,8 @@ execute as @a if score @s guards matches 55 run setblock 31 86 -10 minecraft:bir
 execute as @a if score @s guards matches 55 run setblock 31 85 -11 minecraft:birch_door[facing=east,half=lower,open=false,hinge=left]
 execute as @a if score @s guards matches 55 run setblock 31 86 -11 minecraft:birch_door[facing=east,half=upper,open=false,hinge=left]
 execute as @a if score @s guards matches 60 run tp @a 34.0 85 -10.0 90 12.3
+# can lose items by dropping during guard cutscene
+execute as @a if score @s guards matches 60 run tp @e[type=item] @r
 execute as @a if score @s guards matches 60 run title @a times 0 0 20
 execute as @a if score @s guards matches 60 run title @a title "\u2304"
 execute as @a if score @s guards matches 60 run gamemode adventure @a
