@@ -30,9 +30,13 @@ execute unless block ~ ~5.9 ~ magenta_glazed_terracotta unless block ~ ~-2.1 ~ m
 # why am i having a whole discussion here as if anyone else works on this code
 
 # move via tp
-execute unless score @s guards matches 1.. if block ~ ~-1.1 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
-execute unless score @s guards matches 1.. if block ~ ~4.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
-execute unless score @s guards matches 1.. if block ~ ~8.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
+execute unless score @s guards matches 1.. unless score $on timewarper matches 1 if block ~ ~-1.1 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
+execute unless score @s guards matches 1.. unless score $on timewarper matches 1 if block ~ ~4.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
+execute unless score @s guards matches 1.. unless score $on timewarper matches 1 if block ~ ~8.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.25
+# move slower if timewarper is on
+execute unless score @s guards matches 1.. if score $on timewarper matches 1 if block ~ ~-1.1 ~ deepslate_coal_ore run tp @s ^ ^ ^.15
+execute unless score @s guards matches 1.. if score $on timewarper matches 1 if block ~ ~4.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.15
+execute unless score @s guards matches 1.. if score $on timewarper matches 1 if block ~ ~8.9 ~ deepslate_coal_ore run tp @s ^ ^ ^.15
 
 # move with gravity
 # basically when a guard is moved using a tp its y-momentum is reset so it doesn't respect gravity at all

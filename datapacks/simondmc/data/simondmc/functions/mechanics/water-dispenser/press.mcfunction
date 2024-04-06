@@ -13,7 +13,7 @@ schedule function simondmc:mechanics/water-dispenser/unpress 30t
 
 scoreboard players add $count waterdispenser 1
 
-particle splash 27.5 85.5 -55.0 0 0 0 1 10 normal
+particle splash 27.5 85.5 -55.0 0 0 0 1 10 force
 
 # crackling sounds
 execute if score $count waterdispenser matches 1..2 run playsound entity.turtle.egg_crack master @a 27.5 85.5 -54.5

@@ -46,6 +46,7 @@ execute if score $intro-anim presentation matches 1309 run scoreboard players se
 
 # boss walking animation
 scoreboard players set $CONST_3 story 3
+scoreboard players set $CONST_8 story 8
 execute if score $boss-walking story matches 1 run scoreboard players add $boss-walk-tick story 1
 execute if score $boss-walking story matches 1 run scoreboard players operation $boss-walk-phase story = $boss-walk-tick story
 execute if score $boss-walking story matches 1 run scoreboard players operation $boss-walk-phase story -= $CONST_1 story

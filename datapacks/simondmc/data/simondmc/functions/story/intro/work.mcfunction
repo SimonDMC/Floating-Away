@@ -4,41 +4,41 @@
 execute if score $phase story matches 2..4 if score $conveyor-timer work matches 0.. run scoreboard players add $conveyor-timer work 1
 
 # row 4
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 run clone 39 105 -42 39 105 34 39 105 -41 replace move
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 run clone 39 105 -42 39 105 34 39 105 -41 replace move
 # this could be tracked with a scoreboard but would probably be prone to errors and if i accidentally
 # reset the scoreboard it would mess up so id say this is better
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 if block 39 105 -39 gray_concrete run setblock 39 105 -42 gray_concrete
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 if block 39 105 -39 black_concrete run setblock 39 105 -42 black_concrete
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 if block 39 105 -39 gray_concrete run setblock 39 105 -42 gray_concrete
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 if block 39 105 -39 black_concrete run setblock 39 105 -42 black_concrete
 
 # move items along real conveyor
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @e[tag=conveyor-item] at @s run tp @s ~ ~ ~1
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @a at @s run playsound minecraft:block.chain.place master @s
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @e[tag=conveyor-item] at @s run tp @s ~ ~ ~1
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @a at @s run playsound minecraft:block.chain.place master @s
 kill @e[tag=conveyor-item,x=39.5,y=106.5,z=34.5,distance=..1]
 
 # move items along fake conveyor
 execute if entity @e[tag=tech-base-fake,x=41.5,y=106.5,z=16.5,distance=...1] unless entity @e[tag=tech-base-fake,x=41.5,y=106.5,z=20.5,distance=...1] run summon minecraft:item_display 41.5 106.5 20.5 {Tags:["display","tech-base-fake"],item:{Count:1b,id:"minecraft:feather",tag:{CustomModelData:1,display:{Name:'{"text":"item/tech-base","italic":false,"color":"yellow"}'}}},transformation:{left_rotation:[0.0f,-0.3826835f,0.0f,0.9238795f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0000001f,0.9999999f,1.0000001f],translation:[0.0f,0.0f,0.0f]}}
-execute if score $conveyor-timer work matches 16 as @e[tag=tech-base-fake] at @s run tp @s ~ ~ ~-1
+execute if score $conveyor-timer work matches 21 as @e[tag=tech-base-fake] at @s run tp @s ~ ~ ~-1
 kill @e[tag=tech-base-fake,x=41.5,y=106.5,z=-41.5,distance=..1]
 
 # row 3
-execute if score $conveyor-timer work matches 16 run clone 27 105 35 27 105 -41 27 105 -42 replace move
-execute if score $conveyor-timer work matches 16 if block 27 105 32 gray_concrete run setblock 27 105 35 gray_concrete
-execute if score $conveyor-timer work matches 16 if block 27 105 32 black_concrete run setblock 27 105 35 black_concrete
+execute if score $conveyor-timer work matches 21 run clone 27 105 35 27 105 -41 27 105 -42 replace move
+execute if score $conveyor-timer work matches 21 if block 27 105 32 gray_concrete run setblock 27 105 35 gray_concrete
+execute if score $conveyor-timer work matches 21 if block 27 105 32 black_concrete run setblock 27 105 35 black_concrete
 
 # row 5
-execute if score $conveyor-timer work matches 16 run clone 41 105 35 41 105 -41 41 105 -42 replace move
-execute if score $conveyor-timer work matches 16 if block 41 105 32 gray_concrete run setblock 41 105 35 gray_concrete
-execute if score $conveyor-timer work matches 16 if block 41 105 32 black_concrete run setblock 41 105 35 black_concrete
+execute if score $conveyor-timer work matches 21 run clone 41 105 35 41 105 -41 41 105 -42 replace move
+execute if score $conveyor-timer work matches 21 if block 41 105 32 gray_concrete run setblock 41 105 35 gray_concrete
+execute if score $conveyor-timer work matches 21 if block 41 105 32 black_concrete run setblock 41 105 35 black_concrete
 
 # row 2
-execute if score $conveyor-timer work matches 16 run clone 25 105 -42 25 105 34 25 105 -41 replace move
-execute if score $conveyor-timer work matches 16 if block 25 105 -39 gray_concrete run setblock 25 105 -42 gray_concrete
-execute if score $conveyor-timer work matches 16 if block 25 105 -39 black_concrete run setblock 25 105 -42 black_concrete
+execute if score $conveyor-timer work matches 21 run clone 25 105 -42 25 105 34 25 105 -41 replace move
+execute if score $conveyor-timer work matches 21 if block 25 105 -39 gray_concrete run setblock 25 105 -42 gray_concrete
+execute if score $conveyor-timer work matches 21 if block 25 105 -39 black_concrete run setblock 25 105 -42 black_concrete
 
 # move player along because why not :3
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 16 as @a[x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1.1 air run tp @s ~ ~ ~1
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @a[x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1.1 air run tp @s ~ ~ ~1
 
-execute if score $conveyor-timer work matches 16.. run scoreboard players set $conveyor-timer work 0
+execute if score $conveyor-timer work matches 21.. run scoreboard players set $conveyor-timer work 0
 
 # replenish bases
 execute if entity @e[tag=tech-base,x=39.5,y=106.5,z=-21.5,distance=...1] unless entity @e[tag=tech-base,x=39.5,y=106.5,z=-25.5,distance=...1] run summon interaction 39.5 106 -25.5 {width:1f,height:0.1f,Tags:["interaction","base-int","conveyor-item"]}
@@ -61,9 +61,9 @@ execute as @e[tag=place-merged-int] run data remove entity @s attack
 
 # enter office
 # only start cutscene once the previous dialogue finishes
-execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 unless score $start-anim story matches 0.. run fill 34 105 8 34 106 8 barrier
-execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $tutorial-anim work 0
-execute as @a[x=36.5,y=105,z=8.5,distance=..1] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $phase story 3
+execute as @a if predicate simondmc:office if score $phase story matches 2 unless score $start-anim story matches 0.. run fill 34 105 8 34 106 8 barrier
+execute as @a if predicate simondmc:office if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $tutorial-anim work 0
+execute as @a if predicate simondmc:office if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $phase story 3
 
 # assemblies completed
 execute if score $phase story matches 4 run title @a actionbar [{"text":"Assemblies Completed: "},{"score":{"name":"$merged","objective":"work"}}]
@@ -93,8 +93,8 @@ execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item 
 execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item replace entity @s weapon.mainhand with air
 execute if score $tutorial-anim work matches 247 run scoreboard players set $conveyor-enabled work 1
 execute if score $tutorial-anim work matches 267 run scoreboard players set $tutorial-phase work 1
-execute if score $tutorial-anim work matches 317 run scoreboard players reset $conveyor-enabled work
-execute if score $tutorial-anim work matches 317 run scoreboard players reset $tutorial-anim work
+execute if score $tutorial-anim work matches 332 run scoreboard players reset $conveyor-enabled work
+execute if score $tutorial-anim work matches 332 run scoreboard players reset $tutorial-anim work
 
 # yes i know i could make all of them keybind-dependent but Left Click looks so much better than Left Button so it's worth the tradeoff
 execute if score $tutorial-phase work matches 1 run title @a actionbar "Left Click to pick up conveyor item"

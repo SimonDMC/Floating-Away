@@ -11,10 +11,6 @@ execute if score $quartz-anim-2 guards matches 0.. run scoreboard players add $q
 execute if score $quartz-anim-3 guards matches 0.. run scoreboard players add $quartz-anim-3 guards 1
 execute if score $quartz-anim-4 guards matches 0.. run scoreboard players add $quartz-anim-4 guards 1
 
-# close 1->2 door
-execute if score $quartz-anim-1 guards matches 1 run setblock 15 36 21 air
-# close 3->4 door
-execute if score $quartz-anim-1 guards matches 1 run setblock 30 36 -7 air
 # spawn quartz to block with at the end
 execute if score $quartz-anim-1 guards matches 1 run summon item 11.85 38.00 -6.39 {Age:-32768,Tags:["quartz-block"],Item:{id:"minecraft:quartz_block",Count:1b,tag:{CanPlaceOn:["minecraft:quartz_block"]}}}
 execute if score $quartz-anim-1 guards matches 1 run summon item 11.43 38.00 -6.89 {Age:-32768,Tags:["quartz-block"],Item:{id:"minecraft:quartz_block",Count:1b,tag:{CanPlaceOn:["minecraft:quartz_block"]}}}
@@ -46,8 +42,8 @@ execute if score $quartz-anim-1 guards matches 30 run summon armor_stand -1 38 4
 execute if score $quartz-anim-1 guards matches 43 run setblock 3 35 40 minecraft:magenta_glazed_terracotta[facing=north]
 
 # door 1->2 passthrough
-execute if block 14 39 20 lever[powered=true] run setblock 15 42 21 minecraft:deepslate_coal_ore
-execute if block 14 39 20 lever[powered=false] run setblock 15 42 21 air
+execute if block 14 39 20 stone_button[powered=true] run setblock 15 42 21 minecraft:deepslate_coal_ore
+execute if block 14 39 20 stone_button[powered=false] run setblock 15 42 21 air
 
 # quartz 2
 # open doors
@@ -76,8 +72,8 @@ execute if score $quartz-anim-3 guards matches 25 run summon armor_stand 41 38 8
 execute if score $quartz-anim-3 guards matches 38 run setblock 37 35 8 minecraft:magenta_glazed_terracotta[facing=north]
 
 # door 3->4 passthrough
-execute if block 31 39 -6 lever[powered=true] run setblock 30 42 -7 minecraft:deepslate_coal_ore
-execute if block 31 39 -6 lever[powered=false] run setblock 30 42 -7 air
+execute if block 31 39 -6 stone_button[powered=true] run setblock 30 42 -7 minecraft:deepslate_coal_ore
+execute if block 31 39 -6 stone_button[powered=false] run setblock 30 42 -7 air
 
 # quartz 4
 # open doors

@@ -6,6 +6,8 @@ execute if score $quartz-anim-4 guards matches 50 run fill -3 38 -6 -3 40 -8 air
 execute if score $quartz-anim-4 guards matches 50 as @e[tag=end-elevator-door,tag=door-left] run data merge entity @s {start_interpolation:0,interpolation_duration:40,transformation:{translation:[-0.5f,-0.5f,1.1f]}}
 execute if score $quartz-anim-4 guards matches 50 as @e[tag=end-elevator-door,tag=door-right] run data merge entity @s {start_interpolation:0,interpolation_duration:40,transformation:{translation:[-0.5f,-0.5f,-2.1f]}}
 
+# KILL the player if they somehow snuck into the elevator without blocking themselves in
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] if blocks -2 38 -8 29 39 -6 -2 42 -8 masked run damage @s 100 arrow by @e[tag=quartz-guard,limit=1]
 # block passthrough (but allow arrows :D)
 execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $closing elevator matches 1 run fill -3 38 -6 -3 40 -8 barrier
 # moving pistons are so that you can't place blocks in there and start building inside of the elevator haha
@@ -31,7 +33,7 @@ execute if score $track-67-timer music matches 1..313 as @a[x=-6.0,y=66.7,z=-8.0
 execute if score $track-67-timer music matches 6 as @e[tag=end-elevator] run data merge entity @s {start_interpolation:0,interpolation_duration:297,transformation:{translation:[-0.5f,26.49f,-0.5f]}}
 # title credits
 execute if score $track-67-timer music matches 260 run title @a times 0 1000 0
-execute if score $track-67-timer music matches 265 run title @a title {"text":"Map Name","color":"#9DFDFF"}
+execute if score $track-67-timer music matches 265 run title @a title {"text":"Floating Away","color":"#9DFDFF"}
 execute if score $track-67-timer music matches 298 run title @a subtitle ["",{"text":"by "},{"text":"SimonDMC","color":"green"}]
 execute if score $track-67-timer music matches 330 as @e[tag=ending-stand] run data merge entity @s {CustomNameVisible:1b}
 execute if score $track-67-timer music matches 330 run title @a clear

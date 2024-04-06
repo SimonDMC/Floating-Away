@@ -37,12 +37,19 @@ execute if score $phase story matches 6 run clear @a tnt
 execute if score $phase story matches 6 run give @r tnt{CanPlaceOn:["minecraft:redstone_block"],display:{Lore:['{"text":" "}','{"text":"Strong enough to destroy","color":"dark_gray"}','{"text":"wood, but not strong","color":"dark_gray"}','{"text":"enough to shatter metal.","color":"dark_gray"}','{"text":" "}','{"text":"Can be placed on:","color":"gray","italic":false}','{"text":"Rusty Block of Iron","color":"dark_gray","italic":false}']},HideFlags:16}
 
 # death during chase
+
 # everyone back to spawn
-execute if score $phase story matches 7 run tp @a -8 80 -3 90 0
-# increase amount of times player died due to not flicking 1->2 lever
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 run tp @a -8 80 -3 90 0
+execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 run tp @a 4.5 51.00 21.0 -180 -5
+# increment phase 7 deaths
+execute if score $phase story matches 7 run scoreboard players add $7-deaths stats 1
+# let player set a checkpoint if 15 deaths
+execute if score $phase story matches 7 if score $7-deaths stats matches 15 run scoreboard players set $checkpoint-allowed stats 1
+execute if score $phase story matches 7 if score $7-deaths stats matches 15 run tellraw @a ["",{"text":"Struggling? ","color":"green","clickEvent":{"action":"run_command","value":"/trigger set-checkpoint-trigger"}},{"text":"Set a checkpoint half-way through","underlined":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger set-checkpoint-trigger"}}]
+# increment times player died due to not flicking 1->2 lever
 execute if score $phase story matches 7 if score $missed-lever guards matches 1 run scoreboard players add $lever-misses story 1
-# and add a glowing hint if 5 misses
-execute if score $phase story matches 7 if score $lever-misses story matches 5 run summon minecraft:block_display -44.5 73.5 20.5 {Tags:["display","corridor-lever"],Glowing:1b,block_state:{Name:"minecraft:lever",Properties:{face:"wall",facing:"north",powered:"true"}},transformation:{left_rotation:[0.0f,1.0f,0.0f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[0.5f,-0.5f,0.5f]}}
+# and add a glowing hint if 3 misses
+execute if score $phase story matches 7 if score $lever-misses story matches 3 run summon minecraft:block_display -44.5 73.5 20.5 {Tags:["display","corridor-lever"],Glowing:1b,block_state:{Name:"minecraft:lever",Properties:{face:"wall",facing:"north",powered:"true"}},transformation:{left_rotation:[0.0f,1.0f,0.0f,0.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[0.5f,-0.5f,0.5f]}}
 execute if score $phase story matches 7 run scoreboard players reset * guards
 execute if score $phase story matches 7 run scoreboard players set $shooting guards 1
 execute if score $phase story matches 7 run scoreboard players set $SHOOT-PERIOD guards 10
@@ -103,9 +110,6 @@ execute if score $phase story matches 7 run setblock 2 37 39 air
 execute if score $phase story matches 7 run setblock 2 37 42 air
 # remove quartz 1 guard turn block
 execute if score $phase story matches 7 run setblock 3 35 40 air
-# close 1->2 door
-execute if score $phase story matches 7 run setblock 14 39 20 minecraft:lever[facing=west]
-execute if score $phase story matches 7 run setblock 15 36 21 minecraft:redstone_torch
 # close quartz 2 doors
 execute if score $phase story matches 7 run setblock 23 37 19 air
 execute if score $phase story matches 7 run setblock 20 37 19 air
@@ -119,8 +123,6 @@ execute if score $phase story matches 7 run setblock 38 37 7 air
 # remove quartz 3 guard turn block
 execute if score $phase story matches 7 run setblock 37 35 8 air
 # close 3->4 door
-execute if score $phase story matches 7 run setblock 31 39 -6 minecraft:lever[facing=east]
-execute if score $phase story matches 7 run setblock 30 36 -7 minecraft:redstone_torch
 # close quartz 4 doors
 execute if score $phase story matches 7 run setblock 17 37 -5 air
 execute if score $phase story matches 7 run setblock 20 37 -5 air
@@ -144,13 +146,19 @@ execute if score $phase story matches 7 run scoreboard players reset @a give-up-
 # reset music
 execute if score $phase story matches 6..7 run scoreboard players reset * music
 execute if score $phase story matches 6..7 run stopsound @a ambient
-execute if score $phase story matches 7 run scoreboard players set $track music 63
-execute if score $phase story matches 7 unless score $on timewarper matches 1 run scoreboard players set $track-63-timer music -1
-execute if score $phase story matches 7 unless score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 normal"
-execute if score $phase story matches 7 if score $on timewarper matches 1 run scoreboard players set $track-63-timer music 2
-execute if score $phase story matches 7 if score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 after tw death"
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 run scoreboard players set $track music 63
+execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 run scoreboard players set $track music 64
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run scoreboard players set $track-63-timer music -1
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 normal"
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run scoreboard players set $track-63-timer music 2
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 after tw death"
+execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run scoreboard players set $track-64-timer music -1
+execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-4 normal"
+execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run scoreboard players set $track-64-timer music 2
+execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-4 after tw death"
 execute if score $phase story matches 7 run function simondmc:mechanics/time-warper/macros/20 {"command":"tick rate 20"}
-execute if score $phase story matches 7 as @a at @s run playsound music.floating-away-corridors-1 ambient @s
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 as @a at @s run playsound music.floating-away-corridors-1 ambient @s
+execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 as @a at @s run playsound music.floating-away-underground ambient @s
 
 # tp all items to some player to make sure you can't lose them
 # there was an issue where dropping an item a few ticks before dying would cause you to lose it
