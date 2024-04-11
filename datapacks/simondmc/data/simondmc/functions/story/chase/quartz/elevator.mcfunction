@@ -7,17 +7,17 @@ execute if score $quartz-anim-4 guards matches 50 as @e[tag=end-elevator-door,ta
 execute if score $quartz-anim-4 guards matches 50 as @e[tag=end-elevator-door,tag=door-right] run data merge entity @s {start_interpolation:0,interpolation_duration:40,transformation:{translation:[-0.5f,-0.5f,-2.1f]}}
 
 # KILL the player if they somehow snuck into the elevator without blocking themselves in
-execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] if blocks -2 38 -8 29 39 -6 -2 42 -8 masked run damage @s 100 arrow by @e[tag=quartz-guard,limit=1]
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless entity @a[x=-4.5,y=38,z=-6.5,distance=1.5..] if blocks -2 38 -8 29 39 -6 -2 42 -8 masked run damage @s 100 arrow by @e[tag=quartz-guard,limit=1]
 # block passthrough (but allow arrows :D)
-execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $closing elevator matches 1 run fill -3 38 -6 -3 40 -8 barrier
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless entity @a[x=-4.5,y=38,z=-6.5,distance=1.5..] unless score $closing elevator matches 1 run fill -3 38 -6 -3 40 -8 barrier
 # moving pistons are so that you can't place blocks in there and start building inside of the elevator haha
-execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $closing elevator matches 1 run fill -3 39 -6 -3 39 -8 moving_piston
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless entity @a[x=-4.5,y=38,z=-6.5,distance=1.5..] unless score $closing elevator matches 1 run fill -3 39 -6 -3 39 -8 moving_piston
 # close doors
-execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $closing elevator matches 1 as @e[tag=end-elevator-door] run data merge entity @s {start_interpolation:0,interpolation_duration:40,transformation:{translation:[-0.5f,-0.5f,-0.5f]}}
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless entity @a[x=-4.5,y=38,z=-6.5,distance=1.5..] unless score $closing elevator matches 1 as @e[tag=end-elevator-door] run data merge entity @s {start_interpolation:0,interpolation_duration:40,transformation:{translation:[-0.5f,-0.5f,-0.5f]}}
 # queue up ending music segment
-execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $closing elevator matches 1 run scoreboard players set $67-queued music 1
-execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $closing elevator matches 1 run tellraw @a[tag=music-debug] "queueing 6-7"
-execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless score $closing elevator matches 1 run scoreboard players set $closing elevator 1
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless entity @a[x=-4.5,y=38,z=-6.5,distance=1.5..] unless score $closing elevator matches 1 run scoreboard players set $67-queued music 1
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless entity @a[x=-4.5,y=38,z=-6.5,distance=1.5..] unless score $closing elevator matches 1 run tellraw @a[tag=music-debug] "queueing 6-7"
+execute as @a[x=-4.5,y=38,z=-6.5,distance=..1.5] unless entity @a[x=-4.5,y=38,z=-6.5,distance=1.5..] unless score $closing elevator matches 1 run scoreboard players set $closing elevator 1
 # anim
 execute if score $track music matches 67 run scoreboard players add $track-67-timer music 1
 # reset give up trigger

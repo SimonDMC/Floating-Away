@@ -55,6 +55,6 @@ execute if entity @s[tag=button-R] run function simondmc:mechanics/combination-l
 data remove entity @s interaction
 
 # sound effect (different for reset/backspace)
-execute unless entity @s[tag=button-R] unless entity @s[tag=button-B] as @a at @s run playsound minecraft:ui.button.click master @s ~ ~ ~ 1 2
-execute if entity @s[tag=button-R] as @a at @s run playsound minecraft:ui.button.click master @s ~ ~ ~
-execute if entity @s[tag=button-B] as @a at @s run playsound minecraft:ui.button.click master @s ~ ~ ~
+execute unless entity @s[tag=button-R] unless entity @s[tag=button-B] run playsound minecraft:ui.button.click master @a 21 86 -33 1 2
+execute if entity @s[tag=button-R] run playsound minecraft:ui.button.click master @a 21 86 -33
+execute if entity @s[tag=button-B] run playsound minecraft:ui.button.click master @a 21 86 -33

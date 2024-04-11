@@ -61,9 +61,9 @@ execute as @e[tag=place-merged-int] run data remove entity @s attack
 
 # enter office
 # only start cutscene once the previous dialogue finishes
-execute as @a if predicate simondmc:office if score $phase story matches 2 unless score $start-anim story matches 0.. run fill 34 105 8 34 106 8 barrier
-execute as @a if predicate simondmc:office if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $tutorial-anim work 0
-execute as @a if predicate simondmc:office if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $phase story 3
+execute as @a if predicate simondmc:office unless entity @a[predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run fill 34 105 8 34 106 8 barrier
+execute as @a if predicate simondmc:office unless entity @a[predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $tutorial-anim work 0
+execute as @a if predicate simondmc:office unless entity @a[predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $phase story 3
 
 # assemblies completed
 execute if score $phase story matches 4 run title @a actionbar [{"text":"Assemblies Completed: "},{"score":{"name":"$merged","objective":"work"}}]
@@ -159,10 +159,10 @@ execute if score $shift-end-anim work matches 276 run kill @e[tag=tech-base-fake
 execute if score $shift-end-anim work matches 277 run tp @a 37.8 105.50 8.50 -90 35
 execute if score $shift-end-anim work matches 277 run gamemode adventure @a
 execute if score $shift-end-anim work matches 333 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
-execute if score $shift-end-anim work matches 333 as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1 0
-execute if score $shift-end-anim work matches 353 run stopsound @a ambient
+execute if score $shift-end-anim work matches 333 run playsound minecraft:block.beacon.deactivate master @a 37 108 8 1 0
 execute if score $shift-end-anim work matches 353 run playsound sfx.audience-fadein voice @a 17 105 -1 4
 execute if score $shift-end-anim work matches 353 run schedule function simondmc:story/intro/audience-noise 5s
+execute if score $shift-end-anim work matches 363 run stopsound @a ambient
 execute if score $shift-end-anim work matches 363 as @a at @s run playsound music.stronger-than-gravity ambient @s
 execute if score $shift-end-anim work matches 363 run scoreboard players set $track music 2
 execute if score $shift-end-anim work matches 363 run scoreboard players reset $shift-end-anim work

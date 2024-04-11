@@ -1,6 +1,6 @@
 # called by simondmc:start/start-area after clicking the start text
 
-execute at @s run playsound ui.button.click master @s
+playsound ui.button.click master @s 34 95 -60
 
 # haven't read info yet
 execute unless score $read-info start matches 1 run tellraw @s {"text": "Read the info first!","color": "red"}

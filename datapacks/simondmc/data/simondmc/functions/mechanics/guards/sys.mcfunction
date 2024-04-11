@@ -36,7 +36,7 @@ execute as @a if score @s guards matches 2 run fill 31 85 -10 31 86 -11 air
 execute as @a if score @s guards matches 3 run stopsound @a * minecraft:block.wood.break
 execute as @a if score @s guards matches 3 run stopsound @a * minecraft:item.armor.equip_generic
 execute as @a if score @s guards matches 20 as @e[tag=guard] at @s run tp @s ~ ~ ~ facing entity @e[tag=guard-anim-player,limit=1]
-execute as @a if score @s guards matches 40 at @s run playsound entity.wolf.growl master @a
+execute as @a if score @s guards matches 40 at @s run playsound entity.wolf.growl master @s
 # now we "close" (replace) the door
 execute as @a if score @s guards matches 55 run setblock 31 85 -10 minecraft:birch_door[facing=east,half=lower,open=false,hinge=right]
 execute as @a if score @s guards matches 55 run setblock 31 86 -10 minecraft:birch_door[facing=east,half=upper,open=false,hinge=right]

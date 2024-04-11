@@ -1,7 +1,7 @@
 # ticking function, controls the intro cutscene/animation up until the player enters the office
 
 execute if score $start-anim story matches 0.. run scoreboard players add $start-anim story 1 
-execute if score $start-anim story matches 1..360 run ride @r mount @e[tag=interview-chair,limit=1]
+execute if score $start-anim story matches 1..360 as @a run ride @s mount @e[tag=interview-chair,limit=1]
 # clear actionbar of sneak to dismount
 execute if score $start-anim story matches 10 run title @a actionbar ""
 execute if score $start-anim story matches 70 as @a at @s run playsound characters.interview voice @s

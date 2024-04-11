@@ -16,12 +16,7 @@ scoreboard players set $start-anim story 0
 
 # get in position
 tp @a 17.5 86 -56.5 90 0
-ride @r mount @e[tag=interview-chair,limit=1]
-
-# suit
-item replace entity @a armor.chest with minecraft:leather_chestplate{display:{color:0},Unbreakable:true,HideFlags:4}
-item replace entity @a armor.legs with minecraft:leather_leggings{display:{color:0},Unbreakable:true,HideFlags:4}
-item replace entity @a armor.feet with minecraft:leather_boots{display:{color:0},Unbreakable:true,HideFlags:4}
+execute as @a run ride @s mount @e[tag=interview-chair,limit=1]
 
 # clear chat
 tellraw @a "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
@@ -38,4 +33,7 @@ scoreboard players set $track music 1
 
 # count players
 execute as @a run scoreboard players add $players stats 1
-execute if score $players start matches 2.. run scoreboard players set $multiplayer stats 1
+execute if score $players stats matches 2.. run scoreboard players set $multiplayer stats 1
+
+# if multiplayer, give invis for interview cutscene
+execute if score $multiplayer stats matches 1 run effect give @a invisibility 18 0 true

@@ -33,6 +33,18 @@ execute if score $phase story matches 1..7 unless score $cached timewarper match
 # make sure villagers have no trades (they gain them again after relogging for some reason)
 execute as @e[type=villager] run data modify entity @s Offers set value {}
 
+# tp newly-joined players to the lobby because they have a tendency to spawn outside the map
+execute as @a[tag=!start-tpd] run tp @s 28.8 94.5 -59.5 -90 0
+execute as @a[tag=!start-tpd] run ride @s mount @e[tag=lobby-chair,limit=1]
+execute as @a[tag=!start-tpd] run tag @s add start-tpd
+
+# team
+team add floater "Float!er"
+team modify floater friendlyFire false
+team modify floater collisionRule never
+team modify floater seeFriendlyInvisibles false
+team join floater @a
+
 # scoreboards
 scoreboard objectives add timewarper minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add combinationlock dummy

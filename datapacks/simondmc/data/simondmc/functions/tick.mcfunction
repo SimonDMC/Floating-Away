@@ -32,7 +32,7 @@ execute if score $phase story matches 7 run function simondmc:story/chase/quartz
 execute if score $phase story matches 7..8 run function simondmc:story/chase/quartz/elevator
 execute if score $phase story matches 7 run function simondmc:story/chase/misc
 execute if score $phase story matches 7..8 run function simondmc:story/chase/quartz/end
-execute if score $phase story matches 1.. run function simondmc:story/armor
+execute if score $phase story matches 2.. run function simondmc:story/armor
 
 # misc
 function simondmc:settings

@@ -1,5 +1,14 @@
 # ticking function, controls the emergency exit "puzzle"
 
+# this is meant to expedite the unpressing of the button to have half the length, but behaves kinda wonkily due to MC-108726
+# i thought about it for a while and came up with no better solution than to just force press it and act like it's not doing
+# that so if you have a cleaner way of making this harder in multiplayer then please lmk :D
+execute if score $multiplayer stats matches 1 if score $button1 emergencyexit matches 1..9 run setblock 49 86 -13 polished_blackstone_button[face=wall,facing=west,powered=true]
+execute if score $multiplayer stats matches 1 if score $button2 emergencyexit matches 1..9 run setblock 49 89 -12 polished_blackstone_button[face=wall,facing=west,powered=true]
+execute if score $multiplayer stats matches 1 if score $button3 emergencyexit matches 1..9 run setblock 49 87 -11 polished_blackstone_button[face=wall,facing=west,powered=true]
+execute if score $multiplayer stats matches 1 if score $button4 emergencyexit matches 1..9 run setblock 49 88 -9 polished_blackstone_button[face=wall,facing=west,powered=true]
+execute if score $multiplayer stats matches 1 if score $button5 emergencyexit matches 1..9 run setblock 49 85 -9 polished_blackstone_button[face=wall,facing=west,powered=true]
+
 # count how many buttons are pressed
 scoreboard players reset $count emergencyexit
 execute if block 49 86 -13 polished_blackstone_button[powered=true] run scoreboard players add $count emergencyexit 1
@@ -24,10 +33,20 @@ execute if block 49 85 -9 polished_blackstone_button[powered=true] run scoreboar
 execute if block 49 85 -9 polished_blackstone_button[powered=false] run setblock 50 85 -9 chiseled_stone_bricks
 
 execute if score $multiplayer stats matches 1 if score $button1 emergencyexit matches 10 run setblock 49 86 -13 polished_blackstone_button[face=wall,facing=west]
+execute if score $multiplayer stats matches 1 if score $button1 emergencyexit matches 10 run playsound block.stone_button.click_off block @a 49 86 -13
+execute if score $multiplayer stats matches 1 if score $button1 emergencyexit matches 10 run scoreboard players reset $button1 emergencyexit
 execute if score $multiplayer stats matches 1 if score $button2 emergencyexit matches 10 run setblock 49 89 -12 polished_blackstone_button[face=wall,facing=west]
+execute if score $multiplayer stats matches 1 if score $button2 emergencyexit matches 10 run playsound block.stone_button.click_off block @a 49 89 -12
+execute if score $multiplayer stats matches 1 if score $button2 emergencyexit matches 10 run scoreboard players reset $button2 emergencyexit
 execute if score $multiplayer stats matches 1 if score $button3 emergencyexit matches 10 run setblock 49 87 -11 polished_blackstone_button[face=wall,facing=west]
+execute if score $multiplayer stats matches 1 if score $button3 emergencyexit matches 10 run playsound block.stone_button.click_off block @a 49 87 -11
+execute if score $multiplayer stats matches 1 if score $button3 emergencyexit matches 10 run scoreboard players reset $button3 emergencyexit
 execute if score $multiplayer stats matches 1 if score $button4 emergencyexit matches 10 run setblock 49 88 -9 polished_blackstone_button[face=wall,facing=west]
+execute if score $multiplayer stats matches 1 if score $button4 emergencyexit matches 10 run playsound block.stone_button.click_off block @a 49 88 -9
+execute if score $multiplayer stats matches 1 if score $button4 emergencyexit matches 10 run scoreboard players reset $button4 emergencyexit
 execute if score $multiplayer stats matches 1 if score $button5 emergencyexit matches 10 run setblock 49 85 -9 polished_blackstone_button[face=wall,facing=west]
+execute if score $multiplayer stats matches 1 if score $button5 emergencyexit matches 10 run playsound block.stone_button.click_off block @a 49 85 -9
+execute if score $multiplayer stats matches 1 if score $button5 emergencyexit matches 10 run scoreboard players reset $button5 emergencyexit
 
 # update display count (0/5)
 # only one @e selector will get executed at a time so extracting into its own function is unnecessary 
