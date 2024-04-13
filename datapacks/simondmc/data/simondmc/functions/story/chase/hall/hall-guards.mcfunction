@@ -27,3 +27,6 @@ execute if score $hall-anim guards matches 170 unless score $vent-guards guards 
 # activate MACHINE GUN if player REALLY isn't getting out
 execute if score $hall-anim guards matches 230 unless score $vent-guards guards matches 1 run scoreboard players set $machine-gun guards 1
 execute if score $hall-anim guards matches 230 unless score $vent-guards guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 2
+
+# make sure player cannot survive going through the guards
+execute as @a[x=20.5,y=85,z=-4.5,distance=..1] run damage @s 100 mob_attack by @e[tag=guard,limit=1]

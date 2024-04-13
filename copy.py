@@ -20,7 +20,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 
 # Set the destination directory
-dest_dir = os.path.join(parent_dir, "Project Caterpillar Playtest")
+dest_dir = os.path.join(parent_dir, "Floating Away Playtest")
 
 # Duplicate the parent directory
 duplicate_directory(current_dir, dest_dir)

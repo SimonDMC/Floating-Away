@@ -6,7 +6,7 @@ particle explosion ~ ~ ~ 1 1 1 0 10
 # make sure the player doesnt die haha
 effect give @a resistance 1 4 true
 # enhanced launching (only in first zone so the player can't enter the chase without arrows)
-execute as @a[distance=...5] if predicate simondmc:tnt-1-zone run effect give @s levitation 1 30 true
+execute as @a[distance=...8] if predicate simondmc:tnt-1-zone run effect give @s levitation 1 30 true
 # let player jump
 execute positioned ~ ~1 ~ as @a[distance=...5] if predicate simondmc:tnt-1-zone run effect give @s levitation 1 30 true
 schedule function simondmc:mechanics/tnt/clear-levitation 2t
@@ -21,6 +21,7 @@ execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wal
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run setblock 4 96 -13 air destroy
 # and set spawnpoint for hall ambush
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run spawnpoint @a 4 97 -17 0
+execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $exploded-wall story 1
 # start boss animation
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run scoreboard players set $security-anim presentation 0
 # spawn guards to prevent escaping

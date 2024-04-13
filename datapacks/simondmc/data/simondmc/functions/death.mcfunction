@@ -144,12 +144,18 @@ execute if score $phase story matches 7 run scoreboard players reset * elevator
 execute if score $phase story matches 7 run scoreboard players reset @a give-up-trigger
 
 # reset music
+# preserve 6-3 timer if died in 6-3
+scoreboard players reset $63-carry story
+execute if score $phase story matches 7 if score $track music matches 63 run scoreboard players operation $63-carry story = $track-63-timer music
 execute if score $phase story matches 6..7 run scoreboard players reset * music
-execute if score $phase story matches 6..7 run stopsound @a ambient
+execute if score $phase story matches 6 run stopsound @a ambient
+execute if score $phase story matches 7 unless score $63-carry story matches 0.. run stopsound @a ambient
+execute if score $63-carry story matches 0.. run scoreboard players operation $track-63-timer music = $63-carry story
 execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 run scoreboard players set $track music 63
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 run scoreboard players set $track music 64
-execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run scoreboard players set $track-63-timer music -1
-execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 normal"
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 unless score $63-carry story matches 0.. run scoreboard players set $track-63-timer music -1
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 unless score $63-carry story matches 0.. run tellraw @a[tag=music-debug] "starting 6-3 normal"
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 if score $63-carry story matches 0.. run tellraw @a[tag=music-debug] "letting 6-3 play"
 execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run scoreboard players set $track-63-timer music 2
 execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-3 after tw death"
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run scoreboard players set $track-64-timer music -1
@@ -157,7 +163,7 @@ execute if score $phase story matches 7 if score $checkpoint-set stats matches 1
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run scoreboard players set $track-64-timer music 2
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run tellraw @a[tag=music-debug] "starting 6-4 after tw death"
 execute if score $phase story matches 7 run function simondmc:mechanics/time-warper/macros/20 {"command":"tick rate 20"}
-execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 as @a at @s run playsound music.floating-away-corridors-1 ambient @s
+execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $63-carry story matches 0.. as @a at @s run playsound music.floating-away-corridors-1 ambient @s
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 as @a at @s run playsound music.floating-away-underground ambient @s
 
 # tp all items to some player to make sure you can't lose them

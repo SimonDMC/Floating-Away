@@ -74,6 +74,7 @@ summon interaction 27.5 94 -59.5 {width:2.99f,height:0.51f,Tags:["interaction","
 
 # no book stealing
 summon interaction 32.0 85.0 -67.0 {width:4.001f,height:3.001f,Tags:["interaction","bookshelves"]}
+summon interaction 20.5 93 -4.5 {width:1.001f,height:1.001f,Tags:["interaction","bookshelves"]}
 
 # no flower stealing
 summon interaction 67.5 88.0 -67.5 {width:0.376f,height:0.376f,Tags:["interaction","flowers"]}

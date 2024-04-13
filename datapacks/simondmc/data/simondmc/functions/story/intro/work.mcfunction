@@ -45,11 +45,11 @@ execute if entity @e[tag=tech-base,x=39.5,y=106.5,z=-21.5,distance=...1] unless 
 execute if entity @e[tag=tech-base,x=39.5,y=106.5,z=-21.5,distance=...1] unless entity @e[tag=tech-base,x=39.5,y=106.5,z=-25.5,distance=...1] run summon minecraft:item_display 39.5 106.5 -25.5 {Tags:["display","tech-base","conveyor-item"],item:{Count:1b,id:"minecraft:feather",tag:{CustomModelData:1,display:{Name:'{"text":"item/tech-base","italic":false,"color":"yellow"}'}}},transformation:{left_rotation:[0.0f,-0.3826835f,0.0f,0.9238795f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0000001f,0.9999999f,1.0000001f],translation:[0.0f,0.0f,0.0f]}}
 
 # pick up conveyor item
-execute as @e[tag=base-int] if data entity @s attack run function simondmc:story/intro/pickup-base
+execute as @e[tag=base-int] if data entity @s attack unless score $shift-end-anim work matches 1.. run function simondmc:story/intro/pickup-base
 execute as @e[tag=base-int] run data remove entity @s attack
 
 # pick up chip
-execute as @e[tag=chips-int] if data entity @s interaction run function simondmc:story/intro/pickup-chip
+execute as @e[tag=chips-int] if data entity @s interaction unless score $shift-end-anim work matches 1.. run function simondmc:story/intro/pickup-chip
 execute as @e[tag=chips-int] run data remove entity @s interaction
 
 # merge

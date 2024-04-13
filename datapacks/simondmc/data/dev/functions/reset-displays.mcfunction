@@ -186,3 +186,8 @@ summon minecraft:block_display 41.5 85.5 -21.8125 {Tags:["display","protruding-w
 # presentation wall cracks
 summon minecraft:block_display 17.501 105.5625 -0.5 {Tags:["display","wall-crack"],block_state:{Name:"minecraft:magenta_stained_glass"},brightness:{block:15,sky:15},transformation:{left_rotation:[0.0f,-0.70710677f,0.0f,0.70710677f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.9999999f,0.99999994f,0.9999999f],translation:[0.5f,-0.5f,-0.5f]}}
 summon minecraft:block_display 17.501 105.4375 0.0625 {Tags:["display","wall-crack"],block_state:{Name:"minecraft:magenta_stained_glass"},brightness:{block:15,sky:15},transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[0.99999976f,0.9999999f,0.99999976f],translation:[-0.5f,-0.5f,-0.5f]}}
+
+# guard room lamps
+summon minecraft:block_display 25.5 92.0 -8.5 {Tags:["display","guard-lamp"],block_state:{Name:"minecraft:ochre_froglight",Properties:{axis:"y"}},brightness:{block:15,sky:15},transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[-0.5f,-0.5f,-0.5f]}}
+summon minecraft:block_display 25.5 92.0 -2.5 {Tags:["display","guard-lamp"],block_state:{Name:"minecraft:ochre_froglight",Properties:{axis:"y"}},brightness:{block:15,sky:15},transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[-0.5f,-0.5f,-0.5f]}}
+summon minecraft:block_display 25.5 92.0 3.5 {Tags:["display","guard-lamp"],block_state:{Name:"minecraft:ochre_froglight",Properties:{axis:"y"}},brightness:{block:15,sky:15},transformation:{left_rotation:[0.0f,0.0f,0.0f,1.0f],right_rotation:[0.0f,0.0f,0.0f,1.0f],scale:[1.0f,1.0f,1.0f],translation:[-0.5f,-0.5f,-0.5f]}}
