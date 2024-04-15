@@ -8,10 +8,10 @@ scoreboard players reset $on-tick timewarper
 execute as @s[nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick"}}] run item modify entity @s weapon.mainhand simondmc:time-warper/off
 execute as @s[nbt={Inventory:[{id:"minecraft:carrot_on_a_stick",Slot:-106b}]}] run item modify entity @s weapon.offhand simondmc:time-warper/off
 # speed up music
-execute if score $last-area timewarper matches 1 run stopsound @a ambient
-execute if score $last-area timewarper matches 1 as @a at @s run playsound music.out-of-order-speeding ambient @s
+execute if score $last-area timewarper matches 1 run stopsound @a[tag=playing] ambient
+execute if score $last-area timewarper matches 1 as @a[tag=playing] at @s run playsound music.out-of-order-speeding ambient @s
 execute if score $last-area timewarper matches 1 run scoreboard players reset $track-4-timer music
-execute if score $last-area timewarper matches 2 unless score $track music matches 63 run stopsound @a ambient
-execute if score $last-area timewarper matches 2 unless score $track music matches 63 as @a at @s run playsound music.floating-away-quartz-speeding ambient @s
+execute if score $last-area timewarper matches 2 unless score $track music matches 63 run stopsound @a[tag=playing] ambient
+execute if score $last-area timewarper matches 2 unless score $track music matches 63 as @a[tag=playing] at @s run playsound music.floating-away-quartz-speeding ambient @s
 execute if score $last-area timewarper matches 2 unless score $track music matches 63 run scoreboard players reset $track-66-timer music
 scoreboard players set $slow-type music 3

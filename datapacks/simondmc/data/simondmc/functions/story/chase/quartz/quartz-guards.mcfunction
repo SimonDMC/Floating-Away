@@ -1,10 +1,10 @@
 # ticking functions, controls the whole quartz tunnel leading to the end of the map
 
 # animations
-execute as @a[x=4,y=38,z=46,distance=..2] unless score $quartz-anim-1 guards matches 0.. run scoreboard players set $quartz-anim-1 guards 0
-execute as @a[x=17,y=38,z=21,distance=..2] unless score $quartz-anim-2 guards matches 0.. run scoreboard players set $quartz-anim-2 guards 0
-execute as @a[x=36,y=38,z=12,distance=..2] unless score $quartz-anim-3 guards matches 0.. run scoreboard players set $quartz-anim-3 guards 0
-execute as @a[x=27,y=38,z=-7,distance=..2] unless score $quartz-anim-4 guards matches 0.. run scoreboard players set $quartz-anim-4 guards 0
+execute as @a[tag=playing,x=4,y=38,z=46,distance=..2] unless score $quartz-anim-1 guards matches 0.. run scoreboard players set $quartz-anim-1 guards 0
+execute as @a[tag=playing,x=17,y=38,z=21,distance=..2] unless score $quartz-anim-2 guards matches 0.. run scoreboard players set $quartz-anim-2 guards 0
+execute as @a[tag=playing,x=36,y=38,z=12,distance=..2] unless score $quartz-anim-3 guards matches 0.. run scoreboard players set $quartz-anim-3 guards 0
+execute as @a[tag=playing,x=27,y=38,z=-7,distance=..2] unless score $quartz-anim-4 guards matches 0.. run scoreboard players set $quartz-anim-4 guards 0
 
 execute if score $quartz-anim-1 guards matches 0.. run scoreboard players add $quartz-anim-1 guards 1
 execute if score $quartz-anim-2 guards matches 0.. run scoreboard players add $quartz-anim-2 guards 1
@@ -93,11 +93,11 @@ execute if score $quartz-anim-4 guards matches 50 as @e[tag=quartz-4-guard] if p
 execute if score $quartz-anim-4 guards matches 50 run scoreboard players set $SHOOT-PERIOD guards 3
 execute if score $quartz-anim-4 guards matches 50 run scoreboard players set $machine-gun guards 1
 # let the player give up after 20 seconds in case they blocked themselves in
-execute if score $quartz-anim-4 guards matches 400 unless score $end elevator matches -1.. run tellraw @a ["",{"text":"Give up? ","color":"green","clickEvent":{"action":"run_command","value":"/trigger give-up-trigger"}},{"text":"(in case you blocked yourself in)","color":"gray","clickEvent":{"action":"run_command","value":"/trigger give-up-trigger"}}]
-execute if score $quartz-anim-4 guards matches 400 unless score $end elevator matches -1.. run scoreboard players enable @a give-up-trigger
-execute as @a if score @s give-up-trigger matches 1.. run kill @a
-execute as @a if score @s give-up-trigger matches ..-1 run kill @a
-execute as @a if score @s give-up-trigger matches 0 run scoreboard players enable @a give-up-trigger
+execute if score $quartz-anim-4 guards matches 400 unless score $end elevator matches -1.. run tellraw @a[tag=playing] ["",{"text":"Give up? ","color":"green","clickEvent":{"action":"run_command","value":"/trigger give-up-trigger"}},{"text":"(in case you blocked yourself in)","color":"gray","clickEvent":{"action":"run_command","value":"/trigger give-up-trigger"}}]
+execute if score $quartz-anim-4 guards matches 400 unless score $end elevator matches -1.. run scoreboard players enable @a[tag=playing] give-up-trigger
+execute as @a[tag=playing] if score @s give-up-trigger matches 1.. run kill @a[tag=playing]
+execute as @a[tag=playing] if score @s give-up-trigger matches ..-1 run kill @a[tag=playing]
+execute as @a[tag=playing] if score @s give-up-trigger matches 0 run scoreboard players enable @a[tag=playing] give-up-trigger
 
 # don't let guards through closed iron doors
 execute if block 15 38 21 iron_door[open=false] run setblock 14 36 21 air

@@ -3,7 +3,7 @@
 # animation
 execute if score $hall-anim guards matches 0.. run scoreboard players add $hall-anim guards 1
 # looky look
-execute if score $hall-anim guards matches 0.. as @e[tag=hall-guard] at @s run tp @s ~ ~ ~ facing entity @p
+execute if score $hall-anim guards matches 0.. as @e[tag=hall-guard] at @s run tp @s ~ ~ ~ facing entity @p[tag=playing]
 # start shooting slow(er)
 execute if score $hall-anim guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 10
 execute if score $hall-anim guards matches 1 run scoreboard players set $DAMAGE guards 6
@@ -29,4 +29,4 @@ execute if score $hall-anim guards matches 230 unless score $vent-guards guards 
 execute if score $hall-anim guards matches 230 unless score $vent-guards guards matches 1 run scoreboard players set $SHOOT-PERIOD guards 2
 
 # make sure player cannot survive going through the guards
-execute as @a[x=20.5,y=85,z=-4.5,distance=..1] run damage @s 100 mob_attack by @e[tag=guard,limit=1]
+execute as @a[tag=playing,x=20.5,y=85,z=-4.5,distance=..1] run damage @s 100 mob_attack by @e[tag=guard,limit=1]

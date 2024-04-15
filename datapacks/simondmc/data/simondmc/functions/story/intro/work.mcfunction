@@ -12,7 +12,7 @@ execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work 
 
 # move items along real conveyor
 execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @e[tag=conveyor-item] at @s run tp @s ~ ~ ~1
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @a at @s run playsound minecraft:block.chain.place master @s
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @a[tag=playing] at @s run playsound minecraft:block.chain.place master @s
 kill @e[tag=conveyor-item,x=39.5,y=106.5,z=34.5,distance=..1]
 
 # move items along fake conveyor
@@ -36,7 +36,7 @@ execute if score $conveyor-timer work matches 21 if block 25 105 -39 gray_concre
 execute if score $conveyor-timer work matches 21 if block 25 105 -39 black_concrete run setblock 25 105 -42 black_concrete
 
 # move player along because why not :3
-execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @a[x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1.1 air run tp @s ~ ~ ~1
+execute if score $conveyor-enabled work matches 1 if score $conveyor-timer work matches 21 as @a[tag=playing,x=39.0,y=106,z=6.3,dx=1,dz=4.4] at @s if block ~ ~1 ~1.1 air run tp @s ~ ~ ~1
 
 execute if score $conveyor-timer work matches 21.. run scoreboard players set $conveyor-timer work 0
 
@@ -53,7 +53,7 @@ execute as @e[tag=chips-int] if data entity @s interaction unless score $shift-e
 execute as @e[tag=chips-int] run data remove entity @s interaction
 
 # merge
-execute as @a[nbt={SelectedItem:{id:"minecraft:feather",tag:{CustomModelData:1}},Inventory:[{id:"minecraft:feather",Slot:-106b,tag:{CustomModelData:2}}]}] run function simondmc:story/intro/merge
+execute as @a[tag=playing,nbt={SelectedItem:{id:"minecraft:feather",tag:{CustomModelData:1}},Inventory:[{id:"minecraft:feather",Slot:-106b,tag:{CustomModelData:2}}]}] run function simondmc:story/intro/merge
 
 # place down merged
 execute as @e[tag=place-merged-int] if data entity @s attack run function simondmc:story/intro/place-merged
@@ -61,20 +61,20 @@ execute as @e[tag=place-merged-int] run data remove entity @s attack
 
 # enter office
 # only start cutscene once the previous dialogue finishes
-execute as @a if predicate simondmc:office unless entity @a[predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run fill 34 105 8 34 106 8 barrier
-execute as @a if predicate simondmc:office unless entity @a[predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $tutorial-anim work 0
-execute as @a if predicate simondmc:office unless entity @a[predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $phase story 3
+execute as @a[tag=playing] if predicate simondmc:office unless entity @a[tag=playing,predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run fill 34 105 8 34 106 8 barrier
+execute as @a[tag=playing] if predicate simondmc:office unless entity @a[tag=playing,predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $tutorial-anim work 0
+execute as @a[tag=playing] if predicate simondmc:office unless entity @a[tag=playing,predicate=!simondmc:office] if score $phase story matches 2 unless score $start-anim story matches 0.. run scoreboard players set $phase story 3
 
 # assemblies completed
-execute if score $phase story matches 4 run title @a actionbar [{"text":"Assemblies Completed: "},{"score":{"name":"$merged","objective":"work"}}]
+execute if score $phase story matches 4 run title @a[tag=playing] actionbar [{"text":"Assemblies Completed: "},{"score":{"name":"$merged","objective":"work"}}]
 
 # villager turning
 execute as @e[tag=work-villager] at @s if block ~ ~-2 ~ reinforced_deepslate run tp @s ~ ~ ~ -90 0
 
 # anims
 execute if score $tutorial-anim work matches 0.. run scoreboard players add $tutorial-anim work 1
-execute if score $tutorial-anim work matches 1 as @a at @s run playsound characters.test-run voice @s
-execute if score $tutorial-anim work matches 1 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" So! Your job is simple. You see what I\u2019m holding right now? These will start coming in from the conveyor belt in front of you.","color":"gray"}]
+execute if score $tutorial-anim work matches 1 as @a[tag=playing] at @s run playsound characters.test-run voice @s
+execute if score $tutorial-anim work matches 1 run tellraw @a[tag=playing] ["",{"text":"[Employer]:","color":"aqua"},{"text":" So! Your job is simple. You see what I\u2019m holding right now? These will start coming in from the conveyor belt in front of you.","color":"gray"}]
 execute if score $tutorial-anim work matches 1 run scoreboard players set $employer-walking story 1
 execute if score $tutorial-anim work matches 1..5 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
 execute if score $tutorial-anim work matches 6 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ -90 0
@@ -86,7 +86,7 @@ execute if score $tutorial-anim work matches 25 as @e[tag=employer-W] at @s run 
 execute if score $tutorial-anim work matches 25 run scoreboard players reset $employer-walking story
 execute if score $tutorial-anim work matches 35 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:11}
 execute if score $tutorial-anim work matches 35 as @e[tag=employer-W] run item replace entity @s weapon.mainhand with feather{CustomModelData:1}
-execute if score $tutorial-anim work matches 118 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" You pick one up, then you pick up a chip from the basket next to you, and you click it into place. Everything clear? Let\u2019s do a test run.","color":"gray"}]
+execute if score $tutorial-anim work matches 118 run tellraw @a[tag=playing] ["",{"text":"[Employer]:","color":"aqua"},{"text":" You pick one up, then you pick up a chip from the basket next to you, and you click it into place. Everything clear? Let\u2019s do a test run.","color":"gray"}]
 execute if score $tutorial-anim work matches 139 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:12}
 execute if score $tutorial-anim work matches 170 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:11}
 execute if score $tutorial-anim work matches 200 as @e[tag=employer-W] run item replace entity @s armor.head with blue_candle{CustomModelData:1}
@@ -97,14 +97,14 @@ execute if score $tutorial-anim work matches 332 run scoreboard players reset $c
 execute if score $tutorial-anim work matches 332 run scoreboard players reset $tutorial-anim work
 
 # yes i know i could make all of them keybind-dependent but Left Click looks so much better than Left Button so it's worth the tradeoff
-execute if score $tutorial-phase work matches 1 run title @a actionbar "Left Click to pick up conveyor item"
-execute if score $tutorial-phase work matches 2 run title @a actionbar "Right Click to pick up chip"
-execute if score $tutorial-phase work matches 3 run title @a actionbar [{"keybind":"key.swapOffhand"},{"text":" to combine"}]
-execute if score $tutorial-phase work matches 4 run title @a actionbar "Left Click to place onto conveyor belt"
+execute if score $tutorial-phase work matches 1 run title @a[tag=playing] actionbar "Left Click to pick up conveyor item"
+execute if score $tutorial-phase work matches 2 run title @a[tag=playing] actionbar "Right Click to pick up chip"
+execute if score $tutorial-phase work matches 3 run title @a[tag=playing] actionbar [{"keybind":"key.swapOffhand"},{"text":" to combine"}]
+execute if score $tutorial-phase work matches 4 run title @a[tag=playing] actionbar "Left Click to place onto conveyor belt"
 
 execute if score $employer-leave-anim work matches 0.. run scoreboard players add $employer-leave-anim work 1
-execute if score $employer-leave-anim work matches 1 as @a at @s run playsound characters.nice-job voice @s
-execute if score $employer-leave-anim work matches 1 run tellraw @a ["",{"text":"[Employer]:","color":"aqua"},{"text":" Nice, you seem to be getting the hang of it, so I\u2019ll turn this thing on. Best of luck!","color":"gray"}]
+execute if score $employer-leave-anim work matches 1 as @a[tag=playing] at @s run playsound characters.nice-job voice @s
+execute if score $employer-leave-anim work matches 1 run tellraw @a[tag=playing] ["",{"text":"[Employer]:","color":"aqua"},{"text":" Nice, you seem to be getting the hang of it, so I\u2019ll turn this thing on. Best of luck!","color":"gray"}]
 execute if score $employer-leave-anim work matches 100 run scoreboard players set $employer-walking story 1
 execute if score $employer-leave-anim work matches 100 as @e[tag=employer-W] at @s run tp @s ~ ~ ~ 0 0
 execute if score $employer-leave-anim work matches 101..107 as @e[tag=employer-W] at @s run tp @s ~ ~ ~.3
@@ -121,15 +121,15 @@ execute if score $employer-leave-anim work matches 161 run scoreboard players se
 execute if score $employer-leave-anim work matches 161 run scoreboard players set $phase story 4
 
 execute if score $shift-end-anim work matches 0.. run scoreboard players add $shift-end-anim work 1
-execute if score $shift-end-anim work matches 1 run title @a times 80 40 0
-execute if score $shift-end-anim work matches 1 run title @a title "\u2304"
+execute if score $shift-end-anim work matches 1 run title @a[tag=playing] times 80 40 0
+execute if score $shift-end-anim work matches 1 run title @a[tag=playing] title "\u2304"
 execute if score $shift-end-anim work matches 80 run scoreboard players set $phase story 5
-execute if score $shift-end-anim work matches 80 run clear @a feather
-execute if score $shift-end-anim work matches 80 run title @a actionbar ""
-execute if score $shift-end-anim work matches 80..272 run gamemode spectator @a
-execute if score $shift-end-anim work matches 80..272 run tp @a 33.5 106.3 17.0 180 15.5
-execute if score $shift-end-anim work matches 121 as @a at @s run playsound block.bell.use master @s
-execute if score $shift-end-anim work matches 140 as @a at @s run playsound block.bell.use master @s
+execute if score $shift-end-anim work matches 80 run clear @a[tag=playing] feather
+execute if score $shift-end-anim work matches 80 run title @a[tag=playing] actionbar ""
+execute if score $shift-end-anim work matches 80..272 run gamemode spectator @a[tag=playing]
+execute if score $shift-end-anim work matches 80..272 run tp @a[tag=playing] 33.5 106.3 17.0 180 15.5
+execute if score $shift-end-anim work matches 121 as @a[tag=playing] at @s run playsound block.bell.use master @s
+execute if score $shift-end-anim work matches 140 as @a[tag=playing] at @s run playsound block.bell.use master @s
 execute if score $shift-end-anim work matches 180 run fill 31 103 14 35 103 -40 redstone_torch replace minecraft:stripped_mangrove_wood
 execute if score $shift-end-anim work matches 180 run setblock 33 103 -43 minecraft:redstone_torch
 execute if score $shift-end-anim work matches 180 as @e[tag=work-villager,tag=row-3] at @s run tp @s ~1.3 ~-.5 ~ -90 0
@@ -140,11 +140,11 @@ execute if score $shift-end-anim work matches 197..272 as @e[tag=work-villager,t
 execute if score $shift-end-anim work matches 197..211 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~-.2 ~ ~
 execute if score $shift-end-anim work matches 212 as @e[tag=work-villager,tag=row-4] at @s run tp @s ~ ~ ~ -180 0
 execute if score $shift-end-anim work matches 213..272 as @e[tag=work-villager,tag=row-4] at @s run tp @s ^ ^ ^.2
-execute if score $shift-end-anim work matches 273 run title @a times 0 20 40
-execute if score $shift-end-anim work matches 273 run title @a title "\u2304"
+execute if score $shift-end-anim work matches 273 run title @a[tag=playing] times 0 20 40
+execute if score $shift-end-anim work matches 273 run title @a[tag=playing] title "\u2304"
 # get the player far enough that they don't hear the doors closing and villagers dying
 # in the y-direction so nothing unloads
-execute if score $shift-end-anim work matches 274 run tp @a 33.5 180.00 -31.5
+execute if score $shift-end-anim work matches 274 run tp @a[tag=playing] 33.5 180.00 -31.5
 execute if score $shift-end-anim work matches 275 run fill 31 103 14 35 103 -40 minecraft:stripped_mangrove_wood replace redstone_torch
 execute if score $shift-end-anim work matches 275 as @e[tag=work-villager] at @s run tp @s ~ ~-10 ~
 execute if score $shift-end-anim work matches 275 run setblock 34 106 -42 minecraft:polished_blackstone_button[facing=south]
@@ -156,13 +156,13 @@ execute if score $shift-end-anim work matches 275 run kill @e[tag=conveyor-item]
 execute if score $shift-end-anim work matches 275 run kill @e[tag=chips-int]
 execute if score $shift-end-anim work matches 276 run kill @e[tag=work-villager]
 execute if score $shift-end-anim work matches 276 run kill @e[tag=tech-base-fake]
-execute if score $shift-end-anim work matches 277 run tp @a 37.8 105.50 8.50 -90 35
-execute if score $shift-end-anim work matches 277 run gamemode adventure @a
+execute if score $shift-end-anim work matches 277 run tp @a[tag=playing] 37.8 105.50 8.50 -90 35
+execute if score $shift-end-anim work matches 277 run gamemode adventure @a[tag=playing]
 execute if score $shift-end-anim work matches 333 run fill 12 108 47 54 108 -42 minecraft:dead_brain_coral_block replace minecraft:sea_lantern
-execute if score $shift-end-anim work matches 333 run playsound minecraft:block.beacon.deactivate master @a 37 108 8 1 0
-execute if score $shift-end-anim work matches 353 run playsound sfx.audience-fadein voice @a 17 105 -1 4
+execute if score $shift-end-anim work matches 333 run playsound minecraft:block.beacon.deactivate master @a[tag=playing] 37 108 8 1 0
+execute if score $shift-end-anim work matches 353 run playsound sfx.audience-fadein voice @a[tag=playing] 17 105 -1 4
 execute if score $shift-end-anim work matches 353 run schedule function simondmc:story/intro/audience-noise 5s
-execute if score $shift-end-anim work matches 363 run stopsound @a ambient
-execute if score $shift-end-anim work matches 363 as @a at @s run playsound music.stronger-than-gravity ambient @s
+execute if score $shift-end-anim work matches 363 run stopsound @a[tag=playing] ambient
+execute if score $shift-end-anim work matches 363 as @a[tag=playing] at @s run playsound music.stronger-than-gravity ambient @s
 execute if score $shift-end-anim work matches 363 run scoreboard players set $track music 2
 execute if score $shift-end-anim work matches 363 run scoreboard players reset $shift-end-anim work

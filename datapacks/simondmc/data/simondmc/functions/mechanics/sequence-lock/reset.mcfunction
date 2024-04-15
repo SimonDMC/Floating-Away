@@ -25,7 +25,7 @@ execute as @e[tag=seq-btn-9,tag=sequence-lock-digit] run data merge entity @s {t
 scoreboard players reset $progress sequencelock
 
 # sound effect
-playsound minecraft:block.note_block.bass master @a 35 39 16 1 0
+playsound minecraft:block.note_block.bass master @a[tag=playing] 35 39 16 1 0
 
 # reset door
 setblock 36 36 15 air

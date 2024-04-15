@@ -1,7 +1,7 @@
 # ticking function, controls the guards in the third corridor
 
 # animation
-execute as @a if predicate simondmc:corridor-3 unless score $corridor-anim-3 guards matches 0.. run scoreboard players set $corridor-anim-3 guards 0
+execute as @a[tag=playing] if predicate simondmc:corridor-3 unless score $corridor-anim-3 guards matches 0.. run scoreboard players set $corridor-anim-3 guards 0
 execute if score $corridor-anim-3 guards matches 0.. run scoreboard players add $corridor-anim-3 guards 1
 # open guard door
 execute if score $corridor-anim-3 guards matches 60 run setblock 8 55 30 minecraft:redstone_torch

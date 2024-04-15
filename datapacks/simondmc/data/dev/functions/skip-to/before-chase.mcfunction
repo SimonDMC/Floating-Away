@@ -1,9 +1,9 @@
 execute unless score $cached timewarper matches 1 run tellraw @s "Enter the map to use dev warps"
 execute unless score $cached timewarper matches 1 run return 0
-clear @a
-title @a title ""
-stopsound @a
-tp @a 4 97 -17 0 0
+clear @a[tag=playing]
+title @a[tag=playing] title ""
+stopsound @a[tag=playing]
+tp @a[tag=playing] 4 97 -17 0 0
 scoreboard players set $phase story 5
 give @s spyglass
 function dev:give-time-warper

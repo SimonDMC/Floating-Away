@@ -3,8 +3,8 @@
 tag @s add pressed
 
 # play slowed down sound if time warp is on
-execute unless score $enabled timewarper matches 1 run playsound ui.button.click master @a 35 39 16 1 2
-execute if score $enabled timewarper matches 1 run playsound ui.button.click master @a 35 39 16 1 0
+execute unless score $enabled timewarper matches 1 run playsound ui.button.click master @a[tag=playing] 35 39 16 1 2
+execute if score $enabled timewarper matches 1 run playsound ui.button.click master @a[tag=playing] 35 39 16 1 0
 
 execute at @s run tp @s ~ ~ 16.03125
 
@@ -68,5 +68,5 @@ execute if score $progress sequencelock matches 8 if entity @s[tag=button-9] as 
 execute if score $progress sequencelock matches 8 if entity @s[tag=button-9] run scoreboard players add $progress sequencelock 1
 
 # completion check
-execute if score $progress sequencelock matches 9 as @a at @s run playsound entity.experience_orb.pickup master @s
+execute if score $progress sequencelock matches 9 as @a[tag=playing] at @s run playsound entity.experience_orb.pickup master @s
 execute if score $progress sequencelock matches 9 run setblock 36 36 15 redstone_torch

@@ -29,7 +29,7 @@ scoreboard players set $disabled powersource 1
 schedule function simondmc:mechanics/power-source/enable 5t
 
 # cosmetic
-playsound item.flintandsteel.use master @a 49 86 -27
+playsound item.flintandsteel.use master @a[tag=playing] 49 86 -27
 particle dust_plume 49.5 86.5 -27.0 0 0 0 .01 5 normal
 
 # reset interaction

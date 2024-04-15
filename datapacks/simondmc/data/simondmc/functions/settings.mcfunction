@@ -25,7 +25,7 @@ execute as @e[type=item,nbt={Age:10s}] run data merge entity @s {Age:5}
 execute as @e[type=item,nbt={PickupDelay:40s}] run data merge entity @s {PickupDelay:0}
 
 # death
-execute as @a if score @s death matches 1.. run function simondmc:death
+execute as @a[tag=playing] if score @s death matches 1.. run function simondmc:death
 
 # cache
 execute if score $phase story matches 1..7 unless score $cached timewarper matches 1 run function simondmc:mechanics/time-warper/force-setup
@@ -37,6 +37,12 @@ execute as @e[type=villager] run data modify entity @s Offers set value {}
 execute as @a[tag=!start-tpd] run tp @s 28.8 94.5 -59.5 -90 0
 execute as @a[tag=!start-tpd] run ride @s mount @e[tag=lobby-chair,limit=1]
 execute as @a[tag=!start-tpd] run tag @s add start-tpd
+
+# multiplayer detection
+scoreboard players reset $players stats
+scoreboard players reset $multiplayer stats
+execute as @a[tag=playing] run scoreboard players add $players stats 1
+execute if score $players stats matches 2.. run scoreboard players set $multiplayer stats 1
 
 # team
 team add floater "Float!er"
