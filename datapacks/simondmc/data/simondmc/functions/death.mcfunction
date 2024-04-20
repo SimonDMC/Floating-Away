@@ -44,8 +44,8 @@ execute if score $phase story matches 7 if score $checkpoint-set stats matches 1
 # increment phase 7 deaths
 execute if score $phase story matches 7 run scoreboard players add $7-deaths stats 1
 # let player set a checkpoint if 15 deaths
-execute if score $phase story matches 7 if score $7-deaths stats matches 15 run scoreboard players set $checkpoint-allowed stats 1
-execute if score $phase story matches 7 if score $7-deaths stats matches 15 run tellraw @a[tag=playing] ["",{"text":"Struggling? ","color":"green","clickEvent":{"action":"run_command","value":"/trigger set-checkpoint-trigger"}},{"text":"Set a checkpoint half-way through","underlined":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger set-checkpoint-trigger"}}]
+execute if score $phase story matches 7 if score $7-deaths stats matches 15.. if score $reached-underground story matches 1 unless score $checkpoint-allowed stats matches 1 run tellraw @a[tag=playing] ["",{"text":"Struggling? ","color":"green","clickEvent":{"action":"run_command","value":"/trigger set-checkpoint-trigger"}},{"text":"Set a checkpoint half-way through","underlined":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/trigger set-checkpoint-trigger"}}]
+execute if score $phase story matches 7 if score $7-deaths stats matches 15.. if score $reached-underground story matches 1 unless score $checkpoint-allowed stats matches 1 run scoreboard players set $checkpoint-allowed stats 1
 # increment times player died due to not flicking 1->2 lever
 execute if score $phase story matches 7 if score $missed-lever guards matches 1 run scoreboard players add $lever-misses story 1
 # and add a glowing hint if 3 misses
@@ -72,6 +72,7 @@ execute if score $phase story matches 7 run summon armor_stand -5 108 -16 {Tags:
 # close corridor 1 doors
 execute if score $phase story matches 7 run setblock -19 71 2 air
 execute if score $phase story matches 7 run setblock -16 71 2 air
+execute if score $phase story matches 7 run tag @a remove passed-c1-door
 # remove corridor 1 guard turn block
 execute if score $phase story matches 7 run setblock -18 69 -1 air
 # restore wood block

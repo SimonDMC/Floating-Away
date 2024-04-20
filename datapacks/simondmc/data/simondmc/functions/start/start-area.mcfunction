@@ -40,3 +40,6 @@ execute as @e[tag=chair-int] if data entity @s interaction run data remove entit
 
 # make sure player knows to dismount chair
 execute as @e[tag=lobby-chair] on passengers run title @s actionbar ["",{"text":"Press "},{"keybind":"key.sneak"},{"text":" to Stand Up"}]
+
+# sometimes the chair disappears so lets try to fix that (?)
+execute unless entity @e[tag=lobby-chair] run summon armor_stand 28.8 92.6 -59.5 {Tags:["character","lobby-chair"],NoGravity:1b,Invisible:1b,DisabledSlots:4144959}

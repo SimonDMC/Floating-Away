@@ -15,7 +15,8 @@ then theres also start/ and music/ and other things, those are pretty self expla
 some stuff worth explaining here are the time warper and chase music i suppose. the time warper uses the new /tick command
 but since you usually can't call that from a function it exploits MC-266135 to get the player to cache all the tick commands
 while starting the map and then calls them via function macros. pretty cool stuff honestly but im not sure if it was worth
-version-locking the entire map for this one mechanic. at least its unique!
+version-locking the entire map for this one mechanic. at least its unique! theres more information about it somewhere in
+simondmc:mechanics/time-warper/sys.
 
 and then for the chase music, its split up into 7 sections (+ the bit at the beginning) which loop by running a scoreboard
 timer for the exact duration of the portion and whenever you enter a new section it queues up the next portion. then at the

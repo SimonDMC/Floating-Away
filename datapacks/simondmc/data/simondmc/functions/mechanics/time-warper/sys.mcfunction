@@ -47,7 +47,11 @@ execute if score $off-tick timewarper matches 21 run scoreboard players reset $o
 execute as @a[tag=playing,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"}]}] if predicate simondmc:time-warper-decommissioned run scoreboard players set $last-area timewarper 1
 execute as @a[tag=playing,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"}]}] if predicate simondmc:time-warper-chase run scoreboard players set $last-area timewarper 2
 
+# make sure it also gets disabled once any player moves into guard room corridor
+execute as @a if predicate simondmc:music/sneaking-around run scoreboard players set $disallowed timewarper 1
+
 # enable/disable in areas
-execute as @a[tag=playing,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"}]}] unless score $enabled timewarper matches 1 if score $track music matches 4 if predicate simondmc:time-warper-decommissioned run function simondmc:mechanics/time-warper/enable
+execute as @a[tag=playing,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"}]}] unless score $enabled timewarper matches 1 if score $track music matches 4 if predicate simondmc:time-warper-decommissioned unless score $disallowed timewarper matches 1 run function simondmc:mechanics/time-warper/enable
 execute as @a[tag=playing,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"}]}] unless score $enabled timewarper matches 1 if predicate simondmc:time-warper-chase run function simondmc:mechanics/time-warper/enable
 execute as @a[tag=playing,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"}]}] if score $enabled timewarper matches 1 unless predicate simondmc:time-warper-decommissioned unless predicate simondmc:time-warper-chase run function simondmc:mechanics/time-warper/disable
+execute as @a[tag=playing,nbt={Inventory:[{id:"minecraft:carrot_on_a_stick"}]}] if score $enabled timewarper matches 1 if score $disallowed timewarper matches 1 run function simondmc:mechanics/time-warper/disable

@@ -25,3 +25,6 @@ execute if score $corridor-anim-2 guards matches 210 unless score $closed trapdo
 
 # insta-kill if contact while falling
 execute as @a[tag=playing] if predicate simondmc:underground at @s as @e[tag=corridor-2-guard,distance=..2] run damage @p[tag=playing] 100 mob_attack by @s
+
+# allow checkpoint only if reached underground
+execute if block 3 53 16 lever[powered=true] run scoreboard players set $reached-underground story 1

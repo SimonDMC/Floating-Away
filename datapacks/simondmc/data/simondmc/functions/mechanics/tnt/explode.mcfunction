@@ -13,6 +13,8 @@ schedule function simondmc:mechanics/tnt/clear-levitation 2t
 # but deal a little damage
 execute as @a[tag=playing,distance=..2] run damage @s 5 out_of_world
 execute as @a[tag=playing,distance=..2] run damage @s 5 explosion by @s
+# re-enable time warper
+scoreboard players reset $disallowed timewarper
 # break wall if near
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run fill 3 97 -13 5 99 -13 air destroy
 execute unless score $hall-anim guards matches 0.. if predicate simondmc:tnt-wall run fill 2 98 -13 2 99 -13 air destroy
