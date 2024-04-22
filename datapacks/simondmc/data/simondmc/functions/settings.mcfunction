@@ -51,6 +51,12 @@ team modify floater collisionRule never
 team modify floater seeFriendlyInvisibles false
 team join floater @a
 
+# walkthrough
+scoreboard players enable @a walkthrough
+execute as @a unless score @s walkthrough matches 0 at @s run playsound minecraft:entity.experience_orb.pickup master @s
+execute as @a unless score @s walkthrough matches 0 run tellraw @s {"text":"youtu.be/FGjL78XgBM8","bold":true,"color":"yellow","clickEvent":{"action":"open_url","value":"https://youtu.be/FGjL78XgBM8"}}
+execute as @a unless score @s walkthrough matches 0 run scoreboard players reset @s walkthrough
+
 # scoreboards
 scoreboard objectives add timewarper minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add combinationlock dummy
@@ -75,3 +81,4 @@ scoreboard objectives add guard-walk-anim dummy
 scoreboard objectives add music dummy
 scoreboard objectives add give-up-trigger trigger
 scoreboard objectives add set-checkpoint-trigger trigger
+scoreboard objectives add walkthrough trigger
