@@ -3,7 +3,7 @@
 
 scoreboard players add $ticks stats 1
 # compensate for slowed down gameplay
-execute if score $enabled timewarper matches 1 run scoreboard players add $ticks stats 3
+execute if score $on timewarper matches 1 run scoreboard players add $ticks stats 3
 
 execute if score $ticks stats matches 20.. run scoreboard players add $seconds stats 1
 # we have to subtract 20 instead of resetting here since slowed down gameplay increases by 4 ticks every tick

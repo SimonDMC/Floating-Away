@@ -21,9 +21,8 @@ execute as @e[tag=creator-int] if data entity @s attack run data remove entity @
 
 # wrong mc version warning
 execute store result score $mc-version start run data get entity @r DataVersion
-execute unless score version intro matches 3700 unless score $wrong-version start matches 1 run tellraw @a ["",{"text":"------------------------------------------","bold":true,"strikethrough":true,"color":"red"},{"text":"\n"},{"text":"WARNING:","bold":true,"color":"dark_red"},{"text":" You are playing on the wrong Minecraft version.","color":"yellow"},{"text":"\n"},{"text":"This map ","color":"yellow"},{"text":"WILL NOT","bold":true,"color":"red"},{"text":" work on any version other than ","color":"yellow"},{"text":"1.20.4","bold":true,"color":"green"},{"text":".\nPlease switch versions and ","color":"yellow"},{"text":"reinstall the map","bold":true,"color":"green"},{"text":".","color":"yellow"},{"text":"\n"},{"text":"------------------------------------------","bold":true,"strikethrough":true,"color":"red"}]
-execute unless score version intro matches 3700 unless score $wrong-version start matches 1 run kill @e[tag=start-int]
-execute unless score version intro matches 3700 unless score $wrong-version start matches 1 run scoreboard players set $wrong-version start 1
+execute unless score $mc-version start matches 3700 unless score $wrong-version start matches 1 run tellraw @a ["",{"text":"------------------------------------------","bold":true,"strikethrough":true,"color":"red"},{"text":"\n"},{"text":"WARNING:","bold":true,"color":"dark_red"},{"text":" You are playing on the wrong Minecraft version.","color":"yellow"},{"text":"\n"},{"text":"This map ","color":"yellow"},{"text":"WILL NOT","bold":true,"color":"red"},{"text":" work on any version other than ","color":"yellow"},{"text":"1.20.4","bold":true,"color":"green"},{"text":".\nPlease switch versions and ","color":"yellow"},{"text":"reinstall the map","bold":true,"color":"green"},{"text":".","color":"yellow"},{"text":"\n"},{"text":"------------------------------------------","bold":true,"strikethrough":true,"color":"red"}]
+execute unless score $mc-version start matches 3700 unless score $wrong-version start matches 1 run kill @e[tag=start-int]
 
 # info anim
 execute if score $info-anim start matches 0.. run scoreboard players add $info-anim start 1

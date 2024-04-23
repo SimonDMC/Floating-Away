@@ -3,8 +3,8 @@
 tag @s add pressed
 
 # play slowed down sound if time warp is on
-execute unless score $enabled timewarper matches 1 run playsound ui.button.click master @a[tag=playing] 35 39 16 1 2
-execute if score $enabled timewarper matches 1 run playsound ui.button.click master @a[tag=playing] 35 39 16 1 0
+execute unless score $on timewarper matches 1 run playsound ui.button.click master @a[tag=playing] 35 39 16 1 2
+execute if score $on timewarper matches 1 run playsound ui.button.click master @a[tag=playing] 35 39 16 1 0
 
 execute at @s run tp @s ~ ~ 16.03125
 
