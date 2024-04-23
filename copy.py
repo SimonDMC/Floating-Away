@@ -7,8 +7,8 @@ def duplicate_directory(source_dir, dest_dir):
     if os.path.exists(dest_dir):
         shutil.rmtree(dest_dir)
     
-    # Copy the entire directory tree without the .git directory
-    shutil.copytree(source_dir, dest_dir, ignore=shutil.ignore_patterns('.git*'))
+    # Copy the entire directory tree without repo and util files
+    shutil.copytree(source_dir, dest_dir, ignore=shutil.ignore_patterns('.git', 'copy.py', 'copy.wav', 'README.md', 'LICENSE'))
 
     # Play a sound to indicate that the copy is complete
     playsound('./copy.wav')
