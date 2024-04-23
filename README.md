@@ -2,7 +2,7 @@
 
 ## Repository information
 
-The world of the map is contained in this repository, while the resource pack is in a [separate repository](https://github.com/SimonDMC/Floating-Away-RP).
+This repository contains the world (and the datapack) for the map, while the resource pack is in a [separate repository](https://github.com/SimonDMC/Floating-Away-RP).
 
 You can quickly access the functions folder [here](https://github.com/SimonDMC/Floating-Away/tree/main/datapacks/simondmc/data/simondmc/functions).
 
