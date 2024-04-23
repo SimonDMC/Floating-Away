@@ -163,6 +163,7 @@ execute if score $phase story matches 7 if score $checkpoint-set stats matches 1
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 unless score $on timewarper matches 1 run tellraw @a[tag=playing,tag=music-debug] "starting 6-4 normal"
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run scoreboard players set $track-64-timer music 2
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 if score $on timewarper matches 1 run tellraw @a[tag=playing,tag=music-debug] "starting 6-4 after tw death"
+execute if score $phase story matches 7 run scoreboard players reset $on-tick timewarper
 execute if score $phase story matches 7 run function simondmc:mechanics/time-warper/macros/20 {"command":"tick rate 20"}
 execute if score $phase story matches 7 unless score $checkpoint-set stats matches 1 unless score $63-carry story matches 0.. as @a[tag=playing] at @s run playsound music.floating-away-corridors-1 ambient @s
 execute if score $phase story matches 7 if score $checkpoint-set stats matches 1 as @a[tag=playing] at @s run playsound music.floating-away-underground ambient @s
