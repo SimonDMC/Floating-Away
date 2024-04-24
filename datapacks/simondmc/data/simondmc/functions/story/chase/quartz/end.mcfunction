@@ -2,7 +2,7 @@
 
 # play original float
 execute as @a[tag=playing] if score @s endtrigger matches 230419 run playsound ui.button.click master @s -2 66 -7
-execute as @a[tag=playing] if score @s endtrigger matches 230419 run tellraw @s ["",{"text":"Play the original Float!","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"The story of this map is based on an old (and frankly low-effort) minigame map I made 5 years ago. If you nonetheless want to play it to understand the context of this map, you can do so ","color":"green"},{"text":"here","bold":true,"color":"aqua","clickEvent":{"action":"open_url","value":"https://simondmc.com/float"}},{"text":"!","color":"green"}] 
+execute as @a[tag=playing] if score @s endtrigger matches 230419 run tellraw @s ["",{"text":"Play the original Float!","bold":true,"color":"yellow","clickEvent":{"action":"open_url","value":"https://simondmc.com/float"}},{"text":"\n\n"},{"text":"The story of this map is based on an old (and frankly low-effort) minigame map I made 5 years ago. If you nonetheless want to play it to understand the context of this map, you can do so ","color":"green"},{"text":"here","bold":true,"color":"aqua","clickEvent":{"action":"open_url","value":"https://simondmc.com/float"}},{"text":"!","color":"green"}] 
 
 # spectator mode
 execute as @a[tag=playing] if score @s endtrigger matches 573214 run playsound ui.button.click master @s -5 66 -10
@@ -10,7 +10,9 @@ execute as @a[tag=playing] if score @s endtrigger matches 573214 run gamemode sp
 
 # give feedback
 execute as @a[tag=playing] if score @s endtrigger matches 433684 run playsound ui.button.click master @s -5 66 -4
-execute as @a[tag=playing] if score @s endtrigger matches 433684 run tellraw @s ["",{"text":"Give Feedback","bold":true,"color":"yellow"},{"text":"\n\n"},{"text":"Have feedback to share? I'd love to hear it! Let me know what you liked, disliked, if you found any bugs or anything else ","color":"green"},{"text":"here","bold":true,"color":"aqua","clickEvent":{"action":"open_url","value":"https://simondmc.com/floating-away/feedback"}},{"text":"!","color":"green"}]
+execute as @a[tag=playing] if score @s endtrigger matches 433684 run tellraw @s ["",{"text":"Give Feedback","bold":true,"color":"yellow","clickEvent":{"action":"open_url","value":"https://simondmc.com/floating-away/feedback?v=1.0.1"}},{"text":"\n\n"},{"text":"Have feedback to share? I'd love to hear it! Let me know what you liked, disliked, if you found any bugs or anything else ","color":"green"},{"text":"here","bold":true,"color":"aqua","clickEvent":{"action":"open_url","value":"https://simondmc.com/floating-away/feedback?v=1.0.1"}},{"text":"!","color":"green"}]
+
+## UPDATE THIS WITH EVERY UPDATE ↑ ↑ ↑
 
 # click armor stand
 execute as @e[tag=creator-stand-int] if data entity @s interaction on target run playsound ui.button.click master @s

@@ -22,7 +22,8 @@ execute as @e[type=painting] run data merge entity @s {Invulnerable:1b}
 execute as @e[type=item,nbt={Age:10s}] run data merge entity @s {Age:5}
 
 # make dropped items insta-pickup to prevent losing them
-execute as @e[type=item,nbt={PickupDelay:40s}] run data merge entity @s {PickupDelay:0}
+# and make them invulnerable so that they can't be killed by the TNT
+execute as @e[type=item,nbt={PickupDelay:40s}] run data merge entity @s {PickupDelay:0,Invulnerable:1b}
 
 # death
 execute as @a[tag=playing] if score @s death matches 1.. run function simondmc:death
